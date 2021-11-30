@@ -48,7 +48,8 @@ namespace Model
         // Start is called before the first frame update
         void Start()
         {
-            
+            // Uncomment when merging with Attribute
+            // m_proficiency = new List<Attributes>();
         }
 
         public void SetId(int id) 
