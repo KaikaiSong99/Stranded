@@ -5,45 +5,34 @@ using UnityEngine;
 
 namespace Model
 {    
-    public enum Gender 
+
+    [CreateAssetMenu(fileName = "newCharacter", menuName = "Stranded/Character", order = 0)]
+    public class Character : ScriptableObject, IEquatable<Character>
     {
-        MALE,
-        FEMALE
-    }
+        
+        // TODO other personality types when useful.
+        public enum Personality {
+            QUIRKY,
+            HASTY,
+            QUICK_WITTED,
+            IMPULSIVE,
+            EXTROVERTED,
+            INTROVERTED
+        }
 
-    public enum Race
-    {
-        WHITE,
-        BLACK,
-        MIDDLE_EASTERN,
-        ASIAN,
-        HISPANIC
-    }
-
-    public enum Personality
-    {
-        QUIRKY,
-        HASTY,
-        EXTROVERT,
-        INTROVERT
-    }
-
-    public class Character : MonoBehaviour, IEquatable<Character>
-    {
-
-        public string m_name;
-        public int m_age;
-        public string m_description;
-
-        // TODO find better ways to utilize these attributes
-        public Gender m_gender;
-        public Race m_race;
-        public Personality m_personality;
+        public new string name;
+        public int age;
+        public string description;
+        public Personality personality;
 
         // Uncomment when merging with Attribute
         // public List<Attributes> m_proficiency;
 
-        private int m_id;
+        // id is used to index the character by the game manager
+        [SerializeField]
+        private int _id = -1;
+        public int Id
+        { get; set; }
 
         // Start is called before the first frame update
         void Start()
@@ -52,25 +41,20 @@ namespace Model
             // m_proficiency = new List<Attributes>();
         }
 
-        public void SetId(int id) 
-        {
-            m_id = id;
-        }
-
         public override bool Equals(object obj)
         {
             return Equals(obj as Character);
         }
 
         public override int GetHashCode() {
-            return m_id;
+            return _id;
         }
 
         public bool Equals(Character other) 
         {
             if (other == null)
                 return false;
-            return m_id == other.m_id;
+            return _id == other._id;
         }
         
 
