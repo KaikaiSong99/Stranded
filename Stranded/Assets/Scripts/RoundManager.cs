@@ -99,7 +99,7 @@ public class RoundManager : MonoBehaviour
         Job res = null;
         if (_assigneds.ContainsValue(j))
         {
-            if (_assigneds.ContainsKey(c) && _assigneds.TryGetValue(c).Equals(j))
+            if (_assigneds.TryGetValue(c, out res) && res.Equals(j))
             {
                 return j;
             } 
