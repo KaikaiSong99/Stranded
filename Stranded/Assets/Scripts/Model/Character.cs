@@ -25,21 +25,13 @@ namespace Model
         public string description;
         public Personality personality;
 
-        // Uncomment when merging with Attribute
-        // public List<Attributes> m_proficiency;
+        public int[] attributes;
 
         // id is used to index the character by the game manager
         [SerializeField]
         private int _id = -1;
         public int Id
         { get; set; }
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            // Uncomment when merging with Attribute
-            // m_proficiency = new List<Attributes>();
-        }
 
         public override bool Equals(object obj)
         {

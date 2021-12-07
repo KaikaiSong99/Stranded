@@ -12,19 +12,35 @@ namespace Model
         public new string name;
         public string description;
         public int maxAssignments;
+        public int importance;
 
-        public Attribute[] proficiency;
+        public int[] attributes;
 
 
-        private List<GameObject> _assignees = new List<GameObject>();
-        public List<GameObject> Assignees
+        private List<Character> _assignees = new List<Character>();
+        public List<Character> Assignees
         {
             get;
         }
 
-        //TODO More attributes of a job
 
-        public bool Assign(GameObject character) 
+        public int calculateScore()
+        {
+            int score = 0;
+    
+            foreach (Character character in _assignees)
+            {
+                for (int i = 0; i < attributes.Length; ++i) 
+                {
+                    score += character.attributes[i] * attributes[i];
+                }
+                score *= importance;
+            }
+
+            return score;
+        }
+
+        public bool Assign(Character character) 
         {
             if (_assignees.Count > 2) {
                 return false;
@@ -34,7 +50,7 @@ namespace Model
             return true;
         }
 
-        public bool Remove(GameObject character)
+        public bool Remove(Character character)
         {
             return _assignees.Remove(character);
         }
