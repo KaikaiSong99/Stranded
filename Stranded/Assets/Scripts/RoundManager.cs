@@ -11,13 +11,13 @@ public class RoundManager : MonoBehaviour
 
     public int feedbackDurationInSeconds = 210;
     public int assignmentDurationInSeconds = 90;
+    public int maxObtainableScore = 40;
 
     private float timeLeft;
     private Round _round;
     public Round Round
     { get; }
     private Dictionary<Character, Job> _assigneds; 
-
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,6 @@ public class RoundManager : MonoBehaviour
     {
         
     }
-
 
     private void Init()
     {
@@ -58,10 +57,15 @@ public class RoundManager : MonoBehaviour
 
     public IEnumerator PlayFeedbackPhase()
     {
+        _round.Score = CalculateScore();
+        AssignMoods();
+
+        // TODO Show feedback in the game
+
         yield return null;
     }
 
-    public int CalculateScore()
+    private int CalculateScore()
     {
         int totalScore = 0;
 
@@ -70,10 +74,13 @@ public class RoundManager : MonoBehaviour
             int characterScore = 0;
             Character character = assigned.Key;
             Job job = assigned.Value; 
+
             for (int i = 0; i < character.attributes.Length; ++i) 
             {
                 characterScore += character.attributes[i] * job.attributes[i];
             }
+
+            _round.IndividualScores.Add(character, characterScore);
             characterScore *= job.importance;
             totalScore += characterScore;
         }
@@ -81,11 +88,36 @@ public class RoundManager : MonoBehaviour
         return totalScore;
     }
 
+    private void AssignMoods()
+    {
+        foreach (KeyValuePair<Character, int> score in _round.IndividualScores)
+        {
+            Character character  = score.Key;
+            int individualScore  = score.Value;
+            character.Mood = GetMood(individualScore);
+        }
+    }
 
-      // Timer count up
+    private Mood GetMood(int score) 
+    {
+        Mood mood = Mood.Neutral;
+
+        if (score < maxObtainableScore * 0.4)
+        {
+            mood = Mood.Sad;
+        }
+        else if (score > maxObtainableScore * 0.6 ) 
+        {
+            mood = Mood.Happy;
+        }
+
+        return mood;
+    }
+
+
     public IEnumerator Timer(int timeInSeconds) 
     {
-        while (timeLeft < timeInSeconds) {
+        while (timeLeft > timeInSeconds) {
             --timeLeft;
             yield return new WaitForSeconds(1f);
         }

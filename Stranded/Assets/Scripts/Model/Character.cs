@@ -5,25 +5,35 @@ using UnityEngine;
 
 namespace Model
 {    
+        // TODO other personality types when useful.
+    public enum Personality 
+    {
+        QUIRKY,
+        HASTY,
+        QUICK_WITTED,
+        IMPULSIVE,
+        EXTROVERTED,
+        INTROVERTED
+    }
+
+    public enum Mood 
+    {
+        Sad,
+        Neutral, 
+        Happy    
+    }
 
     [CreateAssetMenu(fileName = "newCharacter", menuName = "Stranded/Character", order = 0)]
     public class Character : ScriptableObject, IEquatable<Character>
     {
-        
-        // TODO other personality types when useful.
-        public enum Personality {
-            QUIRKY,
-            HASTY,
-            QUICK_WITTED,
-            IMPULSIVE,
-            EXTROVERTED,
-            INTROVERTED
-        }
-
         public new string name;
         public int age;
         public string description;
         public Personality personality;
+
+        private Mood _mood;
+        public Mood Mood
+        { get; set; }
 
         public int[] attributes;
 
