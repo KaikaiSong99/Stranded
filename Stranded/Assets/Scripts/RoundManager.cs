@@ -16,6 +16,7 @@ public class RoundManager : MonoBehaviour
     private Round _round;
     public Round Round
     { get; }
+    private Dictionary<Character, Job> _assigneds; 
 
 
     // Start is called before the first frame update
@@ -30,10 +31,19 @@ public class RoundManager : MonoBehaviour
         
     }
 
-    public IEnumerator Play()
+
+    private void Init()
     {
         timeLeft = assignmentDurationInSeconds;
         _round = new Round();
+        _assigneds = new Dictionary<Character, Job>();
+
+    }
+
+    public IEnumerator Play()
+    {
+
+        Init();
 
         // TODO Do something with the phases.
 
@@ -51,15 +61,26 @@ public class RoundManager : MonoBehaviour
         yield return null;
     }
 
-    public int CalculateScore() 
+    public int CalculateScore()
     {
-        int score = 0;
-        foreach (Job job in jobs)
+        int totalScore = 0;
+
+        foreach (KeyValuePair<Character, Job> assigned in _assigneds)
         {
-            score += job.calculateScore();
+            int characterScore = 0;
+            Character character = assigned.Key;
+            Job job = assigned.Value; 
+            for (int i = 0; i < character.attributes.Length; ++i) 
+            {
+                characterScore += character.attributes[i] * job.attributes[i];
+            }
+            characterScore *= job.importance;
+            totalScore += characterScore;
         }
-        return score;
+
+        return totalScore;
     }
+
 
       // Timer count up
     public IEnumerator Timer(int timeInSeconds) 
