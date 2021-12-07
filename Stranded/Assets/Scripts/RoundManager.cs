@@ -90,4 +90,43 @@ public class RoundManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
+
+
+    // Assign Character c to Job j
+    // Return the Job the character was unassigned from, return null if the character was not assigned to any job yet
+    public Job AssignCharacter(Character c, Job j)
+    {
+        Job res = null;
+        if (_assigneds.ContainsValue(j))
+        {
+            if (_assigneds.ContainsKey(c) && _assigneds.TryGetValue(c).Equals(j))
+            {
+                return j;
+            } 
+            else
+            {
+                ClearJob(j);
+            }
+        }
+
+        if (_assigneds.ContainsKey(c))
+        {
+            res = _assigneds.TryGetValue(c);
+            _assigneds.Add(c, j);
+        }
+        
+        return res;
+    }
+
+    // Removes any key value pairs from _assigneds where the Job equals j
+    private void ClearJob(Job j)
+    {
+        foreach (KeyValuePair<Character, Job> assigned in _assigneds)
+        {
+            if (assigned.Value.equals(j))
+            {
+                _assigneds.Remove(assigned.Key);
+            }
+        }
+    }
 }
