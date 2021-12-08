@@ -10,11 +10,7 @@ public class AssignmentManager : MonoBehaviour
     public CanvasGroup assignmentUI;
 
     private Character _currentCharacter;
-    public Character CurrentCharacter
-    { get; set; }
     private Job _currentJob;
-    private Job CurrentJob
-    { get; set; }
 
     // Start is called before the first frame update
     void Start()
