@@ -7,9 +7,14 @@ using Model;
 public class AssignmentManager : MonoBehaviour
 {
     public RoundManager roundManager;
-    public Character currentCharacter;
-    public Job currentJob;
     public CanvasGroup assignmentUI;
+
+    private Character _currentCharacter;
+    public Character CurrentCharacter
+    { get; set; }
+    private Job _currentJob;
+    private Job CurrentJob
+    { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +34,7 @@ public class AssignmentManager : MonoBehaviour
 
     public void MakeAssignment() 
     {
-        roundManager.AddAssignment(currentCharacter, currentJob);
+        roundManager.AddAssignment(_currentCharacter, _currentJob);
         HideOverview();
     }
 }
