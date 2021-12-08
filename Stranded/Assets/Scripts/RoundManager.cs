@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Model;
+using UnityEngine.UI;
 
 public class RoundManager : MonoBehaviour
 {
-    
+    public Text scoreText;
     public List<Character> characters;
     public List<Job> jobs;
 
@@ -15,7 +16,8 @@ public class RoundManager : MonoBehaviour
     private float timeLeft;
     private Round _round;
     public Round Round
-    { get; }
+    { get; }  
+
     private Dictionary<Character, Job> _assigneds; 
 
 
@@ -77,10 +79,13 @@ public class RoundManager : MonoBehaviour
             characterScore *= job.importance;
             totalScore += characterScore;
         }
-
+        DisplayScore(totalScore);
         return totalScore;
     }
-
+    public void DisplayScore(int scoreToDisplay)
+    {
+        scoreText.text = "score: " + scoreToDisplay.ToString("0000");
+    }
 
       // Timer count up
     public IEnumerator Timer(int timeInSeconds) 
