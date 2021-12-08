@@ -19,6 +19,7 @@ namespace Model
             INTROVERTED
         }
 
+        public string firstName;
         public int age;
         [TextArea(1,10)]
         public string description;
