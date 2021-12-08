@@ -22,8 +22,9 @@ public class AssignmentManager : MonoBehaviour
          
     }
 
-    public void ShowOverview()
+    public void ShowOverview(Character character)
     {
+        _currentCharacter = character;
         assignmentUI.gameObject.SetActive(true);
     }
 
