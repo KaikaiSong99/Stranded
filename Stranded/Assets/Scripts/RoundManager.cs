@@ -81,6 +81,18 @@ public class RoundManager : MonoBehaviour
         return totalScore;
     }
 
+    public void AddAssignment(Character character, Job job)
+    {
+        if (_assigneds.ContainsKey(character))
+        {
+            _assigneds[character] = job;
+        }
+        else
+        {
+            _assigneds.Add(character, job);
+        }
+    }
+
 
       // Timer count up
     public IEnumerator Timer(int timeInSeconds) 
