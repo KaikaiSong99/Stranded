@@ -9,13 +9,12 @@ public class AssignmentManager : MonoBehaviour
     public RoundManager roundManager;
     public Character currentCharacter;
     public Job currentJob;
-    public Button confirmAssignment;
     public CanvasGroup assignmentUI;
 
     // Start is called before the first frame update
     void Start()
     {
-        confirmAssignment.onClick.AddListener(MakeAssignment);   
+         
     }
 
     public void ShowOverview()
@@ -28,7 +27,7 @@ public class AssignmentManager : MonoBehaviour
         assignmentUI.gameObject.SetActive(false);
     }
 
-    private void MakeAssignment() 
+    public void MakeAssignment() 
     {
         roundManager.AddAssignment(currentCharacter, currentJob);
         HideOverview();

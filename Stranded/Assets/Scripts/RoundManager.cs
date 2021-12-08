@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,7 +35,6 @@ public class RoundManager : MonoBehaviour
 
     private void Init()
     {
-        timeLeft = assignmentDurationInSeconds;
         _round = new Round();
         _assigneds = new Dictionary<Character, Job>();
 
@@ -44,21 +44,21 @@ public class RoundManager : MonoBehaviour
     {
 
         Init();
+        yield return StartCoroutine(PlayAssignmentPhase());
 
         // TODO Do something with the phases.
-
-
-        yield return null;
     }
 
     public IEnumerator PlayAssignmentPhase()
     {
-        yield return null;
+        timeLeft = assignmentDurationInSeconds;
+        yield return StartCoroutine(Timer(() => PlayFeedbackPhase()));
     }
 
     public IEnumerator PlayFeedbackPhase()
     {
-        yield return null;
+        timeLeft = feedbackDurationInSeconds;
+        yield return StartCoroutine(Timer(() => null));
     }
 
     public int CalculateScore()
@@ -95,11 +95,13 @@ public class RoundManager : MonoBehaviour
 
 
       // Timer count up
-    public IEnumerator Timer(int timeInSeconds) 
+    public IEnumerator Timer(Func<IEnumerator> func) 
     {
-        while (timeLeft < timeInSeconds) {
+        while (timeLeft > 0) {
             --timeLeft;
             yield return new WaitForSeconds(1f);
         }
+
+        yield return func();
     }
 }
