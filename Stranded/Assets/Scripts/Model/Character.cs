@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Model
 {    
@@ -9,6 +10,7 @@ namespace Model
     [CreateAssetMenu(fileName = "newCharacter", menuName = "Stranded/Character", order = 0)]
     public class Character : ScriptableObject, IEquatable<Character>
     {
+        public Sprite portrait;
         
         // TODO other personality types when useful.
         public enum Personality {
@@ -20,8 +22,8 @@ namespace Model
             INTROVERTED
         }
 
-        public new string name;
         public int age;
+        [TextArea(1,10)]
         public string description;
         public Personality personality;
 
