@@ -1,19 +1,27 @@
 ﻿using UnityEngine;
+using Model;
 
 namespace UI
 {
-  public class CharacterCardCreator : MonoBehaviour
+ public class CharacterCardCreator : MonoBehaviour
+ {
+  public GameManager gameManager;
+  public GameObject characterCardPrefab;
+            
+  public void Start()
   {
-    public GameManager gameManager;
-
-    public GameObject characterCardPrefab;
-    private void Awake()
+   foreach (var character in gameManager.roundManager.characters)
+   {
+    var characterCard = Instantiate(characterCardPrefab, transform);
+    CharacterCard cCard = characterCard.GetComponent<CharacterCard>();
+    cCard.setCharacter(character);
+    Debug.Log("Test");
+    Job j = gameManager.roundManager.getAssignment(character);
+    if (j != null)
     {
-      foreach (var character in gameManager.roundManager.characters)
-      {
-        var characterCard = Instantiate(characterCardPrefab, transform);
-        characterCard.name += $" {character.name}";
-      }
+     cCard.setJob(j);
     }
+   }
   }
+ }
 }
