@@ -12,7 +12,6 @@ namespace UI
     
     private void Start()
     {
-      Debug.Log($"Heya: {gameManager}");
       for (var i = 0; i < repeats; i++)
       {
         foreach (var job in gameManager.roundManager.jobs)
