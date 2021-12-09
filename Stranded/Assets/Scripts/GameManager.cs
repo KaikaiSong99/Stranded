@@ -19,9 +19,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
+        Debug.Log("Start");
         roundData = new Round[numberOfRounds];
+        StartCoroutine(StartGame());
     }
 
     public void NextRound()
@@ -33,8 +33,11 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < numberOfRounds; ++i)
         {
+            Debug.Log("Play Round " + (i+1));
             yield return StartCoroutine(roundManager.Play());
         }
+
+        Debug.Log("End of game");
     }
 
 
