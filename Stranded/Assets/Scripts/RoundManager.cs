@@ -25,7 +25,7 @@ public class RoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     private void Init()
@@ -34,11 +34,17 @@ public class RoundManager : MonoBehaviour
         _round = new Round();
         _assigneds = new Dictionary<Character, Job>();
 
+        AddAssignment(characters[0], jobs[0]);
+        AddAssignment(characters[1], jobs[1]);
+
     }
 
     public IEnumerator Play()
     {
-        Debug.Log("Play");
+        foreach (var character in characters)
+        {
+            Debug.Log(character.Mood);
+        }
         Init();
         yield return StartCoroutine(PlayAssignmentPhase());
 
@@ -47,7 +53,6 @@ public class RoundManager : MonoBehaviour
 
     public IEnumerator PlayAssignmentPhase()
     {
-        Debug.Log("Assignment");
         timeLeft = assignmentDurationInSeconds;
         yield return StartCoroutine(Timer(() => PlayFeedbackPhase()));
     }
@@ -55,9 +60,9 @@ public class RoundManager : MonoBehaviour
     public IEnumerator PlayFeedbackPhase()
     {
         timeLeft = feedbackDurationInSeconds;
-        Debug.Log("Feedback");
         _round.Score = CalculateScore();
         AssignMoods();
+        RevealAttributes();
         feedbackManager.gameObject.SetActive(true);
         yield return StartCoroutine(feedbackManager.ShowFeedback(_round.Score, new List<Character>(_assigneds.Keys)));
     }
@@ -84,6 +89,7 @@ public class RoundManager : MonoBehaviour
 
         return totalScore;
     }
+    
 
     public void AddAssignment(Character character, Job job)
     {
@@ -97,9 +103,52 @@ public class RoundManager : MonoBehaviour
         }
     }
 
+    private List<int> sortedDescendingAttributeIndices(Job job)
+    {
+        List<int> sortedIndices = new List<int>();
+
+        for (int i = 0; i < job.attributes.Length; ++i) 
+        {
+            int highestVal = 0;
+            int highestIndex = 0;
+            for (int j = 0; j < job.attributes.Length; ++j) 
+            {
+                if (!sortedIndices.Contains(j) && job.attributes[j] > highestVal)
+                {
+                    highestVal = job.attributes[j];
+                    highestIndex = j;
+                }
+            }
+            sortedIndices.Add(highestIndex);
+        }
+        return sortedIndices;
+    }
+
+    private void RevealAttributes()
+    {
+        foreach (var assigned in _assigneds)
+        {
+            Character character  = assigned.Key;
+            Job job  = assigned.Value;
+
+            List<int> sortedIndices = sortedDescendingAttributeIndices(job);
+            
+            foreach (int index in sortedIndices)
+            {
+                if (character.revealedAttribute[index] == false)
+                {
+                    character.lastRevealed = index;
+                    character.revealedAttribute[index] = true; 
+                    break;
+                }
+            } 
+
+        }
+    }
+
     private void AssignMoods()
     {
-        foreach (KeyValuePair<Character, int> score in _round.IndividualScores)
+        foreach (var score in _round.IndividualScores)
         {
             Character character  = score.Key;
             int individualScore  = score.Value;

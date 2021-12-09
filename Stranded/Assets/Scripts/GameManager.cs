@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
             yield return StartCoroutine(roundManager.Play());
         }
 
-        Debug.Log("End of game");
     }
 
 

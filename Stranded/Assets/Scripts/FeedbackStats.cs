@@ -16,14 +16,25 @@ public class FeedbackStats : MonoBehaviour
 
     private Character _character;
     
-
-    // Start is called before the first frame update
-
+    //TODO change to sprites
     public void Show(Character character)
     {
+
+        string attributeName;
+
+        switch (character.lastRevealed)
+        {
+            case 0: attributeName = "Creativity"; break;
+            case 1: attributeName = "Knowledge";  break;
+            case 2: attributeName = "Mental Constitution"; break;
+            case 3: attributeName = "Cooperation"; break;
+            case 4: attributeName = "Strength"; break; 
+            default:  attributeName = "None"; break;
+        }
+
         _character = character;
         firstName.text = String.Format("{0} revealed {1} points in {2} and felt {3}.",
-                                        character.firstName, 2, "Strength", character.Mood);
+                                        character.firstName, character.attributes[character.lastRevealed], attributeName, character.Mood);
     }
 
 

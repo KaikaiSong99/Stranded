@@ -20,15 +20,10 @@ public class FeedbackManager : MonoBehaviour
 
     public IEnumerator ShowFeedback(int roundScore, List<Character> characters)
     {
-        Debug.Log("Show Feedback");
-
-        score.text = String.Format("Your score is: {0}", roundScore);
-        // score.text = "h";
-        Debug.Log(score.text);
+        score.text = String.Format("Your score for this round: {0}", roundScore);
 
         foreach (var character in characters) 
         {
-            Debug.Log("Instantiate");
             var gameObject = Instantiate<GameObject>(feedbackPrefab);
             gameObject.transform.SetParent(feedbackVGroup.transform);
 

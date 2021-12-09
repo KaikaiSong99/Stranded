@@ -12,12 +12,6 @@ public class AssignmentManager : MonoBehaviour
     private Character _currentCharacter;
     private Job _currentJob;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-         
-    }
-
     public void ShowOverview(Character character)
     {
         _currentCharacter = character;
