@@ -10,7 +10,7 @@ namespace UI
 
     public int repeats = 10;
     
-    private void Awake()
+    private void Start()
     {
       for (var i = 0; i < repeats; i++)
       {

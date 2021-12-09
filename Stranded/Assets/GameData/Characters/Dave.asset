@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd73e720b4c6cbf4e9deabdaa78544d0, type: 3}
   m_Name: Dave
   m_EditorClassIdentifier: 
-  name: Dave
+  portrait: {fileID: 0}
+  firstName: 
   age: 38
   description: Male, athletic build
   personality: 0
-  attributes: 
-  _id: -1
+  attributes: 0200000003000000080000000200000002000000
+  revealedAttribute: 0100010100
+  lastRevealed: 0
+  _id: 0
