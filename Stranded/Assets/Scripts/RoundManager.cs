@@ -23,12 +23,11 @@ public class RoundManager : MonoBehaviour
     public Round Round
     { get; }  
 
-    private Dictionary<Character, Job> _assigneds; 
+    private Dictionary<Character, Job> _assigneds = new Dictionary<Character, Job>();
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     private void Init()
@@ -36,18 +35,10 @@ public class RoundManager : MonoBehaviour
         feedbackManager.gameObject.SetActive(false);
         _round = new Round();
         _assigneds = new Dictionary<Character, Job>();
-
-        AddAssignment(characters[0], jobs[0]);
-        AddAssignment(characters[1], jobs[1]);
-
     }
 
     public IEnumerator Play()
     {
-        foreach (var character in characters)
-        {
-            Debug.Log(character.Mood);
-        }
         Init();
         yield return StartCoroutine(PlayAssignmentPhase());
 
@@ -192,5 +183,13 @@ public class RoundManager : MonoBehaviour
         scoreText.text = "Score: " + score.ToString("0000");
         roundText.text = "Round: " + round.ToString("00");
 
+    }
+
+    public Job getAssignment(Character character)
+    {
+        Debug.Log(_assigneds);
+        Job res;
+        _assigneds.TryGetValue(character, out res);
+        return res;
     }
 }
