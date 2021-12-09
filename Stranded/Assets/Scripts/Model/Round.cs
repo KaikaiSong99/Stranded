@@ -1,33 +1,24 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 
 namespace Model 
 {
 
     // Contains statistics for the current round.
-    public class Round : MonoBehaviour
+    public class Round
     {
-        private int _score;
-        private int Score
+        public int Score
         { get; set;}
 
         public Dictionary<Character, int> IndividualScores
-        {
-            get;
-            set;
-        }
-
-        private List<Character> _orderAssigned;
+        { get; set;}
+        
         public List<Character> OrderAssigned
         { get; set;}
 
-        public Round()
-        {
-            
+        public Round() {
+            IndividualScores = new Dictionary<Character, int>();
+            OrderAssigned = new List<Character>();    
         }
-
     }
-
 }

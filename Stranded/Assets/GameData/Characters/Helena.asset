@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd73e720b4c6cbf4e9deabdaa78544d0, type: 3}
   m_Name: Helena
   m_EditorClassIdentifier: 
-  name: 
-  age: 0
+  portrait: {fileID: 0}
+  firstName: 
+  age: 20
   description: 
   personality: 0
-  attributes: 
+  attributes: 0100000002000000030000000400000001000000
+  revealedAttribute: 0101010101
+  lastRevealed: 3
   _id: 1

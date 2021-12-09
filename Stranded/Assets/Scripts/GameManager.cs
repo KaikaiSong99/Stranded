@@ -13,15 +13,13 @@ public class GameManager : MonoBehaviour
     
     [SerializeField]
     private Round[] roundData;
-    private int currentScore = 0;
     private int currentRound = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
-
         roundData = new Round[numberOfRounds];
+        StartCoroutine(StartGame());
     }
 
     public void NextRound()
@@ -35,6 +33,7 @@ public class GameManager : MonoBehaviour
         {
             yield return StartCoroutine(roundManager.Play());
         }
+
     }
 
 

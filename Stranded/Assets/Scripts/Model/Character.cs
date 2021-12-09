@@ -3,29 +3,44 @@ using UnityEngine;
 
 namespace Model
 {    
+        // TODO other personality types when useful.
+    public enum Personality 
+    {
+        QUIRKY,
+        HASTY,
+        QUICK_WITTED,
+        IMPULSIVE,
+        EXTROVERTED,
+        INTROVERTED
+    }
+
+    public enum Mood 
+    {
+        Sad,
+        Neutral, 
+        Happy    
+    }
 
     [CreateAssetMenu(fileName = "newCharacter", menuName = "Stranded/Character", order = 0)]
     public class Character : ScriptableObject, IEquatable<Character>
     {
         public Sprite portrait;
         
-        // TODO other personality types when useful.
-        public enum Personality {
-            QUIRKY,
-            HASTY,
-            QUICK_WITTED,
-            IMPULSIVE,
-            EXTROVERTED,
-            INTROVERTED
-        }
-
         public string firstName;
         public int age;
         [TextArea(1,10)]
         public string description;
         public Personality personality;
 
+        private Mood _mood;
+        public Mood Mood
+        { get; set; }
+
         public int[] attributes;
+
+        public bool[] revealedAttribute;
+
+        public int lastRevealed;
 
         // id is used to index the character by the game manager
         [SerializeField]

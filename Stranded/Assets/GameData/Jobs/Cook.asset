@@ -11,10 +11,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
   m_Name: Cook
-  m_EditorClassIdentifier: 
-  name: 
-  description: 
-  maxAssignments: 0
-  importance: 0
-  attributes: 
+  m_EditorClassIdentifier:
+  jobIcon: {fileID: 21300000, guid: 0ed94685a8a9b0c43a921e6b74d736d9, type: 3}
+  description: A cook
+  maxAssignments: 1
+  importance: 2
+  attributes: 0200000000000000070000000800000000000000
   _id: -1
