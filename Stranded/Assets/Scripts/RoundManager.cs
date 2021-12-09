@@ -13,7 +13,7 @@ public class RoundManager : MonoBehaviour
     public int feedbackDurationInSeconds = 210;
     public int assignmentDurationInSeconds = 90;
 
-    private float timeLeft;
+    public float timeLeft;
     private Round _round;
     public Round Round
     { get; }  
