@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class RoundManager : MonoBehaviour
 {
+    public Text scoreText;
+    public Text roundText;
     public List<Character> characters;
     public List<Job> jobs;
 
@@ -103,5 +105,12 @@ public class RoundManager : MonoBehaviour
         }
 
         yield return func();
+    }
+
+    void DisplayScoreRound(int score, int round)// now only score
+    {
+        scoreText.text = "Score: " + score.ToString("0000");
+        roundText.text = "Round: " + round.ToString("00");
+
     }
 }

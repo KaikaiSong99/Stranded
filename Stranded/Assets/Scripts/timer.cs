@@ -20,6 +20,7 @@ public class timer : MonoBehaviour
     void Update()
     {
         timeRemaining = roundManager.timeLeft;
+
         //if(timeremaining > 0)
         //{
         //    timeremaining -= time.deltatime;
