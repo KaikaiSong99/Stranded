@@ -13,9 +13,20 @@ namespace Model
         private int Score
         { get; set;}
 
+        public Dictionary<Character, int> IndividualScores
+        {
+            get;
+            set;
+        }
+
         private List<Character> _orderAssigned;
         public List<Character> OrderAssigned
         { get; set;}
+
+        public Round()
+        {
+            
+        }
 
     }
 
