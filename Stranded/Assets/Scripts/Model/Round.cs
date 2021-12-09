@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 
 namespace Model 
@@ -14,7 +12,7 @@ namespace Model
 
         public Dictionary<Character, int> IndividualScores
         { get; set;}
-
+        
         public List<Character> OrderAssigned
         { get; set;}
 
@@ -22,8 +20,5 @@ namespace Model
             IndividualScores = new Dictionary<Character, int>();
             OrderAssigned = new List<Character>();    
         }
-        
-
     }
-
 }
