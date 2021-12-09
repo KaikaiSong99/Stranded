@@ -15,17 +15,15 @@ namespace UI
     [Tooltip("Width divided by height.")]
     public float cardAspectRatio;
     
-    private void Awake()
+    private void Start()
     {
       var cardWidth = container.rect.width / numberOfColumns;
       var cardHeight = cardWidth / cardAspectRatio;
       var noOfCards = container.childCount;
       var noOfRows = (int) math.ceil((float) noOfCards / numberOfColumns);
 
-      
       var containerHeightResize = cardHeight * noOfRows - container.rect.height;
       container.sizeDelta = new Vector2(0, containerHeightResize);
-      container.anchoredPosition = new Vector2(0, -containerHeightResize / 2);
       
       gridLayoutGroup.cellSize = new Vector2(cardWidth, cardHeight); 
     }
