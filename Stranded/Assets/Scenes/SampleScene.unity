@@ -248,7 +248,19 @@ MonoBehaviour:
   m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 576150564}
+        m_TargetAssemblyTypeName: UI.JobScrollerSelector, Assembly-CSharp
+        m_MethodName: OnScroll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &357118362 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2339836495730272913, guid: c73f7180201baaf489d5d092eba1f3e5, type: 3}
@@ -796,6 +808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 576150563}
   - component: {fileID: 576150564}
+  - component: {fileID: 576150565}
   m_Layer: 5
   m_Name: JobScroller
   m_TagString: Untagged
@@ -837,7 +850,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedJobFrame: {fileID: 1236719153}
+  scrollRect: {fileID: 277821807}
   scrollContent: {fileID: 658499609}
+  lockSpeedMultiplier: 200
+--- !u!114 &576150565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576150562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfa454a43f44b6fac9cccfd4242031d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selector: {fileID: 576150564}
+  jobName: 
 --- !u!1001 &618737586
 PrefabInstance:
   m_ObjectHideFlags: 0
