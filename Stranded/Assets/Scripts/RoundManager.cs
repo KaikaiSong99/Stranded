@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Model;
+using UnityEngine.UI;
 
 public class RoundManager : MonoBehaviour
 {
-    
+    public Text scoreText;
+    public Text roundText;
     public List<Character> characters;
     public List<Job> jobs;
 
@@ -16,10 +18,11 @@ public class RoundManager : MonoBehaviour
 
     public FeedbackManager feedbackManager;
 
-    private float timeLeft;
+    public float timeLeft;
     private Round _round;
     public Round Round
-    { get; }
+    { get; }  
+
     private Dictionary<Character, Job> _assigneds; 
 
     // Start is called before the first frame update
@@ -86,7 +89,6 @@ public class RoundManager : MonoBehaviour
             characterScore *= job.importance;
             totalScore += characterScore;
         }
-
         return totalScore;
     }
     
@@ -179,10 +181,16 @@ public class RoundManager : MonoBehaviour
     {
         while (timeLeft > 0) {
             --timeLeft;
-            Debug.Log(timeLeft);
             yield return new WaitForSeconds(1f);
         }
 
         yield return func();
+    }
+
+    void DisplayScoreRound(int score, int round)// now only score
+    {
+        scoreText.text = "Score: " + score.ToString("0000");
+        roundText.text = "Round: " + round.ToString("00");
+
     }
 }
