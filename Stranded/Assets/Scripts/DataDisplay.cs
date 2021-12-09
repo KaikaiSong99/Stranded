@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using Model;
@@ -6,84 +7,62 @@ using UnityEngine.UI;
 
 public class DataDisplay : MonoBehaviour
 {
-    public Character c;
-    public Job j;
     public int happiness;
     public Text characterName;
-    public GameObject characterAge;
-    public GameObject characterDescription;
-    public GameObject characterPortrait;
+    public Text characterAge;
+    public Text characterDescription;
+    public Image characterPortrait;
     
-    public GameObject emotion;
+    public Image emotion;
     
-    public GameObject creativityIcon;
-    public GameObject knowledgeIcon;
-    public GameObject mentalConstitutionIcon;
-    public GameObject cooperationIcon;
-    public GameObject strengthIcon;
+    public Image creativityIcon;
+    public Image knowledgeIcon;
+    public Image mentalConstitutionIcon;
+    public Image cooperationIcon;
+    public Image strengthIcon;
     // public Text jobName;
-    public GameObject jobName;
-    public GameObject jobIcon;
+    public Text jobName;
+    public Image jobIcon;
     
-    public GameObject characterCreativity;
-
-    public GameObject characterKnowledge;
-
-    public GameObject characterMentalConstitution;
-
-    public GameObject characterCooperation;
-
-    public GameObject characterStrength;
+    public Text characterCreativity;
+    public Text characterKnowledge;
+    public Text characterMentalConstitution;
+    public Text characterCooperation;
+    public Text characterStrength;
     
-    public GameObject jobCreativity;
-
-    public GameObject jobKnowledge;
-
-    public GameObject jobMentalConstitution;
-
-    public GameObject jobCooperation;
-
-    public GameObject jobStrength;
+    public Text jobCreativity;
+    public Text jobKnowledge;
+    public Text jobMentalConstitution;
+    public Text jobCooperation;
+    public Text jobStrength;
 
     public Sprite happySprite;
     public Sprite neutralSprite;
     public Sprite sadSprite;
     
-    // Start is called before the first frame update
-    void Start()
+    public void SetCharacterInfo(Character character)
     {
-        SetCharacterInfo();
-        SetJobInfo();
+        characterAge.text = character.age.ToString();
+        characterName.text = character.name;
+        characterDescription.text = character.description;
+        characterPortrait.sprite = character.portrait;
+
+        characterCreativity.text = character.attributes[0].ToString();
+        characterKnowledge.text = character.attributes[1].ToString();
+        characterMentalConstitution.text = character.attributes[2].ToString();
+        characterCooperation.text = character.attributes[3].ToString();
+        characterStrength.text = character.attributes[4].ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetJobInfo(Job job) ///
     {
-        
-    }
-
-    void SetCharacterInfo()
-    {
-        characterAge.GetComponent<Text>().text = c.age.ToString();
-        characterName.text = c.name;
-        characterDescription.GetComponent<Text>().text = c.description;
-        characterPortrait.GetComponent<Image>().sprite = c.portrait;
-        characterCreativity.GetComponent<Text>().text = c.attributes[0].ToString();
-        characterKnowledge.GetComponent<Text>().text = c.attributes[1].ToString();
-        characterMentalConstitution.GetComponent<Text>().text = c.attributes[2].ToString();
-        characterCooperation.GetComponent<Text>().text = c.attributes[3].ToString();
-        characterStrength.GetComponent<Text>().text = c.attributes[4].ToString();
-    }
-
-    void SetJobInfo() ///
-    {
-        jobName.GetComponent<Text>().text = j.name;
-        jobIcon.GetComponent<Image>().sprite = j.jobIcon;
-        jobCreativity.GetComponent<Text>().text = j.attributes[0].ToString();
-        jobKnowledge.GetComponent<Text>().text = j.attributes[1].ToString();
-        jobMentalConstitution.GetComponent<Text>().text = j.attributes[2].ToString();
-        jobCooperation.GetComponent<Text>().text = j.attributes[3].ToString();
-        jobStrength.GetComponent<Text>().text = j.attributes[4].ToString();
+        jobName.text = job.name;
+        jobIcon.sprite = job.jobIcon;
+        jobCreativity.text = job.attributes[0].ToString();
+        jobKnowledge.text = job.attributes[1].ToString();
+        jobMentalConstitution.text = job.attributes[2].ToString();
+        jobCooperation.text = job.attributes[3].ToString();
+        jobStrength.text = job.attributes[4].ToString();
     }
     
     //Character c, Dictionary<Character, int> IndividualScores
