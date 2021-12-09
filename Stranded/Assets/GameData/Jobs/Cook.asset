@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
   m_Name: Cook
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  maxAssignments: 0
-  importance: 0
-  attributes: 
+  jobIcon: {fileID: 0}
+  description: A cook
+  maxAssignments: 1
+  importance: 2
+  attributes: 0200000000000000070000000800000000000000
   _id: -1
