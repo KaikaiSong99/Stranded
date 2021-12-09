@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dave
   m_EditorClassIdentifier: 
   portrait: {fileID: 0}
-  firstName: Dave
+  firstName: 
   age: 38
   description: Male, athletic build
   personality: 0
   attributes: 0200000003000000080000000200000002000000
   revealedAttribute: 0100010100
-  lastRevealed: 2
+  lastRevealed: 0
   _id: 0
