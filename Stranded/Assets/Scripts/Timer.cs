@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class timer : MonoBehaviour
+public class Timer : MonoBehaviour
 {
     public RoundManager roundManager;
     public float timeRemaining; // seconds
