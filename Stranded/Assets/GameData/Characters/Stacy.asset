@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd73e720b4c6cbf4e9deabdaa78544d0, type: 3}
   m_Name: Stacy
   m_EditorClassIdentifier: 
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 2a83f20382914c94c853392e42f9243e, type: 3}
   firstName: 
-  age: 0
-  description: 
+  age: 25
+  description: Female
   personality: 0
-  attributes: 
-  revealedAttribute: 
+  attributes: 0200000004000000010000000200000001000000
+  revealedAttribute: 0000000000
   lastRevealed: 0
-  _id: -1
+  _id: 3
