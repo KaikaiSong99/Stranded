@@ -3,20 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Model;
+using UnityEngine.UI;
 
 public class RoundManager : MonoBehaviour
 {
-    
+    public Text scoreText;
+    public Text roundText;
     public List<Character> characters;
     public List<Job> jobs;
 
     public int feedbackDurationInSeconds = 210;
     public int assignmentDurationInSeconds = 90;
 
-    private float timeLeft;
+    public float timeLeft;
     private Round _round;
     public Round Round
-    { get; }
+    { get; }  
+
     private Dictionary<Character, Job> _assigneds; 
 
 
@@ -77,7 +80,6 @@ public class RoundManager : MonoBehaviour
             characterScore *= job.importance;
             totalScore += characterScore;
         }
-
         return totalScore;
     }
 
@@ -103,5 +105,12 @@ public class RoundManager : MonoBehaviour
         }
 
         yield return func();
+    }
+
+    void DisplayScoreRound(int score, int round)// now only score
+    {
+        scoreText.text = "Score: " + score.ToString("0000");
+        roundText.text = "Round: " + round.ToString("00");
+
     }
 }
