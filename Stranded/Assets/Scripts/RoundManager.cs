@@ -7,16 +7,16 @@ using UnityEngine.UI;
 
 public class RoundManager : MonoBehaviour
 {
-    public Text scoreText;
-    public Text roundText;
     public List<Character> characters;
     public List<Job> jobs;
 
     public int feedbackDurationInSeconds = 210;
     public int assignmentDurationInSeconds = 90;
     public int maxObtainableScore = 40;
+    private int totalScore = 0;
 
     public FeedbackManager feedbackManager;
+    public TopBarManager topBarManager;
 
     public float timeLeft;
     private Round _round;
@@ -32,13 +32,15 @@ public class RoundManager : MonoBehaviour
 
     private void Init()
     {
+        topBarManager.DisplayScore(totalScore);
         feedbackManager.gameObject.SetActive(false);
         _round = new Round();
         _assigneds = new Dictionary<Character, Job>();
     }
 
-    public IEnumerator Play()
+    public IEnumerator Play(int currentRound)
     {
+        topBarManager.DisplayRound(currentRound);
         Init();
         yield return StartCoroutine(PlayAssignmentPhase());
 
@@ -55,6 +57,7 @@ public class RoundManager : MonoBehaviour
     {
         timeLeft = feedbackDurationInSeconds;
         _round.Score = CalculateScore();
+        totalScore += _round.Score;
         AssignMoods();
         RevealAttributes();
         feedbackManager.gameObject.SetActive(true);
@@ -171,18 +174,12 @@ public class RoundManager : MonoBehaviour
     public IEnumerator Timer(Func<IEnumerator> func) 
     {
         while (timeLeft > 0) {
+            topBarManager.Displaytime(timeLeft);
             --timeLeft;
             yield return new WaitForSeconds(1f);
         }
 
         yield return func();
-    }
-
-    void DisplayScoreRound(int score, int round)// now only score
-    {
-        scoreText.text = "Score: " + score.ToString("0000");
-        roundText.text = "Round: " + round.ToString("00");
-
     }
 
     public Job getAssignment(Character character)

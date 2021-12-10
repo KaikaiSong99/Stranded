@@ -31,8 +31,11 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < numberOfRounds; ++i)
         {
-            yield return StartCoroutine(roundManager.Play());
+            ++currentRound;
+            yield return StartCoroutine(roundManager.Play(currentRound));
         }
+
+        Application.Quit();
 
     }
 
