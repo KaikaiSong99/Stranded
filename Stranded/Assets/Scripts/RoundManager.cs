@@ -45,7 +45,7 @@ public class RoundManager : MonoBehaviour
         {
             AddAssignment(c, jobs[0]);
         }
-
+        
         cardCreator.CreateCards();
         gridScaler.SetLayout();
         
