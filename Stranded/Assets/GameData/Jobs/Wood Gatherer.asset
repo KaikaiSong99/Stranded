@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
   m_Name: Wood Gatherer
   m_EditorClassIdentifier: 
-  jobIcon: {fileID: 0}
+  jobIcon: {fileID: 21300000, guid: f4bc606c2fd056841a983c48c7ee739a, type: 3}
   description: 
   maxAssignments: 1
   importance: 2
