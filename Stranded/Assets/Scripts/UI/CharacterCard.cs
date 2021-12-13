@@ -25,6 +25,7 @@ public class CharacterCard : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData data)
     {
+        assignmentManager.SetCharacterCard(this);
         assignmentManager.ShowOverview(character);
     }
 
