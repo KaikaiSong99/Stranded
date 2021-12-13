@@ -9,7 +9,7 @@ namespace UI
   public AssignmentManager assignmentManager;
   public GameObject characterCardPrefab;
             
-  public void Start()
+  public void CreateCards()
   {
    foreach (var character in gameManager.roundManager.characters)
    {
@@ -19,6 +19,7 @@ namespace UI
     cCard.assignmentManager = assignmentManager;
     Debug.Log("Test");
     Job j = gameManager.roundManager.getAssignment(character);
+    Debug.Log($"Job set: {j}");
     if (j != null)
     {
      cCard.setJob(j);
