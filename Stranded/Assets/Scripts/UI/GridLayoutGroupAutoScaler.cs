@@ -15,7 +15,9 @@ namespace UI
     [Tooltip("Width divided by height.")]
     public float cardAspectRatio;
     
-    private void Start()
+
+    // TODO change to callable function after instantiation of characters -> Roundmanager
+    public void Start()
     {
       var cardWidth = container.rect.width / numberOfColumns;
       var cardHeight = cardWidth / cardAspectRatio;
@@ -26,6 +28,9 @@ namespace UI
       container.sizeDelta = new Vector2(0, containerHeightResize);
       
       gridLayoutGroup.cellSize = new Vector2(cardWidth, cardHeight); 
+
+      container.offsetMin = new Vector2(container.offsetMin.x, container.offsetMin.y - container.offsetMax.y);
+      container.offsetMax = new Vector2(container.offsetMax.x, 0);
     }
   }
 }
