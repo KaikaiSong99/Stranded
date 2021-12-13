@@ -28,6 +28,7 @@ public class RoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+ 
     }
 
     private void Init()
@@ -36,6 +37,16 @@ public class RoundManager : MonoBehaviour
         feedbackManager.gameObject.SetActive(false);
         _round = new Round();
         _assigneds = new Dictionary<Character, Job>();
+        //Debug.Log("init");
+        foreach (Character c in characters)
+        {
+            //Debug.Log(c.name);
+            //Debug.Log(jobs[0].name);
+            AddAssignment(c, jobs[0]);
+        }
+        
+        
+        // TODO change the job icon for unassigned character to be idle
     }
 
     public IEnumerator Play(int currentRound)
