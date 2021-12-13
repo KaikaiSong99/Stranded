@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd73e720b4c6cbf4e9deabdaa78544d0, type: 3}
   m_Name: Eric
   m_EditorClassIdentifier: 
-  portrait: {fileID: 21300000, guid: 2a83f20382914c94c853392e42f9243e, type: 3}
+  portrait: {fileID: 21300000, guid: 806e3a4cab1e6a945b1128866e75b5b4, type: 3}
   firstName: Eric
   age: 39
   description: Male
   personality: 0
   attributes: 0400000003000000010000000100000001000000
-  revealedAttribute: 0000000000
-  lastRevealed: 0
+  revealedAttribute: 0001000100
+  lastRevealed: 3
   _id: 2
