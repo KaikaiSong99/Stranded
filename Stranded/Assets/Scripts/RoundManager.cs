@@ -210,7 +210,7 @@ public class RoundManager : MonoBehaviour
 
         if (_assigneds.ContainsKey(c))
         {
-            res = _assigneds.TryGetValue(c);
+            _assigneds.TryGetValue(c, out res);
             _assigneds.Add(c, j);
         }
         
@@ -222,7 +222,7 @@ public class RoundManager : MonoBehaviour
     {
         foreach (KeyValuePair<Character, Job> assigned in _assigneds)
         {
-            if (assigned.Value.equals(j))
+            if (assigned.Value.Equals(j))
             {
                 _assigneds.Remove(assigned.Key);
             }
