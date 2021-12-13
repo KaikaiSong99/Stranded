@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using Model;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,15 +25,27 @@ namespace UI
 
     private void Start()
     {
-      _jobItemTransforms = scrollContent.GetComponentsInChildren<JobItem>()
+        _jobItemTransforms = scrollContent.GetComponentsInChildren<JobItem>()
         .Select(jobItem => jobItem.GetComponent<RectTransform>())
         .ToList();
 
-      OnScroll();
+        OnScroll();
+    }
+
+
+    public void Reset()
+    {
+        SelectedJobItem = _jobItemTransforms[0];
     }
 
     public void OnScroll()
     {
+
+        _jobItemTransforms = scrollContent.GetComponentsInChildren<JobItem>()
+        .Select(jobItem => jobItem.GetComponent<RectTransform>())
+        .ToList();
+
+
       var selectedJobFramePos = selectedJobFrame.position;
       
       SelectedJobItem = _jobItemTransforms.Aggregate((job1Tr, job2Tr) =>
@@ -42,12 +55,22 @@ namespace UI
 
         return job1DistanceToFrame < job2DistanceToFrame ? job1Tr : job2Tr;
       });
+
+
     }
 
     public void Update()
     {
+        try {
       scrollRect.velocity = lockSpeedMultiplier * new Vector2(0, 
         (selectedJobFrame.position - SelectedJobItem.position).y);
+        }
+        catch(NullReferenceException e)
+        {
+
+        }
+
+
     }
   }
 }
