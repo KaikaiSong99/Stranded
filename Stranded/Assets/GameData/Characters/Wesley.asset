@@ -18,6 +18,6 @@ MonoBehaviour:
   description: Male
   personality: 0
   attributes: 0100000002000000020000000100000004000000
-  revealedAttribute: 0001000000
+  revealedAttribute: 0000000000
   lastRevealed: 1
   _id: 4

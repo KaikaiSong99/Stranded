@@ -45,13 +45,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characters:
   - {fileID: 11400000, guid: 589920e50e04ab642b230ec96fc8634a, type: 2}
+  - {fileID: 11400000, guid: b763d9890c01ece4cb124aeed0a995af, type: 2}
   - {fileID: 11400000, guid: 6fb713383801f9a47a8a55810396e57d, type: 2}
+  - {fileID: 11400000, guid: 6382810474e6efc4098038e2b6d127ff, type: 2}
+  - {fileID: 11400000, guid: 21752937275808f45a9d1171616cb2d1, type: 2}
   jobs:
+  - {fileID: 11400000, guid: e8a3ef1f333c0ce4cb9a591efbfec403, type: 2}
   - {fileID: 11400000, guid: d88cd7baa4180ba48b2511149581f4a7, type: 2}
   - {fileID: 11400000, guid: f55c389b458ea9d4f854b7cffc684d33, type: 2}
+  - {fileID: 11400000, guid: 625c25acf34d6964198d9be280a4f8ad, type: 2}
+  - {fileID: 11400000, guid: 370ca7a72bd44ef43a33e22f21600b03, type: 2}
+  - {fileID: 11400000, guid: 7aaba953f8c71cc41a2a7af8907629d6, type: 2}
   feedbackDurationInSeconds: 20
   assignmentDurationInSeconds: 90
   maxObtainableScore: 40
   feedbackManager: {fileID: 0}
   topBarManager: {fileID: 0}
+  cardCreator: {fileID: 0}
+  gridScaler: {fileID: 0}
   timeLeft: 0

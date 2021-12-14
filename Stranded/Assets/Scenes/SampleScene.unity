@@ -3762,6 +3762,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1925213375}
     - target: {fileID: 4432968545939959702, guid: f2a8104c6af3049478ae892858185132, type: 3}
+      propertyPath: gridScaler
+      value: 
+      objectReference: {fileID: 1221227695}
+    - target: {fileID: 4432968545939959702, guid: f2a8104c6af3049478ae892858185132, type: 3}
+      propertyPath: cardCreator
+      value: 
+      objectReference: {fileID: 1221227697}
+    - target: {fileID: 4432968545939959702, guid: f2a8104c6af3049478ae892858185132, type: 3}
       propertyPath: topBarManager
       value: 
       objectReference: {fileID: 1238285552}

@@ -18,6 +18,6 @@ MonoBehaviour:
   description: Male, athletic build
   personality: 0
   attributes: 0200000003000000080000000200000002000000
-  revealedAttribute: 0101010101
+  revealedAttribute: 0000000000
   lastRevealed: 1
   _id: 0

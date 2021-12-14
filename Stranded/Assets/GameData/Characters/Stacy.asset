@@ -18,6 +18,6 @@ MonoBehaviour:
   description: Female
   personality: 0
   attributes: 0200000004000000010000000200000001000000
-  revealedAttribute: 0000010000
+  revealedAttribute: 0000000000
   lastRevealed: 2
   _id: 3
