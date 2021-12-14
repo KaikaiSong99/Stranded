@@ -17,7 +17,7 @@ namespace UI
     
 
     // TODO change to callable function after instantiation of characters -> Roundmanager
-    public void Start()
+    public void SetLayout()
     {
       var cardWidth = container.rect.width / numberOfColumns;
       var cardHeight = cardWidth / cardAspectRatio;

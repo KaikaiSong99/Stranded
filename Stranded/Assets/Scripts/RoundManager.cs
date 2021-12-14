@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Model;
 using UnityEngine.UI;
+using UI;
 
 public class RoundManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class RoundManager : MonoBehaviour
 
     public FeedbackManager feedbackManager;
     public TopBarManager topBarManager;
+    public CharacterCardCreator cardCreator;
+    public GridLayoutGroupAutoScaler gridScaler;
 
     public float timeLeft;
     private Round _round;
@@ -37,13 +40,14 @@ public class RoundManager : MonoBehaviour
         feedbackManager.gameObject.SetActive(false);
         _round = new Round();
         _assigneds = new Dictionary<Character, Job>();
-        //Debug.Log("init");
+
         foreach (Character c in characters)
         {
-            //Debug.Log(c.name);
-            //Debug.Log(jobs[0].name);
             AddAssignment(c, jobs[0]);
         }
+        
+        cardCreator.CreateCards();
+        gridScaler.SetLayout();
         
         
         // TODO change the job icon for unassigned character to be idle
