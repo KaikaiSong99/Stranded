@@ -11,7 +11,8 @@ public class AssignmentManager : MonoBehaviour
     public DataDisplay dataDisplay;
     public JobScrollerSelector scrollerSelector;
     public CanvasGroup assignmentUI;
-
+    
+    private CharacterCard _currentCharacterCard;
     private Character _currentCharacter;
 
     public void Start()
@@ -39,6 +40,11 @@ public class AssignmentManager : MonoBehaviour
         scrollerSelector.OnDisplay(characterJob);
     }
 
+    public void SetCharacterCard(CharacterCard current)
+    {
+        _currentCharacterCard = current;
+    }
+
     public void HideOverview()
     {
         assignmentUI.gameObject.SetActive(false);
@@ -49,6 +55,7 @@ public class AssignmentManager : MonoBehaviour
         var selectedJob = scrollerSelector.SelectedJob;
         dataDisplay.SetJobInfo(selectedJob);
         roundManager.AddAssignment(_currentCharacter, selectedJob);
+        _currentCharacterCard.setJob(selectedJob);
         HideOverview();
     }
 }

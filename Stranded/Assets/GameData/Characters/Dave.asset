@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd73e720b4c6cbf4e9deabdaa78544d0, type: 3}
   m_Name: Dave
   m_EditorClassIdentifier: 
-  portrait: {fileID: 21300000, guid: 890c649827369c44a9b820ff6f0ac334, type: 3}
+  portrait: {fileID: 21300000, guid: 2647d97dcd2a4554898bd20a2508d859, type: 3}
   firstName: Dave
   age: 38
   description: Male, athletic build

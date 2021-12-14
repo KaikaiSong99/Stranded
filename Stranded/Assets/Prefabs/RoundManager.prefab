@@ -50,7 +50,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d88cd7baa4180ba48b2511149581f4a7, type: 2}
   - {fileID: 11400000, guid: f55c389b458ea9d4f854b7cffc684d33, type: 2}
   feedbackDurationInSeconds: 20
-  assignmentDurationInSeconds: 3
+  assignmentDurationInSeconds: 90
   maxObtainableScore: 40
   feedbackManager: {fileID: 0}
   topBarManager: {fileID: 0}

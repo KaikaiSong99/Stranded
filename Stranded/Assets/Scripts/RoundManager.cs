@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Model;
 using UnityEngine.UI;
+using UI;
 
 public class RoundManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class RoundManager : MonoBehaviour
 
     public FeedbackManager feedbackManager;
     public TopBarManager topBarManager;
+    public CharacterCardCreator cardCreator;
+    public GridLayoutGroupAutoScaler gridScaler;
 
     public float timeLeft;
     private Round _round;
@@ -28,6 +31,7 @@ public class RoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+ 
     }
 
     private void Init()
@@ -36,6 +40,17 @@ public class RoundManager : MonoBehaviour
         feedbackManager.gameObject.SetActive(false);
         _round = new Round();
         _assigneds = new Dictionary<Character, Job>();
+
+        foreach (Character c in characters)
+        {
+            AddAssignment(c, jobs[0]);
+        }
+        
+        cardCreator.CreateCards();
+        gridScaler.SetLayout();
+        
+        
+        // TODO change the job icon for unassigned character to be idle
     }
 
     public IEnumerator Play(int currentRound)
