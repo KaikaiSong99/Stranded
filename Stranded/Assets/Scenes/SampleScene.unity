@@ -3762,6 +3762,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1925213375}
     - target: {fileID: 4432968545939959702, guid: f2a8104c6af3049478ae892858185132, type: 3}
+      propertyPath: gridScaler
+      value: 
+      objectReference: {fileID: 1221227695}
+    - target: {fileID: 4432968545939959702, guid: f2a8104c6af3049478ae892858185132, type: 3}
+      propertyPath: cardCreator
+      value: 
+      objectReference: {fileID: 1221227697}
+    - target: {fileID: 4432968545939959702, guid: f2a8104c6af3049478ae892858185132, type: 3}
       propertyPath: topBarManager
       value: 
       objectReference: {fileID: 1238285552}
@@ -3769,22 +3777,6 @@ PrefabInstance:
       propertyPath: feedbackManager
       value: 
       objectReference: {fileID: 1289644724}
-    - target: {fileID: 4432968545939959702, guid: f2a8104c6af3049478ae892858185132, type: 3}
-      propertyPath: characters.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4432968545939959702, guid: f2a8104c6af3049478ae892858185132, type: 3}
-      propertyPath: characters.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: b763d9890c01ece4cb124aeed0a995af, type: 2}
-    - target: {fileID: 4432968545939959702, guid: f2a8104c6af3049478ae892858185132, type: 3}
-      propertyPath: characters.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 6382810474e6efc4098038e2b6d127ff, type: 2}
-    - target: {fileID: 4432968545939959702, guid: f2a8104c6af3049478ae892858185132, type: 3}
-      propertyPath: characters.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 21752937275808f45a9d1171616cb2d1, type: 2}
     - target: {fileID: 4432968545939959703, guid: f2a8104c6af3049478ae892858185132, type: 3}
       propertyPath: m_Name
       value: RoundManager
