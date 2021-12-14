@@ -42,11 +42,6 @@ namespace UI
 
     public Job SelectedJob => _selectedJobInfo.Job;
 
-    private void Start()
-    {
-      OnScroll();
-    }
-
     public void OnDisplay(Job job)
     {
       jobItemCreator.OnDisplay();
@@ -55,6 +50,8 @@ namespace UI
         .Select(jobItem => new JobItemInfo(jobItem.job, jobItem.GetComponent<RectTransform>(), 
           jobItem.transform.parent.GetComponent<RectTransform>()))
         .ToList();
+      
+      OnScroll();
       
       // TODO Snap to job
       Debug.Log($"Snap to job {job.name}");
