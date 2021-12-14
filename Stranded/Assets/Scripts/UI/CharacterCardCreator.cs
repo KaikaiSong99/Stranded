@@ -18,7 +18,7 @@ namespace UI
     cCard.setCharacter(character);
     cCard.assignmentManager = assignmentManager;
     Debug.Log("Test");
-    Job j = gameManager.roundManager.getAssignment(character);
+    Job j = gameManager.roundManager.GetJobAssignment(character);
     if (j != null)
     {
      cCard.setJob(j);

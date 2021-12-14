@@ -9,17 +9,24 @@ namespace UI
     public GameObject jobItemPrefab;
 
     public int repeats = 10;
+
+    private bool _initialized;
     
-    private void Start()
+    public void OnDisplay()
     {
-      for (var i = 0; i < repeats; i++)
+      if (!_initialized)
       {
-        foreach (var job in gameManager.roundManager.jobs)
+        for (var i = 0; i < repeats; i++)
         {
-          var jobItem = Instantiate(jobItemPrefab, transform);
-          jobItem.GetComponentInChildren<JobItem>().job = job;
-          jobItem.name += $" {job.name}";
+          foreach (var job in gameManager.roundManager.jobs)
+          {
+            var jobItem = Instantiate(jobItemPrefab, transform);
+            jobItem.GetComponentInChildren<JobItem>().job = job;
+            jobItem.name += $" {job.name}";
+          }
         }
+
+        _initialized = true;
       }
     }
   }

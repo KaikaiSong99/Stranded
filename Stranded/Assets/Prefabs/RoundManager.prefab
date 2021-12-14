@@ -53,3 +53,5 @@ MonoBehaviour:
   assignmentDurationInSeconds: 3
   maxObtainableScore: 40
   feedbackManager: {fileID: 0}
+  topBarManager: {fileID: 0}
+  timeLeft: 0

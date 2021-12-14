@@ -182,12 +182,14 @@ public class RoundManager : MonoBehaviour
         yield return func();
     }
 
-    public Job getAssignment(Character character)
+    public Job GetJobAssignment(Character character)
     {
-        Debug.Log(_assigneds);
-        Job res;
-        _assigneds.TryGetValue(character, out res);
-        return res;
+        if (!_assigneds.TryGetValue(character, out var j))
+        {
+            Debug.LogWarning($"Character {character.name} is assigned to a null job. Assigned default job " +
+                             $"of {jobs[0].name}.");
+        }
+        return j != null ? j : jobs[0];
     }
 
 
