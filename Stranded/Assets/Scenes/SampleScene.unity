@@ -2109,10 +2109,6 @@ PrefabInstance:
       value: 319.65
       objectReference: {fileID: 0}
     - target: {fileID: 8965953226077698274, guid: af00247475acbfd4cbe4dbb8289bca64, type: 3}
-      propertyPath: repeats
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8965953226077698274, guid: af00247475acbfd4cbe4dbb8289bca64, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1295511044}

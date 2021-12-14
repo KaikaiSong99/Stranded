@@ -56,25 +56,8 @@ namespace UI
           jobItem.transform.parent.GetComponent<RectTransform>()))
         .ToList();
       
-      // Snap to job
+      // TODO Snap to job
       Debug.Log($"Snap to job {job.name}");
-
-      //var startJobInfo = _jobItemInfos.First(info => info.Job.Equals(job));
-      var startJobInfo = _jobItemInfos[4];
-      Debug.Log("heya");
-      
-      var scrollContentPos = scrollContent.position;
-      
-      foreach (var jobItemInfo in _jobItemInfos)
-      {
-        Debug.Log(jobItemInfo.ItemTransform.position);
-        Debug.Log(jobItemInfo.ContainerTransform.position);
-      }
-      Debug.Log(startJobInfo.ItemTransform.position);
-      Debug.Log(scrollContentPos);
-      
-      scrollContent.position =
-        new Vector3(scrollContentPos.x, startJobInfo.ItemTransform.position.y, scrollContentPos.z);
     }
 
     public void OnScroll()
@@ -99,13 +82,10 @@ namespace UI
 
     public void Update()
     {
-      try {
-        scrollRect.velocity = lockSpeedMultiplier * new Vector2(0, 
-          (selectedJobFrame.position - _selectedJobInfo.ContainerTransform.position).y);
-      }
-      catch (NullReferenceException e)
+      if (_selectedJobInfo != null)
       {
-
+        scrollRect.velocity = lockSpeedMultiplier * new Vector2(0,
+          (selectedJobFrame.position - _selectedJobInfo.ContainerTransform.position).y);
       }
     }
   }
