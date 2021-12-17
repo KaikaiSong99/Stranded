@@ -18,6 +18,6 @@ MonoBehaviour:
   description: 
   personality: 0
   attributes: 0100000002000000030000000400000001000000
-  revealedAttribute: 0101010101
+  revealedAttribute: 0000000000
   lastRevealed: 3
   _id: 1
