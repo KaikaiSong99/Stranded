@@ -7,7 +7,7 @@ using UI;
 
 public class AssignmentManager : MonoBehaviour
 {
-    public RoundManager roundManager;
+    public _RoundManager roundManager;
     public DataDisplay dataDisplay;
     public JobScrollerSelector scrollerSelector;
     public CanvasGroup assignmentUI;

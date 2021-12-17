@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public RoundManager roundManager;
+    public _RoundManager roundManager;
     public float timeRemaining; // seconds
     public Text timeText;
     public bool timerCounting = false;

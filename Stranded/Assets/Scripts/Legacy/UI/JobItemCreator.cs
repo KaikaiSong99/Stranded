@@ -4,7 +4,7 @@ namespace UI
 {
   public class JobItemCreator : MonoBehaviour
   {
-    public GameManager gameManager;
+    public _GameManager gameManager;
 
     public GameObject jobItemPrefab;
 

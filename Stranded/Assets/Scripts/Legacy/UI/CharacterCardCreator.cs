@@ -7,7 +7,7 @@ namespace UI
 {
  public class CharacterCardCreator : MonoBehaviour
  {
-  public GameManager gameManager;
+  public _GameManager gameManager;
   public AssignmentManager assignmentManager;
   public GameObject characterCardPrefab;
 
