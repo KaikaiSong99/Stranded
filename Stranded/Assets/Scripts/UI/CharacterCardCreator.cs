@@ -23,13 +23,9 @@ namespace UI
     CharacterCard cCard = characterCard.GetComponent<CharacterCard>();
     cCard.setCharacter(character);
     cCard.assignmentManager = assignmentManager;
-    Debug.Log("Test");
-    Job j = gameManager.roundManager.getAssignment(character);
-    Debug.Log($"Job set: {j}");
-    if (j != null)
-    {
-     cCard.setJob(j);
-    }
+    
+    var j = gameManager.roundManager.GetJobAssignment(character);
+    cCard.setJob(j);
    }
   }
 

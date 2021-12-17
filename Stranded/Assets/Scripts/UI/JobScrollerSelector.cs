@@ -3,6 +3,7 @@ using System.Linq;
 using System;
 using Model;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 namespace UI
@@ -17,60 +18,72 @@ namespace UI
 
     public float lockSpeedMultiplier = 200;
 
-    private IList<RectTransform> _jobItemTransforms;
+    public JobItemCreator jobItemCreator;
+    
+    public DataDisplay dataDisplay;
 
-    public RectTransform SelectedJobItem { get; private set; }
-
-    public Job SelectedJob => SelectedJobItem.GetComponent<JobItem>().job;
-
-    private void Start()
+    private class JobItemInfo
     {
-        _jobItemTransforms = scrollContent.GetComponentsInChildren<JobItem>()
-        .Select(jobItem => jobItem.GetComponent<RectTransform>())
-        .ToList();
+      public readonly Job Job;
+      public readonly RectTransform ContainerTransform;
+      public readonly RectTransform ItemTransform;
 
-        OnScroll();
+      public JobItemInfo(Job job, RectTransform itemTransform, RectTransform containerTransform)
+      {
+        Job = job;
+        ContainerTransform = containerTransform;
+        ItemTransform = itemTransform;
+      }
     }
 
+    private IList<JobItemInfo> _jobItemInfos;
 
-    public void Reset()
+    private JobItemInfo _selectedJobInfo;
+
+    public Job SelectedJob => _selectedJobInfo.Job;
+
+    public void OnDisplay(Job job)
     {
-        SelectedJobItem = _jobItemTransforms[0];
+      jobItemCreator.OnDisplay();
+      
+      _jobItemInfos = scrollContent.GetComponentsInChildren<JobItem>()
+        .Select(jobItem => new JobItemInfo(jobItem.job, jobItem.GetComponent<RectTransform>(), 
+          jobItem.transform.parent.GetComponent<RectTransform>()))
+        .ToList();
+      
+      OnScroll();
+      
+      // TODO Snap to job
+      Debug.Log($"Snap to job {job.name}");
     }
 
     public void OnScroll()
     {
-
-        _jobItemTransforms = scrollContent.GetComponentsInChildren<JobItem>()
-        .Select(jobItem => jobItem.GetComponent<RectTransform>())
-        .ToList();
-
-
-      var selectedJobFramePos = selectedJobFrame.position;
-      
-      SelectedJobItem = _jobItemTransforms.Aggregate((job1Tr, job2Tr) =>
+      if (_jobItemInfos != null) // OnScroll depends on there being info on job items
       {
-        var job1DistanceToFrame = (job1Tr.position - selectedJobFramePos).magnitude;
-        var job2DistanceToFrame = (job2Tr.position - selectedJobFramePos).magnitude;
+        var selectedJobFramePos = selectedJobFrame.position;
 
-        return job1DistanceToFrame < job2DistanceToFrame ? job1Tr : job2Tr;
-      });
+        Assert.IsTrue(_jobItemInfos.Count > 0);
+        _selectedJobInfo = _jobItemInfos.Aggregate((job1Info, job2Info) =>
+        {
+          var job1DistanceToFrame = (job1Info.ContainerTransform.position - selectedJobFramePos).magnitude;
+          var job2DistanceToFrame = (job2Info.ContainerTransform.position - selectedJobFramePos).magnitude;
 
-
+          return job1DistanceToFrame < job2DistanceToFrame ? job1Info : job2Info;
+        });
+      
+        dataDisplay.SetJobInfo(SelectedJob);
+        
+      }
     }
 
     public void Update()
     {
-        try {
-      scrollRect.velocity = lockSpeedMultiplier * new Vector2(0, 
-        (selectedJobFrame.position - SelectedJobItem.position).y);
-        }
-        catch(NullReferenceException e)
-        {
-
-        }
-
-
+      if (_selectedJobInfo != null)
+      {
+        scrollRect.velocity = lockSpeedMultiplier * new Vector2(0,
+          (selectedJobFrame.position - _selectedJobInfo.ContainerTransform.position).y);
+      }
     }
   }
 }

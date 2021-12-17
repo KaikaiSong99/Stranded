@@ -54,12 +54,11 @@ public class DataDisplay : MonoBehaviour
         characterStrength.text = character.attributes[4].ToString();
     }
 
-    public void SetJobInfo(Job job) ///
+    public void SetJobInfo(Job job)
     {
         jobName.text = job.name;
         jobIcon.sprite = job.jobIcon;
 
-        Debug.Log(job.attributes[0]);
         jobCreativity.text = job.attributes[0].ToString();
         jobKnowledge.text = job.attributes[1].ToString();
         jobMentalConstitution.text = job.attributes[2].ToString();
