@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameManager.unity
     guid: aec73768b1dd6d94f9d6cc859018a7fe
   - enabled: 1
-    path: Assets/Scenes/RoundScene.unity
+    path: Assets/Prefabs/RoundScene.unity
     guid: aa726365d052cfe42b25d8b8790d08a6
   - enabled: 1
     path: Assets/Scenes/StoryScene.unity

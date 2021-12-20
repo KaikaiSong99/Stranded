@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99483dbb6434f6343ab452d681603930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dilemmaTitle: {fileID: 0}
+  _dilemma: {fileID: 11400000, guid: 61867b2801249df43967264236367412, type: 2}
+  dilemmaSprite: {fileID: 0}
