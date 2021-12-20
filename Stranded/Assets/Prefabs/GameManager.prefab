@@ -45,34 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characters: []
+  scenes:
+  - Name: RoundScene
+    Parameter: {fileID: 11400000, guid: 61867b2801249df43967264236367412, type: 2}
   roundNumber: 0
-  roundInit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1002451127300298247, guid: bb4cfa24227a05448b5b8e3335a56abe, type: 3}
-        m_TargetAssemblyTypeName: RoundManager, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6613761967653011546, guid: 4ff421e29a838d548a9267cc49b8e4a2, type: 3}
-        m_TargetAssemblyTypeName: StoryManager, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   fadeController: {fileID: 4276295786051282044}
 --- !u!1001 &3292113019261315324
 PrefabInstance:

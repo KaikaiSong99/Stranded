@@ -254,17 +254,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
-      propertyPath: scenes.Array.size
-      value: 1
+      propertyPath: characters.Array.size
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: characters.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 589920e50e04ab642b230ec96fc8634a, type: 2}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: characters.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: b763d9890c01ece4cb124aeed0a995af, type: 2}
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: scenes.Array.data[0].Name
       value: RoundScene
       objectReference: {fileID: 0}
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
-      propertyPath: scenes.Array.data[0].Parameter
-      value: 
-      objectReference: {fileID: 11400000, guid: 657bcc2c563494145adcf6eac6f440f0, type: 2}
+      propertyPath: scenes.Array.data[1].Name
+      value: RoundScene
+      objectReference: {fileID: 0}
     - target: {fileID: 4010763269622470980, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: m_RootOrder
       value: 1

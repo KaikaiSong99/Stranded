@@ -9,11 +9,13 @@ namespace Model
         public Sprite jobIcon;
         [TextArea(1,10)]
         public string description;
-        public int maxAssignments;
-        public int importance;
 
-        public int[] attributes;
+        public Character idealCharacter;
 
+        [TextArea(1,10)]
+        public string idealAssignedDialogue;
+        [TextArea(1,10)]
+        public string idealSuggestDialogue;
 
         [SerializeField]
         private int _id = -1;

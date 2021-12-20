@@ -29,15 +29,22 @@ public class GameManager : MonoBehaviour
         RoundManager.onRoundEnd += AdvanceRound;    
         StoryManager.onRoundEnd += AdvanceRound;    
         progress = new List<Round>();
+
         StartCoroutine(Play());
 
     }
 
     private IEnumerator Play()
     {
-        Debug.Log(scenes.Count);
+        Debug.Log($"Number of scenes: {scenes.Count}");
         foreach (var scene in scenes)
         {
+            var dilemma = scene.Parameter as Dilemma;
+            if (dilemma != null) 
+            {
+                dilemma.characters = characters;
+            }
+
             roundIsFinished = false;
             yield return StartCoroutine(LoadScene(scene.Name));
 
