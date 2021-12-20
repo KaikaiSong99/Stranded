@@ -6,7 +6,7 @@ using Model;
 using UnityEngine.UI;
 using UI;
 
-public class _RoundManager : MonoBehaviour
+public class RoundManager_Legacy : MonoBehaviour
 {
     public List<Character> characters;
     public List<Job> jobs;
