@@ -17,10 +17,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d88cd7baa4180ba48b2511149581f4a7, type: 2}
   - {fileID: 11400000, guid: f55c389b458ea9d4f854b7cffc684d33, type: 2}
   - {fileID: 11400000, guid: 625c25acf34d6964198d9be280a4f8ad, type: 2}
+  sprite: {fileID: 21300000, guid: 93d04c50955907748837659f55b4db64, type: 3}
   characters: []
+  title: A monster appears!
   description: This is a test dilemma and should contain a short story describing
     the dilemma.
   playTime: 90
+  isCounted: 0
   minJobSuccess: 2
   successText: The dilemma was resolved entirely!
   partialSuccessText: The dilemma was resolved only partially...
