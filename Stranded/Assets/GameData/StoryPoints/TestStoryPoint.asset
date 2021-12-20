@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 862fab3f9c8bef94cbcf51ca5fa32d34, type: 3}
-  m_Name: BaseSceneParameter
+  m_Script: {fileID: 11500000, guid: 18b55fa4c40c86f4582b309f4e6f227d, type: 3}
+  m_Name: TestStoryPoint
   m_EditorClassIdentifier: 
   Round: 0
+  storyText:
+  - This is a test story
+  - Each element should represent one textbox
+  - So that it can be displayed sequentially.
+  playTime: 90

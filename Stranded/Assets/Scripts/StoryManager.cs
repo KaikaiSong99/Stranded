@@ -17,6 +17,8 @@ public class StoryManager : MonoBehaviour
 
 
     // Start this story round (is called from GameManager)
+    // Cast the parameters to StoryPoint type with "StoryPoint s = parameters as StoryPoint"
+    // Could also check if it is a StoryPoint and return if not
     public void Play(BaseSceneParameter parameters)
     {
 

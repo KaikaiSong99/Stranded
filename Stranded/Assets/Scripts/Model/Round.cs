@@ -4,6 +4,7 @@ namespace Model
 {
 
     // Contains statistics for the current round.
+    // TODO: Extend
     public class Round
     {
         public Round(bool isCounted, int numCorrect)

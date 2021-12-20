@@ -47,11 +47,11 @@ public class DataDisplay : MonoBehaviour
         characterDescription.text = character.description;
         characterPortrait.sprite = character.portrait;
 
-        characterCreativity.text = character.attributes[0].ToString();
-        characterKnowledge.text = character.attributes[1].ToString();
-        characterMentalConstitution.text = character.attributes[2].ToString();
-        characterCooperation.text = character.attributes[3].ToString();
-        characterStrength.text = character.attributes[4].ToString();
+        // characterCreativity.text = character.attributes[0].ToString();
+        // characterKnowledge.text = character.attributes[1].ToString();
+        // characterMentalConstitution.text = character.attributes[2].ToString();
+        // characterCooperation.text = character.attributes[3].ToString();
+        // characterStrength.text = character.attributes[4].ToString();
     }
 
     public void SetJobInfo(Job job)
@@ -59,11 +59,11 @@ public class DataDisplay : MonoBehaviour
         jobName.text = job.name;
         jobIcon.sprite = job.jobIcon;
 
-        jobCreativity.text = job.attributes[0].ToString();
-        jobKnowledge.text = job.attributes[1].ToString();
-        jobMentalConstitution.text = job.attributes[2].ToString();
-        jobCooperation.text = job.attributes[3].ToString();
-        jobStrength.text = job.attributes[4].ToString();
+        // jobCreativity.text = job.attributes[0].ToString();
+        // jobKnowledge.text = job.attributes[1].ToString();
+        // jobMentalConstitution.text = job.attributes[2].ToString();
+        // jobCooperation.text = job.attributes[3].ToString();
+        // jobStrength.text = job.attributes[4].ToString();
     }
     
     //Character c, Dictionary<Character, int> IndividualScores

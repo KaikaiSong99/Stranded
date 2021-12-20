@@ -77,20 +77,20 @@ public class _RoundManager : MonoBehaviour
     {
         int totalScore = 0;
 
-        foreach (KeyValuePair<Character, Job> assigned in _assigneds)
-        {
-            int characterScore = 0;
-            Character character = assigned.Key;
-            Job job = assigned.Value; 
+        // foreach (KeyValuePair<Character, Job> assigned in _assigneds)
+        // {
+        //     int characterScore = 0;
+        //     Character character = assigned.Key;
+        //     Job job = assigned.Value; 
 
-            for (int i = 0; i < character.attributes.Length; ++i) 
-            {
-                characterScore += character.attributes[i] * job.attributes[i];
-            }
+        //     for (int i = 0; i < character.attributes.Length; ++i) 
+        //     {
+        //         characterScore += character.attributes[i] * job.attributes[i];
+        //     }
 
-            characterScore *= job.importance;
-            totalScore += characterScore;
-        }
+        //     characterScore *= job.importance;
+        //     totalScore += characterScore;
+        // }
         return totalScore;
     }
     
@@ -111,43 +111,43 @@ public class _RoundManager : MonoBehaviour
     {
         List<int> sortedIndices = new List<int>();
 
-        for (int i = 0; i < job.attributes.Length; ++i) 
-        {
-            int highestVal = 0;
-            int highestIndex = 0;
-            for (int j = 0; j < job.attributes.Length; ++j) 
-            {
-                if (!sortedIndices.Contains(j) && job.attributes[j] > highestVal)
-                {
-                    highestVal = job.attributes[j];
-                    highestIndex = j;
-                }
-            }
-            sortedIndices.Add(highestIndex);
-        }
+    //     for (int i = 0; i < job.attributes.Length; ++i) 
+    //     {
+    //         int highestVal = 0;
+    //         int highestIndex = 0;
+    //         for (int j = 0; j < job.attributes.Length; ++j) 
+    //         {
+    //             if (!sortedIndices.Contains(j) && job.attributes[j] > highestVal)
+    //             {
+    //                 highestVal = job.attributes[j];
+    //                 highestIndex = j;
+    //             }
+    //         }
+    //         sortedIndices.Add(highestIndex);
+    //     }
         return sortedIndices;
     }
 
     private void RevealAttributes()
     {
-        foreach (var assigned in _assigneds)
-        {
-            Character character  = assigned.Key;
-            Job job  = assigned.Value;
+        // foreach (var assigned in _assigneds)
+        // {
+        //     Character character  = assigned.Key;
+        //     Job job  = assigned.Value;
 
-            List<int> sortedIndices = sortedDescendingAttributeIndices(job);
+        //     List<int> sortedIndices = sortedDescendingAttributeIndices(job);
             
-            foreach (int index in sortedIndices)
-            {
-                if (character.revealedAttribute[index] == false)
-                {
-                    character.lastRevealed = index;
-                    character.revealedAttribute[index] = true; 
-                    break;
-                }
-            } 
+        //     foreach (int index in sortedIndices)
+        //     {
+        //         if (character.revealedAttribute[index] == false)
+        //         {
+        //             // character.lastRevealed = index;
+        //             // character.revealedAttribute[index] = true; 
+        //             break;
+        //         }
+        //     } 
 
-        }
+        // }
     }
 
     private void AssignMoods()
@@ -156,21 +156,21 @@ public class _RoundManager : MonoBehaviour
     }
 
 
-    private Mood GetMood(int score) 
-    {
-        Mood mood = Mood.Neutral;
+    // private Mood GetMood(int score) 
+    // {
+    //     Mood mood = Mood.Neutral;
 
-        if (score < maxObtainableScore * 0.4)
-        {
-            mood = Mood.Sad;
-        }
-        else if (score > maxObtainableScore * 0.6 ) 
-        {
-            mood = Mood.Happy;
-        }
+    //     if (score < maxObtainableScore * 0.4)
+    //     {
+    //         mood = Mood.Sad;
+    //     }
+    //     else if (score > maxObtainableScore * 0.6 ) 
+    //     {
+    //         mood = Mood.Happy;
+    //     }
 
-        return mood;
-    }
+    //     return mood;
+    // }
 
 
       // Timer count up
