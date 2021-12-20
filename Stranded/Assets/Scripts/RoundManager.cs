@@ -3,18 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Model;
+using UnityEngine.UI;
 
 public class RoundManager : MonoBehaviour
 {
     // When the round is done call onRoundEnd?.Invoke(Round round)
     public static event Action<Round> onRoundEnd;
-
+    public Text dilemmaTitle;
+    
+    public Image dilemmaSprite;
     // Start is called before the first frame update
     void Start()
     {
         GameManager.onRoundInit += Play;
+       
     }
+    public void ShowOverview(Dilemma dilemma)
+    {
+      
+        dilemmaTitle.text = dilemma.title;
+        dilemmaSprite.sprite = dilemma.sprite;
 
+    }
     public void Update()
     {
 
@@ -29,6 +39,7 @@ public class RoundManager : MonoBehaviour
         var dilemma = parameters as Dilemma;
         Round round = new Round(dilemma.isCounted, 0);
         onRoundEnd?.Invoke(round);
+        ShowOverview(dilemma);
     }
 
     void OnDestroy() {
