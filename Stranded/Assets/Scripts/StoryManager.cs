@@ -60,7 +60,7 @@ public class StoryManager : MonoBehaviour
         {
             timeLeft = 3;
         }
-        
+            
         yield return new WaitForSeconds(timeLeft);
 
         yield return StartCoroutine(transitionController.Trigger("FadeOut"));

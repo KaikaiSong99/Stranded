@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
             yield return StartCoroutine(LoadScene(scene.Name));
 
             onRoundInit?.Invoke(scene.Parameter);
-            yield return new WaitWhile(() => !roundIsFinished);
+            yield return new WaitUntil(() => roundIsFinished);
 
             yield return StartCoroutine(UnloadScene(scene.Name));
         }
