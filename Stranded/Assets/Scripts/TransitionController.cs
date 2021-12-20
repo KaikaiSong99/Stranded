@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class FadeController : MonoBehaviour
+public class TransitionController : MonoBehaviour
 {
 
     public Animator fadeAnimator;
 
-    public IEnumerator FadeScreen(bool fadeIn)
+    public IEnumerator Trigger(string trigger)
     {
-        fadeAnimator.SetBool("FadeIn", fadeIn);
+        fadeAnimator.SetTrigger(trigger);
         yield return new WaitForSeconds(1);
     }
 }

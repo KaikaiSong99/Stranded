@@ -134,17 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1421530005 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1093016264403336318, guid: 1d288515771df0447b4bff25b27d6bae, type: 3}
-  m_PrefabInstance: {fileID: 1863566128859866379}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5131c463ba48c543ae00e588fabe4c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1617274313 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2862923689470358082, guid: 1d288515771df0447b4bff25b27d6bae, type: 3}
@@ -226,7 +215,11 @@ PrefabInstance:
     - target: {fileID: 6613761967653011546, guid: 4ff421e29a838d548a9267cc49b8e4a2, type: 3}
       propertyPath: fadeController
       value: 
-      objectReference: {fileID: 1421530005}
+      objectReference: {fileID: 1863566128859866380}
+    - target: {fileID: 6613761967653011546, guid: 4ff421e29a838d548a9267cc49b8e4a2, type: 3}
+      propertyPath: transitionController
+      value: 
+      objectReference: {fileID: 1863566128859866380}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ff421e29a838d548a9267cc49b8e4a2, type: 3}
 --- !u!1001 &1863566128859866379
@@ -286,3 +279,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d288515771df0447b4bff25b27d6bae, type: 3}
+--- !u!114 &1863566128859866380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2915462429641506615, guid: 1d288515771df0447b4bff25b27d6bae, type: 3}
+  m_PrefabInstance: {fileID: 1863566128859866379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5131c463ba48c543ae00e588fabe4c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
