@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 444986829902142294, guid: c04aad22be1cbe34f9b86f5dc914f52d, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 23
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c04aad22be1cbe34f9b86f5dc914f52d, type: 3}
 --- !u!1001 &4010763270882756067
@@ -254,25 +258,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
-      propertyPath: characters.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
-      propertyPath: characters.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 589920e50e04ab642b230ec96fc8634a, type: 2}
-    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
-      propertyPath: characters.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: b763d9890c01ece4cb124aeed0a995af, type: 2}
-    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: scenes.Array.data[0].Name
-      value: RoundScene
+      value: StoryScene
       objectReference: {fileID: 0}
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
-      propertyPath: scenes.Array.data[1].Name
-      value: RoundScene
-      objectReference: {fileID: 0}
+      propertyPath: scenes.Array.data[0].Parameter
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c30ff593271c4e4898cf78c5ec0d4f7, type: 2}
     - target: {fileID: 4010763269622470980, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     public List<GameScene> scenes;
     public int roundNumber;
     public static event Action<BaseSceneParameter> onRoundInit;
-    public FadeController fadeController;
 
     private List<Round> progress;
     private bool roundIsFinished;
@@ -29,7 +28,7 @@ public class GameManager : MonoBehaviour
         RoundManager.onRoundEnd += AdvanceRound;    
         StoryManager.onRoundEnd += AdvanceRound;    
         progress = new List<Round>();
-
+        roundNumber = 1;
         StartCoroutine(Play());
 
     }
@@ -39,25 +38,25 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Number of scenes: {scenes.Count}");
         foreach (var scene in scenes)
         {
-            var dilemma = scene.Parameter as Dilemma;
-            if (dilemma != null) 
-            {
-                dilemma.characters = characters;
-            }
+            SetSceneParameters(scene.Parameter);
 
             roundIsFinished = false;
             yield return StartCoroutine(LoadScene(scene.Name));
 
             onRoundInit?.Invoke(scene.Parameter);
-            fadeController.FadeScreen(false);
             yield return new WaitWhile(() => !roundIsFinished);
 
-            fadeController.FadeScreen(true);
             yield return StartCoroutine(UnloadScene(scene.Name));
         }
 
         Debug.Log("End Game");
         yield return null;
+    }
+
+    private void SetSceneParameters(BaseSceneParameter parameters)
+    {
+        parameters.characters = characters;
+        parameters.round = roundNumber;
     }
 
     private IEnumerator LoadScene(string name)

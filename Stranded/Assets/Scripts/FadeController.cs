@@ -8,8 +8,9 @@ public class FadeController : MonoBehaviour
 
     public Animator fadeAnimator;
 
-    public void FadeScreen(bool fadeIn)
+    public IEnumerator FadeScreen(bool fadeIn)
     {
         fadeAnimator.SetBool("FadeIn", fadeIn);
+        yield return new WaitForSeconds(1);
     }
 }

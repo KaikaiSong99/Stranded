@@ -10,9 +10,6 @@ namespace Model
         public List<Job> jobs;
         public Sprite sprite;
 
-        [HideInInspector]
-        public List<Character> characters;
-
         public string title;
         [TextArea(1,10)]
         public string description;
