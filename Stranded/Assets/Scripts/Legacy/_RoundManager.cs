@@ -22,9 +22,6 @@ public class _RoundManager : MonoBehaviour
     public GridLayoutGroupAutoScaler gridScaler;
 
     public float timeLeft;
-    private Round _round;
-    public Round Round
-    { get; }  
 
     private Dictionary<Character, Job> _assigneds = new Dictionary<Character, Job>();
 
@@ -38,7 +35,6 @@ public class _RoundManager : MonoBehaviour
     {
         topBarManager.DisplayScore(totalScore);
         feedbackManager.gameObject.SetActive(false);
-        _round = new Round();
         _assigneds = new Dictionary<Character, Job>();
 
         foreach (Character c in characters)
@@ -71,12 +67,10 @@ public class _RoundManager : MonoBehaviour
     public IEnumerator PlayFeedbackPhase()
     {
         timeLeft = feedbackDurationInSeconds;
-        _round.Score = CalculateScore();
-        totalScore += _round.Score;
         AssignMoods();
         RevealAttributes();
         feedbackManager.gameObject.SetActive(true);
-        yield return StartCoroutine(feedbackManager.ShowFeedback(_round.Score, new List<Character>(_assigneds.Keys)));
+        yield return StartCoroutine(feedbackManager.ShowFeedback(0, new List<Character>(_assigneds.Keys)));
     }
 
     private int CalculateScore()
@@ -94,7 +88,6 @@ public class _RoundManager : MonoBehaviour
                 characterScore += character.attributes[i] * job.attributes[i];
             }
 
-            _round.IndividualScores.Add(character, characterScore);
             characterScore *= job.importance;
             totalScore += characterScore;
         }
@@ -159,12 +152,7 @@ public class _RoundManager : MonoBehaviour
 
     private void AssignMoods()
     {
-        foreach (var score in _round.IndividualScores)
-        {
-            Character character  = score.Key;
-            int individualScore  = score.Value;
-            character.Mood = GetMood(individualScore);
-        }
+
     }
 
 

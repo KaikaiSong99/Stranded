@@ -43,3 +43,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f5316e6fd95c74c80420a79bf1f1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onRoundEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: AdvanceRound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
