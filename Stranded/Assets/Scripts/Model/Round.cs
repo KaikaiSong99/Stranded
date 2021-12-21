@@ -11,10 +11,18 @@ namespace Model
         {
             IsCounted = isCounted;
             NumCorrect = numCorrect;
-            PickedCharacters = new Dictionary<Job, Character>(); 
+            PickedCharacters = new Dictionary<Job, Character>();
+            PartiallySucceeded = false;
+            Succeeded = false;
         }
 
         public bool IsCounted
+        { get; set; }
+
+        public bool PartiallySucceeded
+        { get; set; }
+
+        public bool Succeeded
         { get; set; }
 
         public Dictionary<Job, Character> PickedCharacters
@@ -23,5 +31,22 @@ namespace Model
         public int NumCorrect
         { get; set; }
 
+        public void AssignCharacterToJob(Character character, Job job)
+        {
+            ClearCharacter(character);
+            PickedCharacters.Add(job, character);
+
+        }
+
+        private void ClearCharacter(Character character)
+        {
+            foreach (KeyValuePair<Job, Character> picked in PickedCharacters)
+            {
+                if (picked.Value.Equals(character))
+                {
+                    PickedCharacters.Remove(picked.Key);
+                }
+            }
+        }
     }
 }

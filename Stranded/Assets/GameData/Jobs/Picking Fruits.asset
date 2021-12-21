@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 21300000, guid: 08fec32890628464aa782a53dd4ca0a3, type: 3}
   description: 
-  maxAssignments: 1
-  importance: 2
-  attributes: 0200000002000000030000000100000002000000
+  idealCharacter: {fileID: 11400000, guid: b763d9890c01ece4cb124aeed0a995af, type: 2}
+  idealAssignedDialogue: 
+  idealSuggestDialogue: 
   _id: -1
