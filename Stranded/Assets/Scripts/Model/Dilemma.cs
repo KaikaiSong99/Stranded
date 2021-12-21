@@ -10,18 +10,19 @@ namespace Model
         public List<Job> jobs;
         public Sprite sprite;
 
-        [HideInInspector]
-        public List<Character> characters;
-
         public string title;
         [TextArea(1,10)]
         public string description;
         public float playTime;
 
+        [Tooltip("Sets whether the dilemma is counted towards getting an ending.")]
         public bool isCounted;
         public int minJobSuccess;
+        [TextArea(1,10)]
         public string successText;
+        [TextArea(1,10)]
         public string partialSuccessText;
+        [TextArea(1,10)]
         public string failureText;        
     }
 }
