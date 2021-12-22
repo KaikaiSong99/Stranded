@@ -7,7 +7,10 @@ namespace Model
     public class Job : ScriptableObject
     {
         public Sprite jobIcon;
-        [TextArea(1,10)]
+
+        public string jobTitle;
+
+            [TextArea(1,10)]
         public string description;
 
         public Character idealCharacter;
