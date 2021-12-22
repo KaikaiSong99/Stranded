@@ -46,9 +46,7 @@ public class CharCard : MonoBehaviour, IPointerDownHandler
        charactersView.SetActive(false);
        
        characterManager.roundManager.AssignCharacterToJob(character, jobCard.job);
-       jobCard.characterName = characterName;
-       jobCard.portrait = portrait;
-       jobCard.roundManager.jobManager.RefreshJobCards();
+       characterManager.roundManager.jobManager.RefreshJobCards();
 
 
     }
