@@ -15,9 +15,8 @@ public class _RoundManager : MonoBehaviour
     public int assignmentDurationInSeconds = 90;
     public int maxObtainableScore = 40;
     private int totalScore = 0;
-
     public _FeedbackManager feedbackManager;
-    public TopBarManager topBarManager;
+    public Legacy.TopBarManager topBarManager;
     public CharacterCardCreator cardCreator;
     public GridLayoutGroupAutoScaler gridScaler;
 
