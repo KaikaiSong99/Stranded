@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 905784557781276180}
   - component: {fileID: 1654961834187574400}
   m_Layer: 0
-  m_Name: TransitionScreen
+  m_Name: SceneTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5131c463ba48c543ae00e588fabe4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeAnimator: {fileID: 905784557781276180}
+  animator: {fileID: 905784557781276180}
 --- !u!1 &905784559200039489
 GameObject:
   m_ObjectHideFlags: 0

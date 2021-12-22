@@ -200,9 +200,9 @@ GameObject:
   - component: {fileID: 5805393994432565254}
   - component: {fileID: 5805393994432565255}
   - component: {fileID: 5805393994432565253}
-  - component: {fileID: 2841632439852960262}
+  - component: {fileID: 1359244195213335494}
   m_Layer: 0
-  m_Name: WorkingTransitionScreen
+  m_Name: FeedbackTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +254,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2841632439852960262
+--- !u!114 &1359244195213335494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af5246cae1075e409a681a37a3bc4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeAnimator: {fileID: 5805393994432565253}
+  animator: {fileID: 5805393994432565253}
 --- !u!1 &6580541418437517840
 GameObject:
   m_ObjectHideFlags: 0
