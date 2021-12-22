@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Model;
 
-public class FeedbackManager : MonoBehaviour
+public class _FeedbackManager : MonoBehaviour
 {
     public Text score;
     public GameObject feedbackPrefab;

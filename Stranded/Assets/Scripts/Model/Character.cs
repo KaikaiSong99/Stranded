@@ -22,6 +22,11 @@ namespace Model
 
         private readonly int _id = SimpleIdGenerator.NextId;
 
+        public int GetId()
+        {
+            return _id;
+        }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as Character);

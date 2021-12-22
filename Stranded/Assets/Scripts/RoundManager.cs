@@ -24,11 +24,15 @@ public class RoundManager : MonoBehaviour
     public float executionTime = 5;
     public float feedbackTime = 30;
 
-    public float timeLeft 
-    { get; private set; }
+    
+    public float timeLeft;
+    // { get; private set; }
 
     public Text dilemmaTitle;
     public Image dilemmaSprite;
+
+    public FeedbackManager feedbackManager;
+    public Canvas feedbackScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +74,14 @@ public class RoundManager : MonoBehaviour
     {
         Debug.Log("Assignment has started");
         timeLeft = dilemma.playTime;
+        foreach (var character in dilemma.characters)
+        {
+            Debug.Log($"{character.GetId()}");
+        }
+        AssignCharacterToJob(dilemma.characters[0], dilemma.jobs[0]);
+        AssignCharacterToJob(dilemma.characters[1], dilemma.jobs[1]);
+        AssignCharacterToJob(dilemma.characters[2], dilemma.jobs[2]);
+        AssignCharacterToJob(dilemma.characters[3], dilemma.jobs[3]);
         yield return StartCoroutine(Timer(() => PlayExecutionPhase()));
     }
 
@@ -85,6 +97,8 @@ public class RoundManager : MonoBehaviour
     {
         Debug.Log("Feedback has started");
         timeLeft = feedbackTime;
+        feedbackScreen.gameObject.SetActive(true);
+        StartCoroutine(feedbackManager.Show(feedback));
         yield return StartCoroutine(Timer(() => null));
         onRoundEnd?.Invoke(round);
     }
@@ -140,15 +154,18 @@ public class RoundManager : MonoBehaviour
     //Adds feedback for a specific character
     private void AddFeedback(Character character, String dialogue)
     {
+        Debug.Log($"Added Feedback: {character.firstName} - {dialogue}");
         List<String> characterFeedback;
 
-        if (!feedback.TryGetValue(character, out characterFeedback))
+        if (feedback.TryGetValue(character, out characterFeedback))
         {
-            characterFeedback = new List<String>();     
+            characterFeedback.Add(dialogue);
         }
-        characterFeedback.Add(dialogue);
+        else {
+            characterFeedback = new List<String> { dialogue };     
+            feedback.Add(character, characterFeedback);
+        }
 
-        feedback.Add(character, characterFeedback);
     }
 
     void OnDestroy() {
