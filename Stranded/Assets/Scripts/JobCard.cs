@@ -9,6 +9,7 @@ public class JobCard : MonoBehaviour, IPointerDownHandler
     
     public Text jobName;
     public Text characterName;
+    public Text jobDescription;
     public Image portrait;
     public Image icon;
     private Job _job;
@@ -16,6 +17,12 @@ public class JobCard : MonoBehaviour, IPointerDownHandler
     public CharacterManager characterManager;
     public Dilemma dilemma;
     public RoundManager roundManager;
+
+
+    public void Start()
+    {
+        portrait.sprite = null;
+    }
     
 
     public Job job
@@ -24,10 +31,12 @@ public class JobCard : MonoBehaviour, IPointerDownHandler
         set { _job = value; 
         
             jobName.text = value.name; 
-           
-            icon.sprite = value.jobIcon;
+            jobDescription.text = value.description;
+
+
         }
     }
+
     
     // TODO: show character overview
     public void OnPointerDown(PointerEventData data)
@@ -39,7 +48,6 @@ public class JobCard : MonoBehaviour, IPointerDownHandler
        
         charactersUI.gameObject.SetActive(true);
         characterManager.jobCard = this;
-        characterManager.icon.sprite = icon.sprite;
         characterManager.jobName.text = jobName.text;
         
         characterManager.CreateCards(dilemma);

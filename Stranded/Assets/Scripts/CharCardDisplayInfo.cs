@@ -26,10 +26,4 @@ public class CharCardDisplayInfo : MonoBehaviour
         portrait.sprite = character.portrait;
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

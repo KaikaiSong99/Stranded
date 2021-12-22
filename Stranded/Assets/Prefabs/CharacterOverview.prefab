@@ -893,12 +893,12 @@ MonoBehaviour:
   icon: {fileID: 5700358611374694948}
   charCardPrefab: {fileID: 7067669673882120669, guid: 23db3be65be4e3247be27b6cb9950b1d, type: 3}
   containers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1793498342730628911}
+  - {fileID: 54319376166099908}
+  - {fileID: 1426326420018431181}
+  - {fileID: 5160300167955246520}
+  - {fileID: 1269555409498643784}
+  - {fileID: 2592408847273058810}
   jobCard: {fileID: 0}
-  selected: {fileID: 0}
   roundManager: {fileID: 0}
+  infoUI: {fileID: 0}

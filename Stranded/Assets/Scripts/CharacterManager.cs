@@ -12,14 +12,12 @@ public class CharacterManager : MonoBehaviour
     public Text jobName;
     public Image icon;
     public GameObject charCardPrefab;
-    [HideInInspector]
+    // [HideInInspector]
     public List<Transform> containers;
     private List<GameObject> objects = new List<GameObject>();
     public JobCard jobCard;
     public RoundManager roundManager;
-    
-   
-
+    public CanvasGroup infoUI;
     
     public void Start()
     {
@@ -41,6 +39,7 @@ public class CharacterManager : MonoBehaviour
             charCard.transform.parent = containers[i];
             
             CharCard cCard = charCard.GetComponent<CharCard>();
+            cCard.infoUI = infoUI;
             cCard.characterManager = this;
             cCard.character = character;
             cCard.charactersView = gameObject;

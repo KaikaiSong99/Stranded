@@ -33,9 +33,9 @@ public class JobManager : MonoBehaviour
             objects.Add(jobCard);
             jobCard.transform.parent = containers[i];
             JobCard jCard = jobCard.GetComponent<JobCard>();
+            jCard.characterManager = characterManager;
             jCard.charactersUI = charactersUI;
             jCard.dilemma = dilemma;
-            jCard.characterManager = characterManager;
             
             jCard.roundManager = roundManager;
             jCard.job = job;
@@ -54,7 +54,6 @@ public class JobManager : MonoBehaviour
             {
                 jCard.characterName.text = characterTemp.name;
                 jCard.portrait.sprite = characterTemp.portrait;
-               
                 Debug.Log("refreshed");
             }
        

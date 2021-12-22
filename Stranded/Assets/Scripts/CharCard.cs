@@ -30,14 +30,24 @@ public class CharCard : MonoBehaviour, IPointerDownHandler
 
         }
     }
-    void Start () {
+    public void Start () {
         Button btn = infoButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
     }
 
-   public void TaskOnClick(){
-        
+    public void TaskOnClick()
+    {
         infoUI.gameObject.SetActive(true);
+        var cardInfo = infoUI.GetComponent<CharCardDisplayInfo>();
+        if (cardInfo != null)
+        {
+            cardInfo.SetCharacterInfo(character);
+        }
+    }
+
+    public void CloseInfo()
+    {
+        infoUI.gameObject.SetActive(false);
     }
   
     public void OnPointerDown(PointerEventData data)
