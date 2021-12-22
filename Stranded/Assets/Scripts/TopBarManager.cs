@@ -14,8 +14,11 @@ public class TopBarManager : MonoBehaviour
     {
         if (FindRoundManager())
         {
-            roundText.text = RoundPrefix + _roundManager.dilemma.round;
-            timeText.text = DisplayTime(_roundManager.timeLeft);
+            if (_roundManager.dilemma != null) 
+            {
+                roundText.text = RoundPrefix + _roundManager.dilemma.round;
+                timeText.text = DisplayTime(_roundManager.timeLeft);
+            }
         }
         else
         {
