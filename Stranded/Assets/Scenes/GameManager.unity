@@ -262,11 +262,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: scenes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: scenes.Array.data[0].Name
       value: StoryScene
       objectReference: {fileID: 0}
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: scenes.Array.data[1].Name
+      value: StoryScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: scenes.Array.data[0].Parameter
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c30ff593271c4e4898cf78c5ec0d4f7, type: 2}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: scenes.Array.data[1].Parameter
       value: 
       objectReference: {fileID: 11400000, guid: 3c30ff593271c4e4898cf78c5ec0d4f7, type: 2}
     - target: {fileID: 4010763269622470980, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
