@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: OperationLeader
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 0}
-  jobTitle: 
-  description: 
-  idealCharacter: {fileID: 0}
-  idealAssignedDialogue: 
-  idealSuggestDialogue: 
+  jobTitle: Operation leader
+  description: Someone has to coordinate and lead the operation.
+  idealCharacter: {fileID: 11400000, guid: e55d8a5e5b39d1f47ae57dec2ee80969, type: 2}
+  idealAssignedDialogue: I consider that a success no matter what. You've shown a
+    lot of willpower, team! I'm proud of you.
+  idealSuggestDialogue: I see that not everything went perfect. Let me help you all
+    set up a debrief meeting so we can discuss what went wrong.

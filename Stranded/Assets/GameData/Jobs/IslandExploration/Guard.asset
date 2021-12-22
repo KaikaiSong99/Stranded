@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Guard
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 0}
-  jobTitle: 
-  description: 
-  idealCharacter: {fileID: 0}
-  idealAssignedDialogue: 
-  idealSuggestDialogue: 
+  jobTitle: Guard
+  description: Someone comes along to guard against dangerous animals.
+  idealCharacter: {fileID: 11400000, guid: 152bbd854c8de5942b1c0be03ff83aef, type: 2}
+  idealAssignedDialogue: I must say, the animals in this forest are really easily
+    scared. That was fun, though.
+  idealSuggestDialogue: 'Hey, a little tip from me: when face-to-face with a beast,
+    look them in the eye and don''t flinch.'

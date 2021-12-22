@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Electrician
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 0}
-  jobTitle: 
-  description: 
-  idealCharacter: {fileID: 0}
-  idealAssignedDialogue: 
-  idealSuggestDialogue: 
+  jobTitle: Electrician
+  description: "Someone is responsible for fixing the radio\u2019s electric circuits."
+  idealCharacter: {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
+  idealAssignedDialogue: A fun little puzzle that was. It goes to show that even
+    highschool physics is still very practically applicable!
+  idealSuggestDialogue: You should have told me that you were going to dabble with
+    electrical systems. I would have borrowed you my pocket mulimeter!

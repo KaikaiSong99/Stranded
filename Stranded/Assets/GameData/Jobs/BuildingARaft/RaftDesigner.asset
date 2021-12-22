@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: RaftDesigner
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 0}
-  jobTitle: 
-  description: 
-  idealCharacter: {fileID: 0}
-  idealAssignedDialogue: 
-  idealSuggestDialogue: 
+  jobTitle: Raft designer
+  description: Someone is responsible for designing the raft.
+  idealCharacter: {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
+  idealAssignedDialogue: It's not exactly as what I drew out on paper but I think
+    I did the best job I could with these materials.
+  idealSuggestDialogue: I'm not sure if that raft is seaworthy... The construction
+    appears to have a weak spot down the middle.

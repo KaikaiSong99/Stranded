@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: MapMaker
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 0}
-  jobTitle: 
-  description: 
-  idealCharacter: {fileID: 0}
-  idealAssignedDialogue: 
-  idealSuggestDialogue: 
+  jobTitle: Map maker
+  description: Someone comes along to make the map.
+  idealCharacter: {fileID: 11400000, guid: fe8760a2e816e3e43bfe6a954b88379d, type: 2}
+  idealAssignedDialogue: Wow, I didn't expect this to be so fun. I'm going to color
+    this thing once we get home.
+  idealSuggestDialogue: Wait, I didn't know there was a job for drawing maps. I can
+    draw pretty well!

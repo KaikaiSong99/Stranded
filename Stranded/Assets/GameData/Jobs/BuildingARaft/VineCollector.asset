@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: VineCollector
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 0}
-  jobTitle: 
-  description: 
-  idealCharacter: {fileID: 0}
-  idealAssignedDialogue: 
-  idealSuggestDialogue: 
+  jobTitle: Vine collector
+  description: "Someone has to collect vines from the forest to make ropes out of.\r"
+  idealCharacter: {fileID: 11400000, guid: 1f13345abceb66c44bada9e5a7b89d3f, type: 2}
+  idealAssignedDialogue: Done! It's a simple job but a fulfilling one.
+  idealSuggestDialogue: You know, I could have done for a walk in the forest, collecting
+    vines. Sounds meditative.

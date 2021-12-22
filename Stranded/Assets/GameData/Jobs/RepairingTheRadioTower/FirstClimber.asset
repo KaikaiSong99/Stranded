@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: FirstClimber
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 0}
-  jobTitle: 
-  description: 
-  idealCharacter: {fileID: 0}
-  idealAssignedDialogue: 
-  idealSuggestDialogue: 
+  jobTitle: First climber
+  description: Someone has to be the first to climb the tower to find a safe passage.
+  idealCharacter: {fileID: 11400000, guid: 152bbd854c8de5942b1c0be03ff83aef, type: 2}
+  idealAssignedDialogue: Good thing I went to the gym on the cruise ship. I almost
+    made it to the top with one arm!
+  idealSuggestDialogue: Wait, climbing an old radio tower was a job? You guys should
+    have let me know!

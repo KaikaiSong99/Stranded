@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: WoodGatherer
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 0}
-  jobTitle: 
-  description: 
-  idealCharacter: {fileID: 0}
-  idealAssignedDialogue: 
-  idealSuggestDialogue: 
+  jobTitle: Wood gatherer
+  description: Someone has to chop trees to get large logs for the raft.
+  idealCharacter: {fileID: 11400000, guid: 152bbd854c8de5942b1c0be03ff83aef, type: 2}
+  idealAssignedDialogue: It's a shame that we have to use all logs for the raft.
+    Some of them were real nice to do squats with.
+  idealSuggestDialogue: Don't underestimate those logs! They are heavy! I would start
+    with something smaller if I were you, rookie!

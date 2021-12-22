@@ -14,13 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   round: 0
   characters: []
-  jobs: []
+  jobs:
+  - {fileID: 11400000, guid: 893eb7e2571ff5a40ab592ea538119fd, type: 2}
+  - {fileID: 11400000, guid: 394d9a01ed1aaea448271be48ea0abb6, type: 2}
+  - {fileID: 11400000, guid: 2fc1c9ef8159416418de6b306fd25443, type: 2}
+  - {fileID: 11400000, guid: 47d4a9b3773956048ae3ebeb7e4a7ced, type: 2}
   sprite: {fileID: 0}
-  title: 
-  description: 
-  playTime: 0
-  isCounted: 0
-  minJobSuccess: 0
-  successText: 
-  partialSuccessText: 
-  failureText: 
+  title: Food and water collecting
+  description: After spending some hours on the island, some of the survivors start
+    feeling hungry. They will need to find a source of food on the island. Luckily,
+    there are a couple of options.
+  playTime: 40
+  isCounted: 1
+  minJobSuccess: 1
+  successText: As if blessed with a miracle, the survivors managed to collect fruits
+    and meat and distill water of high quality. In front of them, there are all the
+    ingredients for a tasty and nutritious meal. Life on a deserted island is not
+    so bad!
+  partialSuccessText: Not all food and water collecting endeavours were a success,
+    but there seems to be enough food to feed everyone. The survivors are relieved
+    to have a meal for the day.
+  failureText: "The search for food was a disaster. Almost everyone returned empty-handed.
+    Luckily, one of the other survivors found a crate of dry, tasteless crackers
+    in the lifeboat. The survivors won\u2019t have to go hungry but no one will be
+    enjoying this meal."

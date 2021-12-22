@@ -14,13 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   round: 0
   characters: []
-  jobs: []
+  jobs:
+  - {fileID: 11400000, guid: bfaae737136485240916277c025ff20f, type: 2}
+  - {fileID: 11400000, guid: 4b0b23d9b07aad44aab8c83fc0d3b087, type: 2}
+  - {fileID: 11400000, guid: 93f6a69748e1e9f40843ebb2f55bead2, type: 2}
   sprite: {fileID: 0}
-  title: 
-  description: 
-  playTime: 0
-  isCounted: 0
-  minJobSuccess: 0
-  successText: 
-  partialSuccessText: 
-  failureText: 
+  title: Island exploration
+  description: "To increase their chance of survival the group decides to organise
+    an expedition to map out the island and scan it\u2019s resources. "
+  playTime: 30
+  isCounted: 1
+  minJobSuccess: 1
+  successText: The expedition went quicker than expected. The team worked together
+    well and, before they knew it, they mapped out the whole island. They encountered
+    some wild animals along the way but managed to avoid them.
+  partialSuccessText: The expedition turned out to be quite the adventure. The team
+    got lost for an hour in the deep forest and at some point they stood eye to eye
+    with a gorilla-bear. But, in the end, they arrived safely home with a decent
+    map.
+  failureText: "The moment the team set foot in the forest, they were practically
+    immediately lost. After hearing a weird sound coming from the bushes, they decided
+    to just take a run for it. They managed to reach the beach and walk back home
+    along the island\u2019s perimeter."

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Navigator
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 0}
-  jobTitle: 
-  description: 
-  idealCharacter: {fileID: 0}
-  idealAssignedDialogue: 
-  idealSuggestDialogue: 
+  jobTitle: Navigator
+  description: 'Someone needs to lead and navigate the expedition. '
+  idealCharacter: {fileID: 11400000, guid: e55d8a5e5b39d1f47ae57dec2ee80969, type: 2}
+  idealAssignedDialogue: As I said, if you all just follow me, no one gets lost.
+  idealSuggestDialogue: Navigation shouldn't be that hard right? Just keep your mind
+    straight and don't lose sight of your team.
