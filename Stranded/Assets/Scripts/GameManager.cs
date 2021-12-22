@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,12 @@ public class GameManager : MonoBehaviour
     {
         public string Name;        
         public BaseSceneParameter Parameter;
+
+        public GameScene(string name, BaseSceneParameter parameter)
+        {
+            Name = name;
+            Parameter = parameter;
+        }
     }
 
     public List<Character> characters;
@@ -20,14 +27,15 @@ public class GameManager : MonoBehaviour
     public int roundNumber;
     public static event Action<BaseSceneParameter> onRoundInit;
 
-    private List<Round> progress;
+    public EndingEvaluationOrder endingEvaluationOrder;
+
+    private readonly List<Round> progress = new List<Round>();
     private bool roundIsFinished;
 
     void Start()
     {
         RoundManager.onRoundEnd += AdvanceRound;    
-        StoryManager.onRoundEnd += AdvanceRound;    
-        progress = new List<Round>();
+        StoryManager.onRoundEnd += AdvanceRound;
         roundNumber = 1;
         StartCoroutine(Play());
 
@@ -35,9 +43,12 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Play()
     {
+        var decidedEnding = false;
+        
         Debug.Log($"Number of scenes: {scenes.Count}");
-        foreach (var scene in scenes)
+        for (var i = 0; i < scenes.Count; i++)
         {
+            var scene = scenes[i];
             SetSceneParameters(scene.Parameter);
 
             roundIsFinished = false;
@@ -47,10 +58,16 @@ public class GameManager : MonoBehaviour
             yield return new WaitUntil(() => roundIsFinished);
 
             yield return StartCoroutine(UnloadScene(scene.Name));
+
+            // after the final "regular scene", decide which ending scene to use and push it to scenes.
+            if (i + 1 == scenes.Count && !decidedEnding)
+            {
+                scenes.Add(DecideEnding());
+                decidedEnding = true;
+            }
         }
 
         Debug.Log("End Game");
-        yield return null;
     }
 
     private void SetSceneParameters(BaseSceneParameter parameters)
@@ -75,10 +92,22 @@ public class GameManager : MonoBehaviour
         yield return new WaitWhile(() => !scene.isDone);
     }
 
-    /***
-        Advances the round to the next.
-        Should be called via an event;
-    ***/
+    private GameScene DecideEnding()
+    {
+        var storyPoint = endingEvaluationOrder.endings
+            .First(endingDefinition => endingDefinition.requiredSuccessfulDilemmas
+                .All(dilemma => progress
+                    .Exists(round => round.Dilemma.Equals(dilemma) && round.PartiallySucceeded)))
+            .ending;
+        
+        return new GameScene("StoryScene", storyPoint);
+    }
+    
+    /// <summary>
+    /// Advances the round to the next.
+    /// Should be called via an event;
+    /// </summary>
+    /// <param name="round"></param>
     public void AdvanceRound(Round round)
     {
         if (round != null)
