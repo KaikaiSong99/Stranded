@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class TopBarManager : MonoBehaviour
 {
-    private GameManager _gameManager;
     private RoundManager _roundManager;
 
     private const string RoundPrefix = "Round: ";
@@ -13,19 +12,25 @@ public class TopBarManager : MonoBehaviour
 
     private void Update()
     {
-        FindRoundManagerAndGameManager();
-        
-        roundText.text = RoundPrefix + _gameManager.roundNumber;
-        timeText.text = DisplayTime(_roundManager.timeLeft);
+        if (FindRoundManager())
+        {
+            roundText.text = RoundPrefix + _roundManager.dilemma.round;
+            timeText.text = DisplayTime(_roundManager.timeLeft);
+        }
+        else
+        {
+            Debug.LogWarning("Top bar couldn't find a round manager in the scene.");
+        }
     }
 
-    private void FindRoundManagerAndGameManager()
+    private bool FindRoundManager()
     {
-        if (_roundManager == null) _roundManager = 
-            _roundManager = FindObjectOfType<RoundManager>();
-        
-        if (_gameManager == null) _gameManager = 
-            _gameManager = FindObjectOfType<GameManager>();
+        if (_roundManager != null)
+            return true;
+
+        _roundManager = FindObjectOfType<RoundManager>();
+
+        return _roundManager != null;
     }
     
     private static string DisplayTime(float timeToDisplay)
