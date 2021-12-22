@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd73e720b4c6cbf4e9deabdaa78544d0, type: 3}
   m_Name: Mustafa
   m_EditorClassIdentifier: 
-  portrait: {fileID: 0}
-  firstName: 
-  age: 0
-  description: 
-  incorrectlyAssignedDialogue: 
-  _id: -1
+  portrait: {fileID: 21300000, guid: dfe22d9dc80085644918b4dcf06bd024, type: 3}
+  firstName: Mustafa
+  age: 19
+  description: Shy, slim figure
+  incorrectlyAssignedDialogue: I'm so sorry guys. I don't really know what happened...
+    I must have started dreaming about this superhero comic I'm writing.

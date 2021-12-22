@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd73e720b4c6cbf4e9deabdaa78544d0, type: 3}
   m_Name: Lucy
   m_EditorClassIdentifier: 
-  portrait: {fileID: 0}
-  firstName: 
-  age: 0
-  description: 
-  incorrectlyAssignedDialogue: 
-  _id: -1
+  portrait: {fileID: 21300000, guid: 400de1077a1313e469ed30d2017cd161, type: 3}
+  firstName: Lucy
+  age: 30
+  description: Fast talker, friendly
+  incorrectlyAssignedDialogue: Sorry folks! This job turned out to be very unfit
+    for me. Who assigned me again? Could I have a word with them?
