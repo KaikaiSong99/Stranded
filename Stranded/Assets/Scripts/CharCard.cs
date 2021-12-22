@@ -35,7 +35,7 @@ public class CharCard : MonoBehaviour, IPointerDownHandler
         btn.onClick.AddListener(TaskOnClick);
     }
 
-    void TaskOnClick(){
+   public void TaskOnClick(){
         
         infoUI.gameObject.SetActive(true);
     }

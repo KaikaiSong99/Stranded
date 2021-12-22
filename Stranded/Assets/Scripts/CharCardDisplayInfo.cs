@@ -4,12 +4,13 @@ using Model;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharCardInfo : MonoBehaviour
+public class CharCardDisplayInfo : MonoBehaviour
 {
     public Text name;
 
     public Text age;
 
+    public Button button;
     //public Text gender;
 
     public Text description;
