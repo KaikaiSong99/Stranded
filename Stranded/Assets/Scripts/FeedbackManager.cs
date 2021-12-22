@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ public class FeedbackManager : MonoBehaviour
 
     
 
-    public IEnumerator Show(Dictionary<Character, List<string>> feedback)
+    public IEnumerator Show(Dictionary<Job, Dictionary<Character, String>> feedback)
     {
         ClearBoxes();
 
@@ -27,7 +28,7 @@ public class FeedbackManager : MonoBehaviour
                 chatboxObject.transform.parent = container;
 
                 var chatbox = chatboxObject.GetComponent<Chatbox>();
-                chatbox.Show(fb.Key, characterFeedback);
+                //chatbox.Show(fb.Key, characterFeedback);
                 yield return new WaitForSeconds(delay);
 
             }
