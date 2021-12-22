@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: HuntSmallAnimals
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 0}
-  jobTitle: 
-  description: 
-  idealCharacter: {fileID: 0}
-  idealAssignedDialogue: 
-  idealSuggestDialogue: 
+  jobTitle: Hunt small animals
+  description: Someone will hunt small animals in the forest.
+  idealCharacter: {fileID: 11400000, guid: 152bbd854c8de5942b1c0be03ff83aef, type: 2}
+  idealAssignedDialogue: That was a bit brutal, even for me. But, man, it went well.
+    Enough meat for everyone!
+  idealSuggestDialogue: Hunting animals on a deserted island... sounds wild. Next
+    time I'm doing that!

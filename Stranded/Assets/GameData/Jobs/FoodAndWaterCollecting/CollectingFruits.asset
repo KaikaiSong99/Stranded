@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: CollectingFruits
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 0}
-  description: 
-  idealCharacter: {fileID: 0}
-  idealAssignedDialogue: 
-  idealSuggestDialogue: 
-  _id: -1
+  jobTitle: Collecting fruits
+  description: Someone needs to collect fruits in the forest.
+  idealCharacter: {fileID: 11400000, guid: 1f13345abceb66c44bada9e5a7b89d3f, type: 2}
+  idealAssignedDialogue: Pfew, it's done already? I really like these kinds of jobs
+    where I can just turn my brain off and get at it.
+  idealSuggestDialogue: You failed at picking fruits? I would have gladly done that.
+    Sounds like a chill job.

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: BuildingAWaterDistiller
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 0}
-  jobTitle: 
-  description: 
-  idealCharacter: {fileID: 0}
-  idealAssignedDialogue: 
-  idealSuggestDialogue: 
+  jobTitle: Building a water distiller
+  description: Someone needs to build a water distiller from plastic bottles.
+  idealCharacter: {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
+  idealAssignedDialogue: That was fun! Let me know when I need to build something
+    again!
+  idealSuggestDialogue: You know, this type of job would have really been up my alley.
+    I'm pretty sure I already built one of these once before.
