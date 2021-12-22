@@ -17,7 +17,7 @@ public class _RoundManager : MonoBehaviour
     private int totalScore = 0;
 
     public FeedbackManager feedbackManager;
-    public TopBarManager topBarManager;
+    public Legacy.TopBarManager topBarManager;
     public CharacterCardCreator cardCreator;
     public GridLayoutGroupAutoScaler gridScaler;
 
