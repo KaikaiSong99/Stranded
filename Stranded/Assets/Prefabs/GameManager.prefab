@@ -47,5 +47,4 @@ MonoBehaviour:
   scenes:
   - Name: RoundScene
     Parameter: {fileID: 11400000, guid: 61867b2801249df43967264236367412, type: 2}
-  roundNumber: 0
-  fadeController: {fileID: 0}
+  roundNumber: 2
