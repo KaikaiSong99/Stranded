@@ -57,7 +57,8 @@ public class RoundManager : MonoBehaviour
     public void Play(BaseSceneParameter parameters)
     {
         dilemma = parameters as Dilemma;
-        round = new Round(dilemma.isCounted, 0);
+        
+        round = new Round(dilemma.isCounted, 0, dilemma);
         feedback = new Dictionary<Job, Dictionary<Character,String>>();
         foreach (var job in dilemma.jobs)
         {
