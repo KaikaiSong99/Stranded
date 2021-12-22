@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Model;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,6 +16,7 @@ public class JobManager : MonoBehaviour
     private List<GameObject> objects = new List<GameObject>();
     public CanvasGroup charactersUI;
     public CharacterManager characterManager;
+    public RoundManager roundManager;
     
 
     public void Start()
@@ -34,9 +36,30 @@ public class JobManager : MonoBehaviour
             jCard.charactersUI = charactersUI;
             jCard.dilemma = dilemma;
             jCard.characterManager = characterManager;
-            Debug.Log(dilemma);
+            
+            jCard.roundManager = roundManager;
             jCard.job = job;
         }
+    }
+
+    public void RefreshJobCards()
+    {
+        
+        foreach (GameObject jobCard in objects)
+        {
+            JobCard jCard = jobCard.GetComponent<JobCard>();
+            jCard.charactersUI = charactersUI;
+            Character characterTemp;
+            if (roundManager.round.PickedCharacters.TryGetValue(jCard.job, out characterTemp))
+            {
+                jCard.characterName.text = characterTemp.name;
+                jCard.portrait.sprite = characterTemp.portrait;
+               
+                Debug.Log("refreshed");
+            }
+       
+        }
+        
     }
 
     public void ClearCards()

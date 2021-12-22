@@ -383,6 +383,7 @@ MonoBehaviour:
   portrait: {fileID: 1903091087486862235}
   infoButton: {fileID: 5600527508278137996}
   infoUI: {fileID: -640656961050091263, guid: 5b8f5119d014a04439eb0e4f9d639cac, type: 3}
+  characterManager: {fileID: 0}
 --- !u!1 &8708617085262828411
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,8 +15,11 @@ public class CharCard : MonoBehaviour, IPointerDownHandler
     public Button infoButton;
     private Character _character;
     public CanvasGroup infoUI;
+
+    public CharacterManager characterManager;
+    public GameObject charactersView;
     
-    
+    public JobCard jobCard;
     public Character character
     {
         get { return _character;}
@@ -34,13 +37,20 @@ public class CharCard : MonoBehaviour, IPointerDownHandler
 
     void TaskOnClick(){
         
-        Debug.Log(infoUI.name);
         infoUI.gameObject.SetActive(true);
     }
   
     public void OnPointerDown(PointerEventData data)
     {
-        Debug.Log("PointerDown");
+        
+       charactersView.SetActive(false);
+       
+       characterManager.roundManager.AssignCharacterToJob(character, jobCard.job);
+       jobCard.characterName = characterName;
+       jobCard.portrait = portrait;
+       jobCard.roundManager.jobManager.RefreshJobCards();
+
+
     }
 
 }

@@ -52,7 +52,7 @@ public class RoundManager : MonoBehaviour
     {
         overviewUI.gameObject.SetActive(false);
         jobOverviewUI.gameObject.SetActive(true);
-  
+        jobManager.roundManager = this;
         jobManager.CreateCards(dilemma);
        
         Debug.Log(dilemma.jobs.Count);
