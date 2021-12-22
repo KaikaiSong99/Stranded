@@ -12,13 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0053b2a114d5e0841adbf230a373ee52, type: 3}
   m_Name: TestDilemma
   m_EditorClassIdentifier: 
-  Round: 0
+  round: 1
+  characters:
+  - {fileID: 11400000, guid: 589920e50e04ab642b230ec96fc8634a, type: 2}
+  - {fileID: 11400000, guid: b763d9890c01ece4cb124aeed0a995af, type: 2}
+  - {fileID: 11400000, guid: 6382810474e6efc4098038e2b6d127ff, type: 2}
+  - {fileID: 11400000, guid: 21752937275808f45a9d1171616cb2d1, type: 2}
+  - {fileID: 11400000, guid: 6382810474e6efc4098038e2b6d127ff, type: 2}
+  - {fileID: 11400000, guid: 6382810474e6efc4098038e2b6d127ff, type: 2}
   jobs:
   - {fileID: 11400000, guid: d88cd7baa4180ba48b2511149581f4a7, type: 2}
   - {fileID: 11400000, guid: f55c389b458ea9d4f854b7cffc684d33, type: 2}
   - {fileID: 11400000, guid: 625c25acf34d6964198d9be280a4f8ad, type: 2}
   sprite: {fileID: 21300000, guid: 93d04c50955907748837659f55b4db64, type: 3}
-  characters: []
   title: A monster appears!
   description: This is a test dilemma and should contain a short story describing
     the dilemma.

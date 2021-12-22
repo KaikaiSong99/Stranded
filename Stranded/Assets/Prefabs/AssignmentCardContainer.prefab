@@ -241,10 +241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jobName: {fileID: 2167601804789465433}
-  CharacterName: {fileID: 0}
+  characterName: {fileID: 2167601804789465433}
   Portrait: {fileID: 5011408224971437155}
-  JobIndicator: {fileID: 6428384682165136428}
-  InfoButton: {fileID: 0}
+  icon: {fileID: 6428384682165136428}
 --- !u!1 &6980071618600851059
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 36.25, y: -35.084015}
+  m_AnchoredPosition: {x: 36.25, y: 75.084015}
   m_SizeDelta: {x: 42.5, y: 39.832}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3745842190261439980
@@ -332,7 +331,7 @@ GameObject:
   - component: {fileID: 6972527627448827517}
   - component: {fileID: 4861038928293489017}
   m_Layer: 0
-  m_Name: CharacterCard
+  m_Name: JobCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

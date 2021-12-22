@@ -26,6 +26,7 @@ public class RoundManager : MonoBehaviour
     public float executionTime = 5;
     public float feedbackTime = 30;
     public JobManager jobManager;
+  
     public float timeLeft 
     { get; private set; }
 
@@ -51,7 +52,9 @@ public class RoundManager : MonoBehaviour
     {
         overviewUI.gameObject.SetActive(false);
         jobOverviewUI.gameObject.SetActive(true);
-        jobManager.CreateCards(dilemma.jobs);
+  
+        jobManager.CreateCards(dilemma);
+       
         Debug.Log(dilemma.jobs.Count);
     }
     

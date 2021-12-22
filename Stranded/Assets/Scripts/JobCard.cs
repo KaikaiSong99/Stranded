@@ -8,20 +8,37 @@ public class JobCard : MonoBehaviour, IPointerDownHandler
 {
     
     public Text jobName;
-    public Text CharacterName;
+    public Text characterName;
     public Image Portrait;
-    public Image JobIndicator;
-    public Button InfoButton;
+    public Image icon;
     private Job _job;
+    public CanvasGroup charactersUI;
+    public CharacterManager characterManager;
+    public Dilemma dilemma;
+    
+
     public Job job
     {
         get { return _job;}
-        set { _job = value; jobName.text = value.name;}
+        set { _job = value; jobName.text = value.name;
+            icon.sprite = value.jobIcon;
+        }
     }
     
     // TODO: show character overview
     public void OnPointerDown(PointerEventData data)
     {
+        ShowCharacters();
+    }
+    public void ShowCharacters()
+    {
+       
+        charactersUI.gameObject.SetActive(true);
+
+        characterManager.icon.sprite = icon.sprite;
+        characterManager.jobName.text = jobName.text;
+        characterManager.CreateCards(dilemma);
+        
     }
     
 }
