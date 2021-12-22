@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 3699549047015561036}
   - component: {fileID: 3699549047015561027}
   - component: {fileID: 3699549047015561026}
+  - component: {fileID: 7356130430634962424}
   m_Layer: 5
   m_Name: FeedbackScreen
   m_TagString: Untagged
@@ -254,6 +255,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7356130430634962424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3699549047015561025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9129e995d76dcfc429741255352c3194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 8534667244931414085}
+  chatboxPrefab: {fileID: 138507576725188934, guid: d55cbd7bf59e9044f8c4fb8b274aa6a9, type: 3}
+  container: {fileID: 3699549045935039254}
+  delay: 1
 --- !u!1 &3699549047404463255
 GameObject:
   m_ObjectHideFlags: 0

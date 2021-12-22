@@ -78,14 +78,6 @@ public class RoundManager : MonoBehaviour
     {
         Debug.Log("Assignment has started");
         timeLeft = dilemma.playTime;
-        foreach (var character in dilemma.characters)
-        {
-            Debug.Log($"{character.GetId()}");
-        }
-        AssignCharacterToJob(dilemma.characters[0], dilemma.jobs[0]);
-        AssignCharacterToJob(dilemma.characters[1], dilemma.jobs[1]);
-        AssignCharacterToJob(dilemma.characters[2], dilemma.jobs[2]);
-        AssignCharacterToJob(dilemma.characters[3], dilemma.jobs[3]);
         yield return StartCoroutine(Timer(() => PlayExecutionPhase()));
     }
 
@@ -102,7 +94,8 @@ public class RoundManager : MonoBehaviour
         Debug.Log("Feedback has started");
         timeLeft = feedbackTime;
         feedbackScreen.gameObject.SetActive(true);
-        StartCoroutine(feedbackManager.Show(feedback));
+        AssignCharacterToJob(dilemma.characters[0], dilemma.jobs[1]);
+        StartCoroutine(feedbackManager.Show(feedback, round.PickedCharacters));
         yield return StartCoroutine(Timer(() => null));
         onRoundEnd?.Invoke(round);
     }
