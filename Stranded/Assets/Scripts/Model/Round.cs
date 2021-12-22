@@ -37,7 +37,15 @@ namespace Model
         public void AssignCharacterToJob(Character character, Job job)
         {
             ClearCharacter(character);
-            PickedCharacters.Add(job, character);
+            
+            if (PickedCharacters.ContainsKey(job))
+            {
+                PickedCharacters[job] = character;
+            }
+            else
+            {
+                PickedCharacters.Add(job, character);
+            }
 
         }
 
