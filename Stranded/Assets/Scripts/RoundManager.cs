@@ -94,7 +94,6 @@ public class RoundManager : MonoBehaviour
         Debug.Log("Feedback has started");
         timeLeft = feedbackTime;
         feedbackScreen.gameObject.SetActive(true);
-        AssignCharacterToJob(dilemma.characters[0], dilemma.jobs[1]);
         StartCoroutine(feedbackManager.Show(feedback, round.PickedCharacters));
         yield return StartCoroutine(Timer(() => null));
         onRoundEnd?.Invoke(round);
