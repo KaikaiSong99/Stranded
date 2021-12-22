@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: MapMaker
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 0}
+  jobTitle: Map maker
+  description: Someone comes along to make the map.
+  idealCharacter: {fileID: 11400000, guid: fe8760a2e816e3e43bfe6a954b88379d, type: 2}
+  idealAssignedDialogue: Wow, I didn't expect this to be so fun. I'm going to color
+    this thing once we get home.
+  idealSuggestDialogue: Wait, I didn't know there was a job for drawing maps. I can
+    draw pretty well!

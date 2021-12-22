@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0053b2a114d5e0841adbf230a373ee52, type: 3}
+  m_Name: BuildingARaft
+  m_EditorClassIdentifier: 
+  round: 0
+  characters: []
+  jobs:
+  - {fileID: 11400000, guid: 1a74244982a90a741bd50ae5f69c62ef, type: 2}
+  - {fileID: 11400000, guid: b8c0979c627dfa444a63fab309d5a5ca, type: 2}
+  - {fileID: 11400000, guid: 4549ed6ccbdc6364c8c8ec126ec73172, type: 2}
+  - {fileID: 11400000, guid: f2e88fc4cd9b6464b9fd90b861c4b70b, type: 2}
+  sprite: {fileID: 0}
+  title: Building a raft
+  description: A raft is the only way to escape the island on their own. The survivors
+    decide to make an attempt at building a raft that is reliable and functional
+    enough to carry them to the mainland safely.
+  playTime: 40
+  isCounted: 1
+  minJobSuccess: 3
+  successText: The raft-making worked perfectly. The raft was big enough for everyone
+    to fit on and could float on the water without any leakage. This raft was definitely
+    sea-worthy.
+  partialSuccessText: The survivors ran into unexpected problems when they were making
+    the raft but they managed to finalize the work somehow. The raft worked well
+    enough and could hold their weight.
+  failureText: "The survivors tried hard to build the raft but the process was very
+    hard and time-consuming. When they finally got it in the water, they found out
+    that the raft simply didn\u2019t float. It sank into the sea."

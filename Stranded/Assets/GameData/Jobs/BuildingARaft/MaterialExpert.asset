@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: MaterialExpert
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 0}
+  jobTitle: Material expert
+  description: Someone needs to examine the quality of collected materials to ensure
+    they are light, buoyant, and strong.
+  idealCharacter: {fileID: 11400000, guid: c71a3900c9cb90a47b3deeccefc50ab7, type: 2}
+  idealAssignedDialogue: If this raft sinks it is not because the materials were
+    of poor quality. I checked it thoroughly.
+  idealSuggestDialogue: If you need a second opinion on the quality of the rope and
+    wood, let me know!

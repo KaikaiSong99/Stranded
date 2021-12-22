@@ -1,4 +1,5 @@
 using UnityEngine;
+using Util;
 
 
 namespace Model 
@@ -7,7 +8,10 @@ namespace Model
     public class Job : ScriptableObject
     {
         public Sprite jobIcon;
-        [TextArea(1,10)]
+
+        public string jobTitle;
+
+            [TextArea(1,10)]
         public string description;
 
         public Character idealCharacter;
@@ -17,12 +21,6 @@ namespace Model
         [TextArea(1,10)]
         public string idealSuggestDialogue;
 
-        [SerializeField]
-        private int _id = -1;
-        public int Id
-        { get; set; }
-
-      
-
+        private readonly int _id = SimpleIdGenerator.NextId;
     }
 }

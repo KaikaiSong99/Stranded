@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: HuntSmallAnimals
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 0}
+  jobTitle: Hunt small animals
+  description: Someone will hunt small animals in the forest.
+  idealCharacter: {fileID: 11400000, guid: 152bbd854c8de5942b1c0be03ff83aef, type: 2}
+  idealAssignedDialogue: That was a bit brutal, even for me. But, man, it went well.
+    Enough meat for everyone!
+  idealSuggestDialogue: Hunting animals on a deserted island... sounds wild. Next
+    time I'm doing that!
