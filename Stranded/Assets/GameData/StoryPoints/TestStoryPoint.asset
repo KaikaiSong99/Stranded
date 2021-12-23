@@ -19,4 +19,4 @@ MonoBehaviour:
   - This is a test story
   - Each element should represent one textbox
   - So that it can be displayed sequentially.
-  playTime: 15
+  playTime: 0

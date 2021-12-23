@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: OperationLeader
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 0}
+  jobTitle: Operation leader
+  description: Someone has to coordinate and lead the operation.
+  idealCharacter: {fileID: 11400000, guid: e55d8a5e5b39d1f47ae57dec2ee80969, type: 2}
+  idealAssignedDialogue: I consider that a success no matter what. You've shown a
+    lot of willpower, team! I'm proud of you.
+  idealSuggestDialogue: I see that not everything went perfect. Let me help you all
+    set up a debrief meeting so we can discuss what went wrong.

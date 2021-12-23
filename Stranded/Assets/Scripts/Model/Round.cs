@@ -7,13 +7,14 @@ namespace Model
     // TODO: Extend
     public class Round
     {
-        public Round(bool isCounted, int numCorrect)
+        public Round(bool isCounted, int numCorrect, Dilemma dilemma)
         {
             IsCounted = isCounted;
             NumCorrect = numCorrect;
             PickedCharacters = new Dictionary<Job, Character>();
             PartiallySucceeded = false;
             Succeeded = false;
+            Dilemma = dilemma;
         }
 
         public bool IsCounted
@@ -30,22 +31,38 @@ namespace Model
 
         public int NumCorrect
         { get; set; }
+        
+        public Dilemma Dilemma { get; private set; }
 
         public void AssignCharacterToJob(Character character, Job job)
         {
             ClearCharacter(character);
-            PickedCharacters.Add(job, character);
+            
+            if (PickedCharacters.ContainsKey(job))
+            {
+                PickedCharacters[job] = character;
+            }
+            else
+            {
+                PickedCharacters.Add(job, character);
+            }
 
         }
 
         private void ClearCharacter(Character character)
         {
+            Job job = null;
             foreach (KeyValuePair<Job, Character> picked in PickedCharacters)
             {
                 if (picked.Value.Equals(character))
                 {
-                    PickedCharacters.Remove(picked.Key);
+                    job = picked.Key;
+                    break;
                 }
+            }
+            if (job != null) 
+            {
+                PickedCharacters.Remove(job);
             }
         }
     }

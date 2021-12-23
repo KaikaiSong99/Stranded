@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: MessageWriter
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 0}
+  jobTitle: Message writer
+  description: Someone needs to write a short, yet descriptive distress message.
+  idealCharacter: {fileID: 11400000, guid: fe8760a2e816e3e43bfe6a954b88379d, type: 2}
+  idealAssignedDialogue: I hope they'll understand what I was trying to say. It was
+    a challenge to put so much meaning in so few words.
+  idealSuggestDialogue: A writing job on a deserted island? How could I miss such
+    an opportunity?

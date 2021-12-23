@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Util;
 
 namespace Model 
 {
@@ -23,6 +24,23 @@ namespace Model
         [TextArea(1,10)]
         public string partialSuccessText;
         [TextArea(1,10)]
-        public string failureText;        
+        public string failureText;
+
+        private readonly int _id = SimpleIdGenerator.NextId;
+
+        public override bool Equals(object other)
+        {
+            if (other is Dilemma dilemma)
+            {
+                return _id == dilemma._id;
+            }
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return _id;
+        }
     }
 }

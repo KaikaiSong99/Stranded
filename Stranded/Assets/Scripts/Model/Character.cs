@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Util;
 
 namespace Model
 {    
@@ -19,11 +20,12 @@ namespace Model
         [TextArea(1,10)]
         public string incorrectlyAssignedDialogue;
 
-        // id is used to index the character by the game manager
-        [SerializeField]
-        private int _id = -1;
-        public int Id
-        { get; set; }
+        private readonly int _id = SimpleIdGenerator.NextId;
+
+        public int GetId()
+        {
+            return _id;
+        }
 
         public override bool Equals(object obj)
         {

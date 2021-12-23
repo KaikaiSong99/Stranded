@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: WoodGatherer
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 0}
+  jobTitle: Wood gatherer
+  description: Someone has to chop trees to get large logs for the raft.
+  idealCharacter: {fileID: 11400000, guid: 152bbd854c8de5942b1c0be03ff83aef, type: 2}
+  idealAssignedDialogue: It's a shame that we have to use all logs for the raft.
+    Some of them were real nice to do squats with.
+  idealSuggestDialogue: Don't underestimate those logs! They are heavy! I would start
+    with something smaller if I were you, rookie!

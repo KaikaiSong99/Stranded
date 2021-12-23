@@ -18,7 +18,7 @@ public class RoundManager : MonoBehaviour
     { get; private set; }
 
     //Dictionary containing feedback dialogue per characters, since there is a case where a single character has more than one piece of feedback, the dialogue is stored in a list.
-    public Dictionary<Character, List<String>> feedback 
+    public Dictionary<Job, Dictionary<Character,String>> feedback 
     { get; private set; }
 
     // Different timers for the different phases
@@ -27,19 +27,21 @@ public class RoundManager : MonoBehaviour
     public float feedbackTime = 30;
     public JobManager jobManager;
   
-    public float timeLeft 
-    { get; private set; }
+    public float timeLeft;
+    // { get; private set; }
 
     public Text dilemmaTitle;
     public Image dilemmaSprite;
     public CanvasGroup overviewUI;
     public CanvasGroup jobOverviewUI;
 
+    public FeedbackManager feedbackManager;
+    public Canvas feedbackScreen;
+
     // Start is called before the first frame update
     void Start()
     {
         GameManager.onRoundInit += Play;
-        feedback = new Dictionary<Character, List<string>>();
     }
 
     public void ShowOverview()
@@ -54,8 +56,8 @@ public class RoundManager : MonoBehaviour
         jobOverviewUI.gameObject.SetActive(true);
         jobManager.roundManager = this;
         jobManager.CreateCards(dilemma);
-       
-        Debug.Log(dilemma.jobs.Count);
+
+        Debug.Log($" Job count: {dilemma.jobs.Count}");
     }
     
     public void Update()
@@ -68,7 +70,13 @@ public class RoundManager : MonoBehaviour
     public void Play(BaseSceneParameter parameters)
     {
         dilemma = parameters as Dilemma;
-        round = new Round(dilemma.isCounted, 0);
+        
+        round = new Round(dilemma.isCounted, 0, dilemma);
+        feedback = new Dictionary<Job, Dictionary<Character,String>>();
+        foreach (var job in dilemma.jobs)
+        {
+            feedback.Add(job, new Dictionary<Character, String>());
+        }
         StartCoroutine(PlayIntroPhase());
     }
 
@@ -100,6 +108,8 @@ public class RoundManager : MonoBehaviour
     {
         Debug.Log("Feedback has started");
         timeLeft = feedbackTime;
+        feedbackScreen.gameObject.SetActive(true);
+        StartCoroutine(feedbackManager.Show(feedback, round.PickedCharacters));
         yield return StartCoroutine(Timer(() => null));
         onRoundEnd?.Invoke(round);
     }
@@ -132,14 +142,14 @@ public class RoundManager : MonoBehaviour
                 if (job.idealCharacter.Equals(characterTemp))
                 {
                     numCorrectTemp++;
-                    AddFeedback(characterTemp, job.idealAssignedDialogue);
+                    AddFeedback(job, characterTemp, job.idealAssignedDialogue);
                 }
                 else
                 {
-                    AddFeedback(characterTemp, characterTemp.incorrectlyAssignedDialogue);
+                    AddFeedback(job, characterTemp, characterTemp.incorrectlyAssignedDialogue);
                 }
             }
-            AddFeedback(job.idealCharacter, job.idealSuggestDialogue);
+            AddFeedback(job, job.idealCharacter, job.idealSuggestDialogue);
         }
         round.NumCorrect = numCorrectTemp;
         if (numCorrectTemp >= dilemma.minJobSuccess)
@@ -153,17 +163,20 @@ public class RoundManager : MonoBehaviour
     }
 
     //Adds feedback for a specific character
-    private void AddFeedback(Character character, String dialogue)
+    private void AddFeedback(Job job, Character character, String dialogue)
     {
-        List<String> characterFeedback;
-
-        if (!feedback.TryGetValue(character, out characterFeedback))
+        Debug.Log($"Added Feedback: {character.firstName} - {dialogue}");
+        Dictionary<Character, String> characterFeedback;
+        
+        if (feedback.TryGetValue(job, out characterFeedback))
         {
-            characterFeedback = new List<String>();     
+            characterFeedback.Add(character, dialogue);
         }
-        characterFeedback.Add(dialogue);
+        else
+        {
+            Debug.Log("Tried adding feedback for a job that isn't in the dictionary!");
+        }
 
-        feedback.Add(character, characterFeedback);
     }
 
     void OnDestroy() {

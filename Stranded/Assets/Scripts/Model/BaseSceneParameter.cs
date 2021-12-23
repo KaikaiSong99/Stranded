@@ -8,6 +8,6 @@ public class BaseSceneParameter : ScriptableObject
 {
 
     public int round;
-    // [HideInInspector]
+    [HideInInspector]
     public List<Character> characters;
 }

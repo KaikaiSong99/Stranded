@@ -17,7 +17,7 @@ public class StoryManager : MonoBehaviour
     public int nextTextDelay;
     public int timeLeft;
 
-    public TransitionController transitionController;
+    public SceneTransition transitionController;
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +63,7 @@ public class StoryManager : MonoBehaviour
             
         yield return new WaitForSeconds(timeLeft);
 
-        yield return StartCoroutine(transitionController.Trigger("FadeOut"));
+        yield return StartCoroutine(transitionController.FadeOut());
         
         onRoundEnd?.Invoke(null);
     }

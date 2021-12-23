@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: Navigator
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 0}
+  jobTitle: Navigator
+  description: 'Someone needs to lead and navigate the expedition. '
+  idealCharacter: {fileID: 11400000, guid: e55d8a5e5b39d1f47ae57dec2ee80969, type: 2}
+  idealAssignedDialogue: As I said, if you all just follow me, no one gets lost.
+  idealSuggestDialogue: Navigation shouldn't be that hard right? Just keep your mind
+    straight and don't lose sight of your team.
