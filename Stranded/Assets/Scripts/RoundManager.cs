@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Model;
+using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class RoundManager : MonoBehaviour
@@ -23,13 +25,15 @@ public class RoundManager : MonoBehaviour
     public float introTime = 5;
     public float executionTime = 5;
     public float feedbackTime = 30;
-
-    
+    public JobManager jobManager;
+  
     public float timeLeft;
     // { get; private set; }
 
     public Text dilemmaTitle;
     public Image dilemmaSprite;
+    public CanvasGroup overviewUI;
+    public CanvasGroup jobOverviewUI;
 
     public FeedbackManager feedbackManager;
     public Canvas feedbackScreen;
@@ -46,9 +50,18 @@ public class RoundManager : MonoBehaviour
         dilemmaSprite.sprite = dilemma.sprite;
     }
 
+    public void ShowAssignmentOverview()
+    {
+        overviewUI.gameObject.SetActive(false);
+        jobOverviewUI.gameObject.SetActive(true);
+        jobManager.roundManager = this;
+        jobManager.CreateCards(dilemma);
+
+        Debug.Log($" Job count: {dilemma.jobs.Count}");
+    }
+    
     public void Update()
     {
-        
     }
 
     // Start this round (is called from GameManager)
@@ -77,6 +90,7 @@ public class RoundManager : MonoBehaviour
 
     public IEnumerator PlayAssignmentPhase()
     {
+        ShowAssignmentOverview();
         Debug.Log("Assignment has started");
         timeLeft = dilemma.playTime;
         yield return StartCoroutine(Timer(() => PlayExecutionPhase()));

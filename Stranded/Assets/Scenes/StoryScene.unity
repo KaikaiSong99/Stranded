@@ -215,7 +215,7 @@ PrefabInstance:
     - target: {fileID: 6613761967653011546, guid: 4ff421e29a838d548a9267cc49b8e4a2, type: 3}
       propertyPath: fadeController
       value: 
-      objectReference: {fileID: 1863566128859866380}
+      objectReference: {fileID: 0}
     - target: {fileID: 6613761967653011546, guid: 4ff421e29a838d548a9267cc49b8e4a2, type: 3}
       propertyPath: transitionController
       value: 
@@ -281,7 +281,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 1d288515771df0447b4bff25b27d6bae, type: 3}
 --- !u!114 &1863566128859866380 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2915462429641506615, guid: 1d288515771df0447b4bff25b27d6bae, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7536222455293570592, guid: 1d288515771df0447b4bff25b27d6bae, type: 3}
   m_PrefabInstance: {fileID: 1863566128859866379}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

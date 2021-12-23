@@ -51,12 +51,18 @@ namespace Model
 
         private void ClearCharacter(Character character)
         {
+            Job job = null;
             foreach (KeyValuePair<Job, Character> picked in PickedCharacters)
             {
                 if (picked.Value.Equals(character))
                 {
-                    PickedCharacters.Remove(picked.Key);
+                    job = picked.Key;
+                    break;
                 }
+            }
+            if (job != null) 
+            {
+                PickedCharacters.Remove(job);
             }
         }
     }

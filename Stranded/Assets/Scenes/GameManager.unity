@@ -258,29 +258,49 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
-      propertyPath: fadeController
-      value: 
+      propertyPath: characters.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
-      propertyPath: scenes.Array.size
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: characters.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: characters.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 152bbd854c8de5942b1c0be03ff83aef, type: 2}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: characters.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c71a3900c9cb90a47b3deeccefc50ab7, type: 2}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: characters.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: e55d8a5e5b39d1f47ae57dec2ee80969, type: 2}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: characters.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: fe8760a2e816e3e43bfe6a954b88379d, type: 2}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: characters.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f13345abceb66c44bada9e5a7b89d3f, type: 2}
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: scenes.Array.data[0].Name
       value: StoryScene
       objectReference: {fileID: 0}
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: scenes.Array.data[1].Name
-      value: StoryScene
+      value: RoundScene
       objectReference: {fileID: 0}
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: scenes.Array.data[0].Parameter
       value: 
-      objectReference: {fileID: 11400000, guid: 3c30ff593271c4e4898cf78c5ec0d4f7, type: 2}
+      objectReference: {fileID: 11400000, guid: a89fd1a5b3fb54344878c6f0f1e25f06, type: 2}
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: scenes.Array.data[1].Parameter
       value: 
-      objectReference: {fileID: 11400000, guid: 3c30ff593271c4e4898cf78c5ec0d4f7, type: 2}
+      objectReference: {fileID: 11400000, guid: 22d17484157c3b341a1177d1ce6fbc98, type: 2}
     - target: {fileID: 4010763269622470980, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: m_RootOrder
       value: 1
