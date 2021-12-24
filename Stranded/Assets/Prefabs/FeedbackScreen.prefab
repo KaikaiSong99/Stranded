@@ -203,8 +203,8 @@ Canvas:
   m_GameObject: {fileID: 3699549047015561025}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 444986829902142294, guid: c04aad22be1cbe34f9b86f5dc914f52d, type: 3}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -227,10 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 600, y: 1200}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -270,7 +270,8 @@ MonoBehaviour:
   title: {fileID: 8534667244931414085}
   chatboxPrefab: {fileID: 138507576725188934, guid: d55cbd7bf59e9044f8c4fb8b274aa6a9, type: 3}
   container: {fileID: 3699549045935039254}
-  delay: 1
+  delayBetweenChats: 2
+  delayBetweenJobs: 5
 --- !u!1 &3699549047404463255
 GameObject:
   m_ObjectHideFlags: 0

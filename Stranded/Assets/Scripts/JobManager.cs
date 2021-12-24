@@ -29,9 +29,8 @@ public class JobManager : MonoBehaviour
         for (int i=0; i<dilemma.jobs.Count; i++)
         {
             Job job = dilemma.jobs[i];
-            GameObject jobCard = Instantiate(jobCardPrefab, containers[i].transform);
+            GameObject jobCard = Instantiate(jobCardPrefab, containers[i]);
             objects.Add(jobCard);
-            jobCard.transform.parent = containers[i];
             JobCard jCard = jobCard.GetComponent<JobCard>();
             jCard.characterManager = characterManager;
             jCard.charactersUI = charactersUI;

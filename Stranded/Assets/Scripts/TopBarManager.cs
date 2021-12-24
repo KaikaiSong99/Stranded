@@ -1,41 +1,30 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Util;
 
 public class TopBarManager : MonoBehaviour
 {
-    private RoundManager _roundManager;
+    private ObjectFinder<RoundManager> _roundManager;
 
     private const string RoundPrefix = "Round: ";
 
     public Text roundText;
     public Text timeText;
 
+    private void Start()
+    {
+        _roundManager = new ObjectFinder<RoundManager>(this, FindObjectOfType<RoundManager>);
+    }
+
     private void Update()
     {
-        if (FindRoundManager())
+        _roundManager.Use(roundManager =>
         {
-            if (_roundManager.dilemma != null) 
-            {
-                roundText.text = RoundPrefix + _roundManager.dilemma.round;
-                timeText.text = DisplayTime(_roundManager.timeLeft);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Top bar couldn't find a round manager in the scene.");
-        }
+            roundText.text = RoundPrefix + roundManager.dilemma.round;
+            timeText.text = DisplayTime(roundManager.timeLeft);
+        }, "Top bar couldn't find a round manager in the scene.");
     }
 
-    private bool FindRoundManager()
-    {
-        if (_roundManager != null)
-            return true;
-
-        _roundManager = FindObjectOfType<RoundManager>();
-
-        return _roundManager != null;
-    }
-    
     private static string DisplayTime(float timeToDisplay)
     {
         if (timeToDisplay < 0)
