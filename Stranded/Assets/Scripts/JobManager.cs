@@ -54,8 +54,12 @@ public class JobManager : MonoBehaviour
             {
                 jCard.characterName.text = characterTemp.name;
                 jCard.portrait.sprite = characterTemp.portrait;
-                Debug.Log("refreshed");
             }
+			else
+			{
+				jCard.characterName.text = "????";
+                jCard.portrait.sprite = null;
+			}
        
         }
         
