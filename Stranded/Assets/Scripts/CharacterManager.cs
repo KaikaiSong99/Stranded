@@ -17,7 +17,7 @@ public class CharacterManager : MonoBehaviour
     private List<GameObject> objects = new List<GameObject>();
     public JobCard jobCard;
     public RoundManager roundManager;
-    public CanvasGroup infoUI;
+    public GameObject infoUI;
     
     public void Start()
     {
@@ -31,14 +31,14 @@ public class CharacterManager : MonoBehaviour
         Debug.Log(dilemma.characters.Count);
         for (int i=0; i<dilemma.characters.Count; i++)
         {
-            Character character = dilemma.characters[i];
+            var character = dilemma.characters[i];
            
-            GameObject charCard = Instantiate(charCardPrefab, containers[i].transform);
+            var charCard = Instantiate(charCardPrefab, containers[i].transform);
             
             objects.Add(charCard);
             charCard.transform.parent = containers[i];
             
-            CharCard cCard = charCard.GetComponent<CharCard>();
+            var cCard = charCard.GetComponent<CharCard>();
             cCard.infoUI = infoUI;
             cCard.characterManager = this;
             cCard.character = character;
@@ -48,7 +48,7 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public void ClearCards()
+    private void ClearCards()
     {
         foreach (var card in objects)
         {

@@ -6,15 +6,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CharCard : MonoBehaviour, IPointerDownHandler
+public class CharCard : MonoBehaviour
 {
-   
     public Text characterName;
     public Image portrait;
    
     public Button infoButton;
     private Character _character;
-    public CanvasGroup infoUI;
+    public GameObject infoUI;
 
     public CharacterManager characterManager;
     public GameObject charactersView;
@@ -31,13 +30,12 @@ public class CharCard : MonoBehaviour, IPointerDownHandler
         }
     }
     public void Start () {
-        Button btn = infoButton.GetComponent<Button>();
-        btn.onClick.AddListener(TaskOnClick);
+        infoButton.onClick.AddListener(OnInfoButtonClick);
     }
 
-    public void TaskOnClick()
+    private void OnInfoButtonClick()
     {
-        infoUI.gameObject.SetActive(true);
+        infoUI.SetActive(true);
         var cardInfo = infoUI.GetComponent<CharCardDisplayInfo>();
         if (cardInfo != null)
         {
@@ -47,18 +45,14 @@ public class CharCard : MonoBehaviour, IPointerDownHandler
 
     public void CloseInfo()
     {
-        infoUI.gameObject.SetActive(false);
+        infoUI.SetActive(false);
     }
   
-    public void OnPointerDown(PointerEventData data)
-    {
-        
-       charactersView.SetActive(false);
-       
-       characterManager.roundManager.AssignCharacterToJob(character, jobCard.job);
-       characterManager.roundManager.jobManager.RefreshJobCards();
+    public void OnCharCardClick()
+    { 
+        charactersView.SetActive(false);
 
-
+        characterManager.roundManager.AssignCharacterToJob(character, jobCard.job);
+        characterManager.roundManager.jobManager.RefreshJobCards();
     }
-
 }
