@@ -141,9 +141,9 @@ public class RoundManager : MonoBehaviour
                 else
                 {
                     AddFeedback(job, characterTemp, characterTemp.incorrectlyAssignedDialogue);
+                    AddFeedback(job, job.idealCharacter, job.idealSuggestDialogue);
                 }
             }
-            AddFeedback(job, job.idealCharacter, job.idealSuggestDialogue);
         }
         round.NumCorrect = numCorrectTemp;
         if (numCorrectTemp >= dilemma.minJobSuccess)

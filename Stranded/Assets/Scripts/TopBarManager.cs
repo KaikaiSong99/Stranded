@@ -20,7 +20,8 @@ public class TopBarManager : MonoBehaviour
     {
         _roundManager.Use(roundManager =>
         {
-            roundText.text = RoundPrefix + roundManager.dilemma.round;
+            
+            roundText.text = RoundPrefix + roundManager.dilemma?.round;
             timeText.text = DisplayTime(roundManager.timeLeft);
         }, "Top bar couldn't find a round manager in the scene.");
     }
