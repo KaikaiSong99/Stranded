@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Model;
 using UnityEngine;
@@ -6,42 +5,32 @@ using UnityEngine.UI;
 
 public class CharacterManager : MonoBehaviour
 {
-    //public CanvasGroup assignment;
-    private CharCard _currentCharCard;
-    private Character _currentCharacter;
     public Text jobName;
     public Image icon;
     public GameObject charCardPrefab;
-    // [HideInInspector]
     public List<Transform> containers;
-    private List<GameObject> objects = new List<GameObject>();
-    public JobCard jobCard;
+    private readonly List<GameObject> _charCards = new List<GameObject>();
     public RoundManager roundManager;
-    public GameObject infoUI;
+    public GameObject characterInfo;
     
-    public void Start()
-    {
-     
-    }
- 
+    [HideInInspector]
+    public JobCard jobCard;
+    
     public void CreateCards(Dilemma dilemma) 
     {
-       
         ClearCards();
-        Debug.Log(dilemma.characters.Count);
-        for (int i=0; i<dilemma.characters.Count; i++)
+        for (var i = 0; i < dilemma.characters.Count; i++)
         {
             var character = dilemma.characters[i];
            
             var charCard = Instantiate(charCardPrefab, containers[i].transform);
             
-            objects.Add(charCard);
-            charCard.transform.parent = containers[i];
+            _charCards.Add(charCard);
             
             var cCard = charCard.GetComponent<CharCard>();
-            cCard.infoUI = infoUI;
+            cCard.characterInfo = characterInfo;
             cCard.characterManager = this;
-            cCard.character = character;
+            cCard.Character = character;
             cCard.charactersView = gameObject;
             cCard.jobCard = jobCard;
             cCard.characterManager.roundManager = roundManager;
@@ -50,7 +39,7 @@ public class CharacterManager : MonoBehaviour
 
     private void ClearCards()
     {
-        foreach (var card in objects)
+        foreach (var card in _charCards)
         {
             Destroy(card);
         }

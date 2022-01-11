@@ -41,8 +41,7 @@ public class FeedbackManager : MonoBehaviour
 
             foreach(var characterFeedback in fb.Value)
             {
-                var chatboxObject = Instantiate(chatboxPrefab, transform);
-                chatboxObject.transform.parent = container;
+                var chatboxObject = Instantiate(chatboxPrefab, container);
                 chatboxes.Add(chatboxObject);
 
                 var chatbox = chatboxObject.GetComponent<Chatbox>();

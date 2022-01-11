@@ -8,7 +8,7 @@ public class CharacterProfile : MonoBehaviour
 {
 
     public Image portrait;
-    public Text name;
+    public Text characterName;
     public Text description;
     public GameObject attributes;
 
@@ -23,7 +23,7 @@ public class CharacterProfile : MonoBehaviour
         {
             _character = value;
             portrait.sprite = _character.portrait;
-            name.text = _character.firstName;
+            characterName.text = _character.firstName;
             description.text = _character.description; 
         }
     }

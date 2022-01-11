@@ -1,27 +1,15 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Model;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class JobManager : MonoBehaviour
 {
-    //public CanvasGroup assignment;
-    private JobCard _currentJobCard;
-    private Job _currentJob;
-    
     public GameObject jobCardPrefab;
     public List<Transform> containers;
     private List<GameObject> objects = new List<GameObject>();
-    public CanvasGroup charactersUI;
+    public GameObject characterOverview;
     public CharacterManager characterManager;
     public RoundManager roundManager;
-    
-
-    public void Start()
-    {
-    }
 
     public void CreateCards(Dilemma dilemma) //create Job cards
     {
@@ -33,7 +21,7 @@ public class JobManager : MonoBehaviour
             objects.Add(jobCard);
             JobCard jCard = jobCard.GetComponent<JobCard>();
             jCard.characterManager = characterManager;
-            jCard.charactersUI = charactersUI;
+            jCard.characterOverview = characterOverview;
             jCard.dilemma = dilemma;
             
             jCard.roundManager = roundManager;
@@ -47,7 +35,7 @@ public class JobManager : MonoBehaviour
         foreach (GameObject jobCard in objects)
         {
             JobCard jCard = jobCard.GetComponent<JobCard>();
-            jCard.charactersUI = charactersUI;
+            jCard.characterOverview = characterOverview;
             Character characterTemp;
             if (roundManager.round.PickedCharacters.TryGetValue(jCard.job, out characterTemp))
             {
