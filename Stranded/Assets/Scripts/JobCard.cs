@@ -1,21 +1,28 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
-
 using UnityEngine.UI;
 using Model;
 
-public class JobCard : MonoBehaviour, IPointerDownHandler
+public class JobCard : MonoBehaviour
 {
-    
     public Text jobName;
     public Text characterName;
     public Text jobDescription;
     public Image portrait;
-    public Image icon;
     private Job _job;
-    public CanvasGroup charactersUI;
+    
+    [HideInInspector]
+    public Image icon;
+    
+    [HideInInspector]
+    public GameObject characterOverview;
+    
+    [HideInInspector]
     public CharacterManager characterManager;
+    
+    [HideInInspector]
     public Dilemma dilemma;
+    
+    [HideInInspector]
     public RoundManager roundManager;
 
 
@@ -32,27 +39,21 @@ public class JobCard : MonoBehaviour, IPointerDownHandler
         
             jobName.text = value.name; 
             jobDescription.text = value.description;
-
-
         }
     }
-
     
-    // TODO: show character overview
-    public void OnPointerDown(PointerEventData data)
+    public void OnJobCardClick()
     {
         ShowCharacters();
     }
-    public void ShowCharacters()
+    
+    private void ShowCharacters()
     {
-       
-        charactersUI.gameObject.SetActive(true);
+        characterOverview.gameObject.SetActive(true);
         characterManager.jobCard = this;
         characterManager.jobName.text = jobName.text;
         
         characterManager.CreateCards(dilemma);
         characterManager.roundManager = roundManager;
-
     }
-    
 }

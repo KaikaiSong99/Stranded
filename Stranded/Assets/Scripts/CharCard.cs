@@ -1,64 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using Model;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CharCard : MonoBehaviour, IPointerDownHandler
+public class CharCard : MonoBehaviour
 {
-   
     public Text characterName;
     public Image portrait;
-   
-    public Button infoButton;
+    
     private Character _character;
-    public CanvasGroup infoUI;
+    
+    [HideInInspector]
+    public GameObject characterInfo;
 
+    [HideInInspector]
     public CharacterManager characterManager;
+    
+    [HideInInspector]
     public GameObject charactersView;
     
+    [HideInInspector]
     public JobCard jobCard;
-    public Character character
+    public Character Character
     {
-        get { return _character;}
+        get => _character;
         set { 
-            _character = value; characterName.text = value.name;
+            _character = value; 
+            characterName.text = value.name;
             portrait.sprite = value.portrait;
-            infoButton.GetComponentInChildren<Text>().text = "?";
-
         }
     }
-    public void Start () {
-        Button btn = infoButton.GetComponent<Button>();
-        btn.onClick.AddListener(TaskOnClick);
-    }
 
-    public void TaskOnClick()
+    public void OnInfoButtonClick()
     {
-        infoUI.gameObject.SetActive(true);
-        var cardInfo = infoUI.GetComponent<CharCardDisplayInfo>();
+        characterInfo.SetActive(true);
+        var cardInfo = characterInfo.GetComponent<CharCardDisplayInfo>();
         if (cardInfo != null)
         {
-            cardInfo.SetCharacterInfo(character);
+            cardInfo.SetCharacterInfo(Character);
         }
     }
 
     public void CloseInfo()
     {
-        infoUI.gameObject.SetActive(false);
+        characterInfo.SetActive(false);
     }
   
-    public void OnPointerDown(PointerEventData data)
-    {
-        
-       charactersView.SetActive(false);
-       
-       characterManager.roundManager.AssignCharacterToJob(character, jobCard.job);
-       characterManager.roundManager.jobManager.RefreshJobCards();
+    public void OnCharCardClick()
+    { 
+        charactersView.SetActive(false);
 
-
+        characterManager.roundManager.AssignCharacterToJob(Character, jobCard.job);
+        characterManager.roundManager.jobManager.RefreshJobCards();
     }
-
 }

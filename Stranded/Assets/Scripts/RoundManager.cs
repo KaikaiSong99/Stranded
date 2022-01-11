@@ -28,18 +28,16 @@ public class RoundManager : MonoBehaviour
     public JobManager jobManager;
   
     public float timeLeft;
-    // { get; private set; }
 
     public Text dilemmaTitle;
     public Image dilemmaSprite;
-    public CanvasGroup overviewUI;
-    public CanvasGroup jobOverviewUI;
+    //public GameObject overviewUI;
+    public GameObject jobsOverview;
 
     public FeedbackManager feedbackManager;
-    public Canvas feedbackScreen;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         GameManager.onRoundInit += Play;
     }
@@ -52,16 +50,12 @@ public class RoundManager : MonoBehaviour
 
     public void ShowAssignmentOverview()
     {
-        overviewUI.gameObject.SetActive(false);
-        jobOverviewUI.gameObject.SetActive(true);
+        //overviewUI.gameObject.SetActive(false);
+        jobsOverview.gameObject.SetActive(true);
         jobManager.roundManager = this;
         jobManager.CreateCards(dilemma);
 
         Debug.Log($" Job count: {dilemma.jobs.Count}");
-    }
-    
-    public void Update()
-    {
     }
 
     // Start this round (is called from GameManager)
@@ -108,7 +102,7 @@ public class RoundManager : MonoBehaviour
     {
         Debug.Log("Feedback has started");
         timeLeft = feedbackTime;
-        feedbackScreen.gameObject.SetActive(true);
+        feedbackManager.gameObject.SetActive(true);
         StartCoroutine(feedbackManager.Show(feedback, round.PickedCharacters));
         yield return StartCoroutine(Timer(() => null));
         onRoundEnd?.Invoke(round);
@@ -147,9 +141,9 @@ public class RoundManager : MonoBehaviour
                 else
                 {
                     AddFeedback(job, characterTemp, characterTemp.incorrectlyAssignedDialogue);
+                    AddFeedback(job, job.idealCharacter, job.idealSuggestDialogue);
                 }
             }
-            AddFeedback(job, job.idealCharacter, job.idealSuggestDialogue);
         }
         round.NumCorrect = numCorrectTemp;
         if (numCorrectTemp >= dilemma.minJobSuccess)
@@ -179,7 +173,7 @@ public class RoundManager : MonoBehaviour
 
     }
 
-    void OnDestroy() {
+    private void OnDestroy() {
         GameManager.onRoundInit -= Play;
     }
 }
