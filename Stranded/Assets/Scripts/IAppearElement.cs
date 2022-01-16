@@ -1,5 +1,15 @@
+using System;
+using UnityEngine;
+
 public interface IAppearElement
 {
-  float Height { get; }
+  RectTransform RectTransform { get; }
+
+  /// <summary>
+  /// Should be called after the element has finished appearing. Can be assumed to be not null by the time Appear()
+  /// is called.
+  /// </summary>
+  Action Continue { get; set; }
+  
   void Appear();
 }
