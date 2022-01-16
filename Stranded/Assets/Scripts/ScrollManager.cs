@@ -48,32 +48,33 @@ public class ScrollManager : MonoBehaviour
   {
     var appearElements = appearElementsEnumerable.ToArray();
     
-    _scrollRect.movementType = ScrollRect.MovementType.Unrestricted;
-    
     // Assume that there is at least one appearElement
     Assert.IsTrue(appearElements.Length > 0);
+    
+    // Prepare scroll rect component, disable input
+    _scrollRect.movementType = ScrollRect.MovementType.Unrestricted;
+    _scrollRect.vertical = false;
 
     // Make every element's continue function call the appear of the next.
     for (var i = 0; i < appearElements.Length - 1; i++)
     {
       var next = i + 1;
-      appearElements[i].Continue = () => this.Delay(timeBetween, () =>
-      {
-        var nextEl = appearElements[next];
-        
-        AddNewElementToScrollView(nextEl);
-        FocusOnElement();
-        nextEl.Appear();
-      });
+      appearElements[i].Continue = () => this.Delay(timeBetween, () => 
+        MakeAppearAndFocused(appearElements[next]));
     }
 
     // Make the last element's continue function call Finish
     appearElements[appearElements.Length - 1].Continue = Finish;
     
-    var firstEl = appearElements[0];
-    AddNewElementToScrollView(firstEl);
+    // Make the first element appear
+    MakeAppearAndFocused(appearElements[0]);
+  }
+
+  private void MakeAppearAndFocused(IAppearElement appearElement)
+  {
+    AddNewElementToScrollView(appearElement);
     FocusOnElement();
-    firstEl.Appear();
+    appearElement.Appear();
   }
 
   private void AddNewElementToScrollView(IAppearElement appearElement)
@@ -100,5 +101,6 @@ public class ScrollManager : MonoBehaviour
   private void Finish()
   {
     _scrollRect.movementType = _scrollRectStartMovementType;
+    _scrollRect.vertical = true;
   }
 }
