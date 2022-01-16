@@ -22,6 +22,7 @@ public class ScrollManager : MonoBehaviour
   
   public float timeBetween = 0.3f;
   public float focusAnimationDuration = 0.5f;
+  public bool disableScroll = true;
   
   private void Start()
   {
@@ -53,7 +54,7 @@ public class ScrollManager : MonoBehaviour
     
     // Prepare scroll rect component, disable input
     _scrollRect.movementType = ScrollRect.MovementType.Unrestricted;
-    _scrollRect.vertical = false;
+    _scrollRect.vertical = !disableScroll;
 
     // Make every element's continue function call the appear of the next.
     for (var i = 0; i < appearElements.Length - 1; i++)
