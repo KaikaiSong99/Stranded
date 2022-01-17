@@ -1,0 +1,165 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using PubNubAPI;
+using Model;
+
+
+[Serializable]
+public struct JSONInformation
+{
+    public string flag;
+};
+
+[Serializable]
+public struct JSONStrandedData
+{
+    public string flag;
+    public string dilemma;
+    public string task;
+    public string character;
+};
+
+public class NetworkManager : MonoBehaviour
+{
+    public static PubNub pubnub;
+    private string pubnubUuid = "";
+    private string currentChannel = "init_channel";
+
+    public static event Action onStartReceived;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        InitPubnub();
+        pubnub.SubscribeCallback += SubscribeCallbackHandler;
+        TitleManager.onPinConfirmed += SubscribeToChannel;
+        RoundManager.onRoundEnd += SendRoundData;
+        GameManager.onGameEnd += UnsubscribeAll;
+    }
+
+    private void InitPubnub() 
+    {
+        pubnubUuid = PlayerPrefs.GetString("PUBNUB_UUID", Guid.NewGuid().ToString());
+
+        Debug.Log(pubnubUuid);
+
+        PNConfiguration pnConfiguration = new PNConfiguration();
+        pnConfiguration.PublishKey = "pub-c-8a52cd59-8e69-4b03-bb18-01b788f3d512";
+        pnConfiguration.SubscribeKey = "sub-c-7609cf94-7225-11ec-9c8d-9eb9413efc82";
+        pnConfiguration.LogVerbosity = PNLogVerbosity.BODY;
+        pnConfiguration.UUID = pubnubUuid;
+        pubnub = new PubNub(pnConfiguration);
+
+        PlayerPrefs.SetString("PUBNUB_UUID", pubnubUuid);
+    }
+
+    private void SubscribeCallbackHandler(object sender, EventArgs e)
+    {
+        SubscribeEventEventArgs message = e as SubscribeEventEventArgs;
+        
+        if (message.Status != null) {
+            switch (message.Status.Category) {
+                case PNStatusCategory.PNUnexpectedDisconnectCategory:
+                case PNStatusCategory.PNTimeoutCategory:
+                    pubnub.Reconnect();
+                    break;
+                case PNStatusCategory.PNConnectedCategory:
+                    Debug.Log($"Connected to {currentChannel}");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if (message.MessageResult != null)
+        {
+            string messageToString = pubnub.JsonLibrary.SerializeToJsonString(message.MessageResult.Payload);
+            Debug.Log($"{messageToString} - {messageToString.Contains("flag")}");
+            
+            if (messageToString.Contains("flag"))
+            {
+                JSONInformation info = JsonUtility.FromJson<JSONInformation>(messageToString);
+                Debug.Log(info);
+                switch(info.flag)
+                {
+                    case "START_GAME":
+                        onStartReceived?.Invoke();
+                        break;
+                    default:
+                        Debug.LogWarning($"Unknown flag received: {info.flag}");
+                        break;
+                }
+            }
+            
+        }
+        
+    }
+
+    public void SubscribeToChannel(string channel)
+    {
+        Debug.Log($"Subscribing to {channel}");
+        pubnub.UnsubscribeAll()
+            .Async((result, status) => {
+                if(status.Error){
+                    Debug.Log (string.Format("UnsubscribeAll Error: {0} {1} {2}", status.StatusCode, status.ErrorData, status.Category));
+                } else {
+                    currentChannel = channel;
+                    pubnub.Subscribe()
+                    .Channels(new List<string>() {
+                        channel
+                    })
+                    .Execute();
+                }
+            });
+    }
+
+    public void SendRoundData(Round round) 
+    {
+        foreach (var kv in round.PickedCharacters)
+        {
+            JSONStrandedData jsonStranded = new JSONStrandedData();
+            jsonStranded.flag = "SEND_GAME_DATA";
+            jsonStranded.dilemma = round.Dilemma.title;
+            jsonStranded.task = kv.Key.jobTitle;
+            jsonStranded.character = kv.Value.firstName;
+            string jsonPublishMessage = JsonUtility.ToJson(jsonStranded);
+
+            Debug.Log(jsonPublishMessage);
+
+            pubnub.Publish()
+            .Channel(currentChannel)
+            .Message(jsonStranded)
+            .Async((result, status) => {
+                if (!status.Error) {
+                    Debug.Log(string.Format("DateTime {0}, In Publish Example, Timetoken: {1}", DateTime.UtcNow , result.Timetoken));
+                } else {
+                    Debug.Log(status.Error);
+                    Debug.Log(status.ErrorData.Info);
+                }
+            });
+        }
+    }
+
+    public void UnsubscribeAll()
+    {
+        Debug.Log("Unsubscribe All");
+        pubnub.UnsubscribeAll()
+        .Async((result, status) => {
+            if(status.Error){
+                Debug.Log (string.Format("UnsubscribeAll Error: {0} {1} {2}", status.StatusCode, status.ErrorData, status.Category));
+            } else {
+                Debug.Log (string.Format("DateTime {0}, In UnsubscribeAll, result: {1}", DateTime.UtcNow, result.Message));
+            }
+        });;
+    }
+
+    void OnDestroy()
+    {
+        RoundManager.onRoundEnd -= SendRoundData;
+        pubnub.SubscribeCallback -= SubscribeCallbackHandler;
+        TitleManager.onPinConfirmed -= SubscribeToChannel;
+    }
+
+}
