@@ -39,7 +39,7 @@ namespace Legacy
                 JobCard jCard = jobCard.GetComponent<JobCard>();
                 jCard.characterOverview = characterOverview;
                 Character characterTemp;
-                if (roundManager.round.PickedCharacters.TryGetValue(jCard.job, out characterTemp))
+                if (roundManager.Round.PickedCharacters.TryGetValue(jCard.job, out characterTemp))
                 {
                     jCard.characterName.text = characterTemp.name;
                     jCard.portrait.sprite = characterTemp.portrait;
