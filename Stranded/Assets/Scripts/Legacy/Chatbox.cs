@@ -1,24 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using Model;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using Model;
 
-
-public class Chatbox : MonoBehaviour
+namespace Legacy
 {
-    public TextMeshProUGUI characterName;
-    public TextMeshProUGUI monologueText;
-    public Image characterPortrait;
-
-
-    public void Show(Character character, string feedback)
+    public class Chatbox : MonoBehaviour
     {
-        characterName.text = character.firstName;
-        monologueText.text = feedback;
-        characterPortrait.sprite = character.portrait;
-    }
+        public TextMeshProUGUI characterName;
+        public TextMeshProUGUI monologueText;
+        public Image characterPortrait;
+
+
+        public void Show(Character character, string feedback)
+        {
+            characterName.text = character.firstName;
+            monologueText.text = feedback;
+            characterPortrait.sprite = character.portrait;
+        }
     
 
+    }
 }

@@ -3,45 +3,48 @@ using Model;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterManager : MonoBehaviour
+namespace Legacy
 {
-    public Text jobName;
-    public Image icon;
-    public GameObject charCardPrefab;
-    public List<Transform> containers;
-    private readonly List<GameObject> _charCards = new List<GameObject>();
-    public RoundManager roundManager;
-    public GameObject characterInfo;
-    
-    [HideInInspector]
-    public JobCard jobCard;
-    
-    public void CreateCards(Dilemma dilemma) 
+    public class CharacterManager : MonoBehaviour
     {
-        ClearCards();
-        for (var i = 0; i < dilemma.characters.Count; i++)
+        public Text jobName;
+        public Image icon;
+        public GameObject charCardPrefab;
+        public List<Transform> containers;
+        private readonly List<GameObject> _charCards = new List<GameObject>();
+        public RoundManager roundManager;
+        public GameObject characterInfo;
+    
+        [HideInInspector]
+        public JobCard jobCard;
+    
+        public void CreateCards(Dilemma dilemma) 
         {
-            var character = dilemma.characters[i];
+            ClearCards();
+            for (var i = 0; i < dilemma.characters.Count; i++)
+            {
+                var character = dilemma.characters[i];
            
-            var charCard = Instantiate(charCardPrefab, containers[i].transform);
+                var charCard = Instantiate(charCardPrefab, containers[i].transform);
             
-            _charCards.Add(charCard);
+                _charCards.Add(charCard);
             
-            var cCard = charCard.GetComponent<CharCard>();
-            cCard.characterInfo = characterInfo;
-            cCard.characterManager = this;
-            cCard.Character = character;
-            cCard.charactersView = gameObject;
-            cCard.jobCard = jobCard;
-            cCard.characterManager.roundManager = roundManager;
+                var cCard = charCard.GetComponent<CharCard>();
+                cCard.characterInfo = characterInfo;
+                cCard.characterManager = this;
+                cCard.Character = character;
+                cCard.charactersView = gameObject;
+                cCard.jobCard = jobCard;
+                cCard.characterManager.roundManager = roundManager;
+            }
         }
-    }
 
-    private void ClearCards()
-    {
-        foreach (var card in _charCards)
+        private void ClearCards()
         {
-            Destroy(card);
+            foreach (var card in _charCards)
+            {
+                Destroy(card);
+            }
         }
     }
 }

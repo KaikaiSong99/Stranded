@@ -2,40 +2,43 @@ using UnityEngine;
 using UnityEngine.UI;
 using Util;
 
-public class TopBarManager : MonoBehaviour
+namespace Legacy
 {
-    private ObjectFinder<RoundManager> _roundManager;
-
-    private const string RoundPrefix = "Round: ";
-
-    public Text roundText;
-    public Text timeText;
-
-    private void Start()
+    public class TopBarManager : MonoBehaviour
     {
-        _roundManager = new ObjectFinder<RoundManager>(this, FindObjectOfType<RoundManager>);
-    }
+        private ObjectFinder<RoundManager> _roundManager;
 
-    private void Update()
-    {
-        _roundManager.Use(roundManager =>
+        private const string RoundPrefix = "Round: ";
+
+        public Text roundText;
+        public Text timeText;
+
+        private void Start()
         {
-            
-            roundText.text = RoundPrefix + roundManager.dilemma?.round;
-            timeText.text = DisplayTime(roundManager.timeLeft);
-        }, "Top bar couldn't find a round manager in the scene.");
-    }
-
-    private static string DisplayTime(float timeToDisplay)
-    {
-        if (timeToDisplay < 0)
-        {
-            timeToDisplay = 0;
+            _roundManager = new ObjectFinder<RoundManager>(this, FindObjectOfType<RoundManager>);
         }
 
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        private void Update()
+        {
+            _roundManager.Use(roundManager =>
+            {
+            
+                roundText.text = RoundPrefix + roundManager.dilemma?.round;
+                timeText.text = DisplayTime(roundManager.timeLeft);
+            }, "Top bar couldn't find a round manager in the scene.");
+        }
 
-        return $"{minutes:00}:{seconds:00}";
+        private static string DisplayTime(float timeToDisplay)
+        {
+            if (timeToDisplay < 0)
+            {
+                timeToDisplay = 0;
+            }
+
+            float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+            float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+            return $"{minutes:00}:{seconds:00}";
+        }
     }
 }

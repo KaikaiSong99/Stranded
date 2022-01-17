@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Legacy;
 using UnityEngine;
 using UnityEngine.UI;
 using Model;

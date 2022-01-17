@@ -1,59 +1,62 @@
-﻿using UnityEngine;
+﻿using Model;
+using UnityEngine;
 using UnityEngine.UI;
-using Model;
 
-public class JobCard : MonoBehaviour
+namespace Legacy
 {
-    public Text jobName;
-    public Text characterName;
-    public Text jobDescription;
-    public Image portrait;
-    private Job _job;
-    
-    [HideInInspector]
-    public Image icon;
-    
-    [HideInInspector]
-    public GameObject characterOverview;
-    
-    [HideInInspector]
-    public CharacterManager characterManager;
-    
-    [HideInInspector]
-    public Dilemma dilemma;
-    
-    [HideInInspector]
-    public RoundManager roundManager;
-
-
-    public void Start()
+    public class JobCard : MonoBehaviour
     {
-        portrait.sprite = null;
-    }
+        public Text jobName;
+        public Text characterName;
+        public Text jobDescription;
+        public Image portrait;
+        private Job _job;
     
+        [HideInInspector]
+        public Image icon;
+    
+        [HideInInspector]
+        public GameObject characterOverview;
+    
+        [HideInInspector]
+        public CharacterManager characterManager;
+    
+        [HideInInspector]
+        public Dilemma dilemma;
+    
+        [HideInInspector]
+        public RoundManager roundManager;
 
-    public Job job
-    {
-        get { return _job;}
-        set { _job = value; 
-        
-            jobName.text = value.name; 
-            jobDescription.text = value.description;
+
+        public void Start()
+        {
+            portrait.sprite = null;
         }
-    }
     
-    public void OnJobCardClick()
-    {
-        ShowCharacters();
-    }
-    
-    private void ShowCharacters()
-    {
-        characterOverview.gameObject.SetActive(true);
-        characterManager.jobCard = this;
-        characterManager.jobName.text = jobName.text;
+
+        public Job job
+        {
+            get { return _job;}
+            set { _job = value; 
         
-        characterManager.CreateCards(dilemma);
-        characterManager.roundManager = roundManager;
+                jobName.text = value.name; 
+                jobDescription.text = value.description;
+            }
+        }
+    
+        public void OnJobCardClick()
+        {
+            ShowCharacters();
+        }
+    
+        private void ShowCharacters()
+        {
+            characterOverview.gameObject.SetActive(true);
+            characterManager.jobCard = this;
+            characterManager.jobName.text = jobName.text;
+        
+            characterManager.CreateCards(dilemma);
+            characterManager.roundManager = roundManager;
+        }
     }
 }

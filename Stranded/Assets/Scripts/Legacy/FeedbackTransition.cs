@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class FeedbackTransition : SceneTransition
+namespace Legacy
 {
-    // TODO Add more animation states
+    public class FeedbackTransition : SceneTransition
+    {
+        // TODO Add more animation states
+    }
 }
