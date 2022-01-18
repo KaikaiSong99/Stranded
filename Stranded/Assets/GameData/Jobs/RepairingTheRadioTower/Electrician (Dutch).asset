@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: Electrician (Dutch)
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 21300000, guid: 5fa47bc5a0e08fa458249ee4b2ae2d10, type: 3}
+  jobTitle: Electricien
+  description: Iemand moet de elektronica van de radio repareren.
+  idealCharacter: {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
+  idealAssignedDialogue: 'A fun little puzzle that was. It goes to show that even
+    highschool physics is still very practically applicable!
+
+
+    Wat een leuke
+    puzzeltje was dat! Zo zie je maar dat iedereen een beetje natuurkunde moet kennen!'
+  idealSuggestDialogue: Je had aan mij moeten vertellen dat je aan elektronica zou
+    werken! Ik had je graag alle hulp en gereedschap willen geven.

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0053b2a114d5e0841adbf230a373ee52, type: 3}
+  m_Name: RepairingTheRadioTower (Dutch)
+  m_EditorClassIdentifier: 
+  round: 0
+  characters: []
+  jobs:
+  - {fileID: 11400000, guid: 5f312f924e508984088e742ce82052bb, type: 2}
+  - {fileID: 11400000, guid: f21ac2cb194e1a64cb0d40d56d56d79b, type: 2}
+  - {fileID: 11400000, guid: 4ab8aef33b5852444af4663c668f3932, type: 2}
+  - {fileID: 11400000, guid: 30287c591cc7aea4fb4e44069cab866e, type: 2}
+  sprite: {fileID: 0}
+  title: De radio toren repareren
+  description: Iemand van de groep zag dat in het midden van het eiland, op de top
+    van de berg een oude radio toren te zien was. Geweldig! De groep besluit om de
+    radio te repareren om zo een S.O.S. bericht uit te sturen. De toren lijkt echter
+    niet gebruikt te zijn in een aantal jaren. Er is veel roest en stukken van de
+    ladder ontbreken.
+  playTime: 40
+  isCounted: 1
+  minJobSuccess: 3
+  successText: Het team deed zijn werk en alles verliep volgens plan. Het lukte de
+    groep om de toren te repareren en een S.O.S. signaal uit te sturen. Het is helaas
+    niet zeker dat iemand het bericht heeft gehoord...
+  partialSuccessText: Het duurde een aantal pogingen, maar met veel bloed, zweet
+    en tranen, werd de radio toren toch nog gerepareerd. Het is helaas niet zeker
+    dat iemand het bericht heeft gehoord...
+  failureText: De groep deed hun best om de radio toren te repareren, maar het kostte
+    zoveel tijd dat er een storm kwam die de toren verwoestte. De groep zal een andere
+    manier moeten zoeken om hulp te vragen...

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0053b2a114d5e0841adbf230a373ee52, type: 3}
+  m_Name: BuildingARaft (Dutch)
+  m_EditorClassIdentifier: 
+  round: 0
+  characters: []
+  jobs:
+  - {fileID: 11400000, guid: 1a74244982a90a741bd50ae5f69c62ef, type: 2}
+  - {fileID: 11400000, guid: b8c0979c627dfa444a63fab309d5a5ca, type: 2}
+  - {fileID: 11400000, guid: 4549ed6ccbdc6364c8c8ec126ec73172, type: 2}
+  - {fileID: 11400000, guid: f2e88fc4cd9b6464b9fd90b861c4b70b, type: 2}
+  sprite: {fileID: 21300000, guid: 2ab5e79dae400fd4ba8880042f2d2bb7, type: 3}
+  title: Een vlot bouwen
+  description: De enige manier om het eiland te verlaten, is door een vlot te bouwen.
+    De groep besluit om toch een poging te doen. Het vlot moet stevig en functioneel
+    genoeg zijn om hen naar vaste land te brengen.
+  playTime: 40
+  isCounted: 1
+  minJobSuccess: 3
+  successText: Alles ging volgens plan en het vlot was groot genoeg voor iedereen,
+    zonder te lekken! Hiermee kunnen ze zeker elke storm weerstaan.
+  partialSuccessText: 'The survivors ran into unexpected problems when they were
+    making the raft but they managed to finalize the work somehow. The raft worked
+    well enough and could hold their weight.
+
+
+    Er waren veel onverwachte problemen
+    waardoor het vlot niet zo goed was als gepland. Na veel werk was het uiteindelijk
+    klaar en was net goed genoed om iedereen drijvende te houden.'
+  failureText: De groep deed hun uiterste best om de vlot af te maken, maar het kostte
+    teveel tijd en energie. Toen ze eindelijk iets hadden, deden ze een drijf test.
+    Helaas faalde het vlot de test en al dat werk zonk naar de bodem.

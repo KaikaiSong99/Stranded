@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd73e720b4c6cbf4e9deabdaa78544d0, type: 3}
+  m_Name: Fiona (Dutch)
+  m_EditorClassIdentifier: 
+  portrait: {fileID: 21300000, guid: ad014baafa8b64143b1eb8b190f6ffce, type: 3}
+  firstName: Fiona
+  age: 41
+  description: Is direct, hard en sportief
+  incorrectlyAssignedDialogue: Mijn God, wat een ellende was dit, zeg. Ik verveelde
+    zo erg,  dat ik iemand een klap kon geven.

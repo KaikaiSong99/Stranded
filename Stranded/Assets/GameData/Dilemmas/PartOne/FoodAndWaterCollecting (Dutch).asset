@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0053b2a114d5e0841adbf230a373ee52, type: 3}
+  m_Name: FoodAndWaterCollecting (Dutch)
+  m_EditorClassIdentifier: 
+  round: 0
+  characters: []
+  jobs:
+  - {fileID: 11400000, guid: 893eb7e2571ff5a40ab592ea538119fd, type: 2}
+  - {fileID: 11400000, guid: 394d9a01ed1aaea448271be48ea0abb6, type: 2}
+  - {fileID: 11400000, guid: 2fc1c9ef8159416418de6b306fd25443, type: 2}
+  - {fileID: 11400000, guid: 47d4a9b3773956048ae3ebeb7e4a7ced, type: 2}
+  sprite: {fileID: 21300000, guid: e838c2667cd5de34e915802f7b73fa88, type: 3}
+  title: Eten & Drinken zoeken
+  description: 'Na een tijdje op het eiland, voelen sommige mensen zich hongerig.
+
+    Ze
+    besluiten om voedsel te zoeken, waarmee ze lang kunnen overleven.
+
+    Gelukkig
+    zijn er een paar plannen gemaakt.'
+  playTime: 40
+  isCounted: 1
+  minJobSuccess: 1
+  successText: Met veel geluk en doorzetting, krijgt de groep het voor elkaar om
+    fruit, vlees en drink water bij elkaar te krijgen. Genoeg verscheidenheid voor
+    een lekkere en voedzame maaltijd. Misschien is het leven op een eiland toch niet
+    zo erg!
+  partialSuccessText: Helaas, waren niet alle plannen om eten en drinken te halen
+    succesvol, maar gelukkig is er wel genoeg om even van te leven. De groep kan
+    rusten nu ze toch nog iets te eten hebben.
+  failureText: De zoektocht naar eten was een ramp. Bijna iedereen kwam terug met
+    lege handen. Maar wat een geluk! Een van de andere overlevenden heeft een krat
+    gevonden met droge crackers in de reddingsboot. Gelukkig hebben ze iets te eten,
+    maar een fijne maaltijd zit er vandaag niet in.
