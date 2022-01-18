@@ -40,11 +40,13 @@ public class RoundManager : MonoBehaviour
     public GameObject jobsOverview;
 
     public FeedbackManager feedbackManager;
+    public AssignmentManager assignmentManager;
 
     // Start is called before the first frame update
     private void Start()
     {
         GameManager.onRoundInit += Play;
+        AssignmentManager.onAssignmentMade += AssignCharacterToJob;
     }
 
     // public void ShowOverview()
@@ -96,6 +98,8 @@ public class RoundManager : MonoBehaviour
         {
             scrollManager.ScrollThrough(info.AppearElements);
         }));
+
+        assignmentManager.Display(Dilemma.characters, Dilemma.jobs[0], Round);
     }
     
     // public IEnumerator PlayIntroPhase()
@@ -145,6 +149,7 @@ public class RoundManager : MonoBehaviour
 
     public void AssignCharacterToJob(Character character, Job job)
     {
+        Debug.Log($"Made assignment {job.name} - {character.firstName}");
         Round.AssignCharacterToJob(character, job);
     }
 
@@ -198,5 +203,6 @@ public class RoundManager : MonoBehaviour
 
     private void OnDestroy() {
         GameManager.onRoundInit -= Play;
+        AssignmentManager.onAssignmentMade -= AssignCharacterToJob;
     }
 }
