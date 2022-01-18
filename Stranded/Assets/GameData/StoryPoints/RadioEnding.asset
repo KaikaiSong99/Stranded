@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   round: 0
   characters: []
-  storyArt: {fileID: 0}
+  storyArt: {fileID: 21300000, guid: 9866ff76bc88b7942a804d684fc4bbac, type: 3}
   storyText:
   - The survivors lost hope for a moment, having seen their raft being swallowed
     by the storm. But then one of them noticed a faint flashing light at the horizon.

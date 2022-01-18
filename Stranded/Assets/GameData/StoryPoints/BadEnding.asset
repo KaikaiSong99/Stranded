@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   round: 0
   characters: []
-  storyArt: {fileID: 0}
+  storyArt: {fileID: 21300000, guid: 98f5037436a1e0340afe844e23b1901d, type: 3}
   storyText:
   - While the stranded group is certainly not lacking in talent, for now they have
     only experienced adversities. Luckily, eventually, the rains stop and the winds

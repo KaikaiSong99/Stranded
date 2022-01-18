@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   round: 0
   characters: []
-  storyArt: {fileID: 0}
+  storyArt: {fileID: 21300000, guid: 25af87262aceed345a12083ad9fe515c, type: 3}
   storyText:
   - A storm breaks out and rain comes crashing down, soaking everything. The sky
     trembles as lightning strikes one of the old trees in the forest.

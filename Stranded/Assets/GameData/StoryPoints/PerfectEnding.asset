@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   round: 0
   characters: []
-  storyArt: {fileID: 0}
+  storyArt: {fileID: 21300000, guid: f52a9f2539067bd47a6a28b556fc3eb3, type: 3}
   storyText:
   - The survivors were confident in their ability to escape and ventured head-first
     into the storm with their raft.
