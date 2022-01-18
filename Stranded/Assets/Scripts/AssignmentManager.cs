@@ -18,6 +18,8 @@ public class AssignmentManager : MonoBehaviour
     public GameObject characterCardLeft;
     public Transform container;
 
+    public Sprite emptyCharacterIcon;
+
     public static event Action<Character, Job> onAssignmentMade;
     private List<GameObject> characterObjects = new List<GameObject>();
 
@@ -34,6 +36,15 @@ public class AssignmentManager : MonoBehaviour
         gameObject.SetActive(true);
         Job = toPickJob;
         int counter = 0;
+
+        Character characterTemp;
+        if (round.PickedCharacters.TryGetValue(toPickJob, out characterTemp))
+            pickedCharacterPortrait.sprite = characterTemp.portrait;
+        else
+            pickedCharacterPortrait.sprite = emptyCharacterIcon;
+
+        jobPortrait.sprite = toPickJob.jobIcon;
+        jobName.text = toPickJob.jobTitle;
 
         foreach (var character in characters)
         {

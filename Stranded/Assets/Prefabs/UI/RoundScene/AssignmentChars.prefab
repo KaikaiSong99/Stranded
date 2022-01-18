@@ -505,6 +505,7 @@ MonoBehaviour:
   characterCardRight: {fileID: 5051970037110640645, guid: 02dfad1b8fc1be3489ada50700d9bf3f, type: 3}
   characterCardLeft: {fileID: 4913684193611488775, guid: d306d5a642e924e4d8e8b0c8eb64a511, type: 3}
   container: {fileID: 7602597265909492529}
+  emptyCharacterIcon: {fileID: 21300000, guid: e77ac7c55ea7ff242aa6583eee377e17, type: 3}
 --- !u!1 &3870374222917927048
 GameObject:
   m_ObjectHideFlags: 0
