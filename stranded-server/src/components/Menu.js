@@ -13,11 +13,6 @@ export default function Menu({channel, setChannel, userCount, strandedData, data
     const pubnub = usePubNub();
     const room_prefix = "game.";
 
-    const t1 = useRef("Get Map");
-    const t2 = useRef("Getting water");
-    const t3 = useRef("Peter");
-
-
     const generateCode = () => {
         return Math.floor(1000 + Math.random() * 9000);
     };
@@ -97,12 +92,6 @@ export default function Menu({channel, setChannel, userCount, strandedData, data
         }
     }, [pubnub, channel])
 
-    const test = event => {
-
-        dataDispatch({type : "add", data : {dilemma : t1.current.value, task : t2.current.value, character : t3.current.value}});
-
-    }
-
     return (
         <Flex 
             container 
@@ -115,10 +104,6 @@ export default function Menu({channel, setChannel, userCount, strandedData, data
                 <button className="menu-button" onClick={createRoom}>Create Room</button>
                 <button className="menu-button" disabled={!channel} onClick={startGame}>Start Game</button> 
                 <button className="menu-button" onClick={clearData} disabled={strandedData.length === 0}>Clear Data</button>            
-                <input ref={t1}  />
-                <input ref={t2}  />
-                <input ref={t3}  />
-                <button onClick={test}/>
             </Flex>
             <Flex container flex="1" justifyContent="center">
                 <h2>Stranded {channel.substring(channel.length - 4)}</h2>
