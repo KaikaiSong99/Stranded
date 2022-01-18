@@ -46,8 +46,8 @@ public class NetworkManager : MonoBehaviour
         Debug.Log(pubnubUuid);
 
         PNConfiguration pnConfiguration = new PNConfiguration();
-        pnConfiguration.PublishKey = "pub-c-8a52cd59-8e69-4b03-bb18-01b788f3d512";
-        pnConfiguration.SubscribeKey = "sub-c-7609cf94-7225-11ec-9c8d-9eb9413efc82";
+        pnConfiguration.PublishKey = "pub-c-8fbea598-c1c7-407c-8810-3e1ffd745e44";
+        pnConfiguration.SubscribeKey = "sub-c-e53297aa-789e-11ec-add2-a260b15b99c5";
         pnConfiguration.LogVerbosity = PNLogVerbosity.BODY;
         pnConfiguration.UUID = pubnubUuid;
         pubnub = new PubNub(pnConfiguration);
