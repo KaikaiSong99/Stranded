@@ -13,7 +13,9 @@ namespace UI
     public GameObject h1Prefab;
     public GameObject h2Prefab;
     public GameObject imagePrefab;
+    public GameObject jobElementPrefab;
     public GameObject paragraphPrefab;
+    public GameObject spacerPrefab;
 
     private RectTransform _rootRectTransform;
     
@@ -23,36 +25,44 @@ namespace UI
     /// </summary>
     private float _spawnPointer;
 
-    /// <summary>
-    /// I know, this feels super hacky, but it is otherwise really hard to get a return value from a coroutine,
-    /// even if you know for sure the routine has finished. 
-    /// </summary>
-    private object _returnObject;
-
     private void Start()
     {
       _rootRectTransform = GetComponent<RectTransform>();
       _spawnPointer = -spacing;
     }
 
-    public IEnumerator ConstructAssignmentPhaseUI(Dilemma dilemma, Action<List<IAppearElement>> use = null)
+    public IEnumerator ConstructAssignmentPhaseUI(Dilemma dilemma, Action<AssignmentPhaseUIInfo> use = null)
     {
       var appearElements = new List<IAppearElement>();
+      var jobElements = new List<JobElement>();
 
-      void AddToList(IAppearElement el)
+      void AddToAppearElements(IAppearElement el)
       {
         appearElements.Add(el);
       }
       
-      yield return InstantiateH1Element($"Chapter {dilemma.round}", AddToList);
-      yield return InstantiateImageElement(dilemma.sprite, AddToList);
-      yield return InstantiateH2Element(dilemma.title, AddToList);
+      yield return InstantiateH1Element($"Chapter {dilemma.round}", AddToAppearElements);
+      yield return InstantiateImageElement(dilemma.sprite, AddToAppearElements);
+      yield return InstantiateH2Element(dilemma.title, AddToAppearElements);
+      
       foreach (var p in dilemma.description.Split('\n'))
       {
-        yield return InstantiateParagraphElement(p, AddToList);
+        yield return InstantiateParagraphElement(p, AddToAppearElements);
       }
       
-      use?.Invoke(appearElements);
+      foreach (var job in dilemma.jobs)
+      {
+        yield return InstantiateSpacerElement(AddToAppearElements);
+        yield return InstantiateParagraphElement("Someone needs to...", AddToAppearElements);
+        yield return InstantiateJobElement(job, jobEl =>
+        {
+          AddToAppearElements(jobEl);
+          jobElements.Add(jobEl);
+        });
+      }
+      
+      
+      use?.Invoke(new AssignmentPhaseUIInfo {AppearElements = appearElements, JobElements = jobElements}); 
     }
   
     public void ConstructFeedbackPhaseUI(Round round, 
@@ -64,6 +74,23 @@ namespace UI
     public void CreateStoryTextUI(StoryPoint storyPoint)
     {
       
+    }
+
+    private IEnumerator InstantiateJobElement(Job job, Action<JobElement> use = null)
+    {
+      return InstantiateGenericUIElement(jobElementPrefab, obj =>
+      {
+        var jobElement = obj.GetComponent<JobElement>();
+        jobElement.Populate(job);
+        
+        use?.Invoke(jobElement);
+      });
+    }
+
+    private IEnumerator InstantiateSpacerElement(Action<SpacerElement> use = null)
+    {
+      return InstantiateGenericUIElement(spacerPrefab, obj => 
+        use?.Invoke(obj.GetComponent<SpacerElement>()));
     }
 
     private IEnumerator InstantiateH1Element(string text, Action<BasicTextElement> use = null)

@@ -92,9 +92,9 @@ public class RoundManager : MonoBehaviour
     public void PlayAssignmentPhase()
     {
         Debug.Log($"Assignment phase for round {Dilemma.round} has started.");
-        StartCoroutine(uiBuilder.ConstructAssignmentPhaseUI(Dilemma, appearElements =>
+        StartCoroutine(uiBuilder.ConstructAssignmentPhaseUI(Dilemma, info =>
         {
-            scrollManager.ScrollThrough(appearElements);
+            scrollManager.ScrollThrough(info.AppearElements);
         }));
     }
     

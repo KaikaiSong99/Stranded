@@ -30,7 +30,9 @@ MonoBehaviour:
   description: 'After spending some hours on the island, some of the survivors start
     feeling hungry.
 
-    They will need to find a source of food on the island. Luckily,
+    They will need to find a source of food on the island.
+
+    Luckily,
     there are a couple of options.'
   playTime: 40
   isCounted: 1

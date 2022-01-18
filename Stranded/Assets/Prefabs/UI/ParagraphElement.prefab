@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3541741455077524554}
   - component: {fileID: 8176492065368590759}
+  - component: {fileID: 8447551506524325663}
   - component: {fileID: 7953710888388841979}
   - component: {fileID: 2359699646584026770}
   - component: {fileID: 8019503677114157313}
@@ -36,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: 0}
+  m_AnchoredPosition: {x: 10, y: 0}
+  m_SizeDelta: {x: -60, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8176492065368590759
 CanvasRenderer:
@@ -47,6 +48,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7356192467607186237}
   m_CullTransparentMesh: 1
+--- !u!225 &8447551506524325663
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356192467607186237}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &7953710888388841979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,3 +122,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottomPadding: 10
   textComponent: {fileID: 7953710888388841979}
+  letterAppearDuration: 0.05
+  afterCompletionDuration: 0.4

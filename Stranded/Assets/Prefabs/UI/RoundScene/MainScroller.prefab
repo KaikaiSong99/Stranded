@@ -61,7 +61,9 @@ MonoBehaviour:
   h1Prefab: {fileID: 398504973082894660, guid: 5186a804945a8e441ba52b6cbc2d4a3d, type: 3}
   h2Prefab: {fileID: 5088686335345010934, guid: f9aef86e0aa5d2c4384bb038cfe07b6c, type: 3}
   imagePrefab: {fileID: 8159915490284469124, guid: 7efbe07b44cf3c84ca107d6740814363, type: 3}
+  jobElementPrefab: {fileID: 4309397307492530859, guid: a07628ec267dc304bb142b8ffc8f2d77, type: 3}
   paragraphPrefab: {fileID: 7356192467607186237, guid: cd50f6516eeff4c4abdb22ec6061831e, type: 3}
+  spacerPrefab: {fileID: 8630286885008885171, guid: 13a82e69d6f08764a966e3ee794dbfc2, type: 3}
 --- !u!1 &7924166779775840557
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +149,7 @@ MonoBehaviour:
   timeBetween: 0.3
   focusAnimationDuration: 0.5
   disableScroll: 1
+  bottomPadding: 30
 --- !u!222 &1719812273191831528
 CanvasRenderer:
   m_ObjectHideFlags: 0
