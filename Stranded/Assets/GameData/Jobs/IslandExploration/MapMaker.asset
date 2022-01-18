@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
   m_Name: MapMaker
   m_EditorClassIdentifier: 
-  jobIcon: {fileID: 0}
+  jobIcon: {fileID: 21300000, guid: 3b3a8e94fdbefb64b809d4cffb76814f, type: 3}
   jobTitle: Map maker
   description: Someone comes along to make the map.
   idealCharacter: {fileID: 11400000, guid: fe8760a2e816e3e43bfe6a954b88379d, type: 2}

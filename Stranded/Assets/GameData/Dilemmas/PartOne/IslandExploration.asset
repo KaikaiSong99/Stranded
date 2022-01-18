@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bfaae737136485240916277c025ff20f, type: 2}
   - {fileID: 11400000, guid: 4b0b23d9b07aad44aab8c83fc0d3b087, type: 2}
   - {fileID: 11400000, guid: 93f6a69748e1e9f40843ebb2f55bead2, type: 2}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e838c2667cd5de34e915802f7b73fa88, type: 3}
   title: Island exploration
   description: "To increase their chance of survival the group decides to organise
     an expedition to map out the island and scan it\u2019s resources. "
