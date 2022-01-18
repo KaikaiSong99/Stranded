@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   round: 0
   characters: []
-  storyArt: {fileID: 0}
+  storyArt: {fileID: 21300000, guid: f52a9f2539067bd47a6a28b556fc3eb3, type: 3}
   storyText:
   - After successfully constructing a raft, the survivors decided to wait for the
     storm to settle. Eventually, the rains stopped and they ventured out into the
