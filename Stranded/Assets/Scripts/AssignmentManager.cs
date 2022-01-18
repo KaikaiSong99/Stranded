@@ -57,7 +57,6 @@ public class AssignmentManager : MonoBehaviour
 
             characterObjects.Add(go);
             
-            go.transform.parent = container;
             var prevRectTransform = go.GetComponent<RectTransform>();
 
             prevRectTransform.sizeDelta = new Vector2(prevRectTransform.sizeDelta.x, 340);

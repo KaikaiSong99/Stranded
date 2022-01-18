@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using Legacy;
 using UnityEngine;
@@ -9,7 +8,6 @@ using Model;
 using UI;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
-using Util;
 
 public class RoundManager : MonoBehaviour
 {
@@ -24,9 +22,7 @@ public class RoundManager : MonoBehaviour
     public Dictionary<Job, Dictionary<Character, string>> FeedbackDictionary { get; private set; }
 
     // Different timers for the different phases
-    public float introTime = 5;
-    public float executionTime = 5;
-    public float feedbackTime = 30;
+    public float postRoundTime = 5f;
 
     public UIBuilder uiBuilder;
 
@@ -38,9 +34,6 @@ public class RoundManager : MonoBehaviour
   
     public float timeLeft;
 
-    public Text dilemmaTitle;
-    public Image dilemmaSprite;
-    //public GameObject overviewUI;
     public GameObject jobsOverview;
 
     public FeedbackManager feedbackManager;
@@ -49,28 +42,11 @@ public class RoundManager : MonoBehaviour
     [CanBeNull]
     private AssignmentPhaseUIInfo _assignmentPhaseUiInfo;
 
-    // Start is called before the first frame update
     private void Start()
     {
         GameManager.onRoundInit += Play;
         AssignmentManager.onAssignmentMade += AssignCharacterToJob;
     }
-
-    // public void ShowOverview()
-    // {
-    //     dilemmaTitle.text = dilemma.title;
-    //     dilemmaSprite.sprite = dilemma.sprite;
-    // }
-    //
-    // public void ShowAssignmentOverview()
-    // {
-    //     //overviewUI.gameObject.SetActive(false);
-    //     jobsOverview.gameObject.SetActive(true);
-    //     jobManager.roundManager = this;
-    //     jobManager.CreateCards(dilemma);
-    //
-    //     Debug.Log($" Job count: {dilemma.jobs.Count}");
-    // }
 
     // Start this round (is called from GameManager)
     // Cast the parameters to Dilemma type with "Dilemma s = parameters as Dilemma"
@@ -109,30 +85,35 @@ public class RoundManager : MonoBehaviour
             });
         }));
     }
-    
-    // public IEnumerator PlayIntroPhase()
-    // {
-    //     Debug.Log("Intro has started");
-    //     timeLeft = introTime;
-    //     ShowOverview();
-    //     yield return StartCoroutine(Timer(() => PlayAssignmentPhase()));
-    // }
 
     private IEnumerator PlayAssignmentPhase()
     {
         Debug.Log("Assignment has started");
         timeLeft = Dilemma.playTime;
-        yield return StartCoroutine(Timer(SetupExecutionPhase));
+        yield return StartCoroutine(Timer(PlayFeedbackPhase));
     }
 
-    private IEnumerator SetupExecutionPhase()
+    private void PlayFeedbackPhase()
     {
-        Debug.Log("Execution has started");
+        Debug.Log("Feedback has started");
         SetAssignmentInteractionEnabled(false);
         ComputeCorrect();
+
+        StartCoroutine(uiBuilder.ConstructFeedbackPhaseUI(this, info =>
+        {
+            scrollManager.ScrollThrough(info.AppearElements, () =>
+            {
+                StartCoroutine(WrapUpRound());
+            });
+        }));
+    }
+
+    private IEnumerator WrapUpRound()
+    {
+        Debug.Log("Wrap-up has started");
+        yield return new WaitForSeconds(postRoundTime);
         
-        // yield return StartCoroutine(Timer(() => PlayFeedbackPhase()));
-        yield break;
+        onRoundEnd?.Invoke(Round);
     }
 
     // public IEnumerator PlayFeedbackPhase()
@@ -145,7 +126,7 @@ public class RoundManager : MonoBehaviour
     //     onRoundEnd?.Invoke(round);
     // }
 
-    private IEnumerator Timer(Func<IEnumerator> func)
+    private IEnumerator Timer(Action action)
     {
         var startTime = timeLeft;
         timeBar.Appear();
@@ -160,7 +141,7 @@ public class RoundManager : MonoBehaviour
         timeLeft = 0;
         timeBar.Disappear();
 
-        yield return func();
+        action();
     }
 
     public void AssignCharacterToJob(Character character, Job job)
@@ -180,7 +161,7 @@ public class RoundManager : MonoBehaviour
         _assignmentPhaseUiInfo?.JobElements.ForEach(jobEl => jobEl.SetInteractable(enable));
     }
 
-    //Compute how many of the jobs in the provided jobs list are currently correctly assigned
+    // Compute how many of the jobs in the provided jobs list are currently correctly assigned
     private void ComputeCorrect()
     {
         int numCorrectTemp = 0;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Model;
 using UnityEngine;
 
@@ -45,11 +46,8 @@ namespace UI
       yield return InstantiateH1Element($"Chapter {dilemma.round}", AddToAppearElements);
       yield return InstantiateImageElement(dilemma.sprite, AddToAppearElements);
       yield return InstantiateH2Element(dilemma.title, AddToAppearElements);
-      
-      foreach (var p in dilemma.description.Split('\n'))
-      {
-        yield return InstantiateParagraphElement(p, AddToAppearElements);
-      }
+
+      yield return InstantiateNextLineDelimitedParagraphElements(dilemma.description, AddToAppearElements);
       
       foreach (var job in dilemma.jobs)
       {
@@ -66,7 +64,7 @@ namespace UI
       use?.Invoke(new AssignmentPhaseUIInfo {AppearElements = appearElements, JobElements = jobElements}); 
     }
   
-    public IEnumerator ConstructFeedbackPhaseUI(RoundManager roundManager, Action use = null)
+    public IEnumerator ConstructFeedbackPhaseUI(RoundManager roundManager, Action<FeedbackPhaseUIInfo> use = null)
     {
       var appearElements = new List<IAppearElement>();
       var dilemma = roundManager.Dilemma;
@@ -76,8 +74,11 @@ namespace UI
         appearElements.Add(el);
       }
 
-      yield return InstantiateParagraphElement(PickDilemmaSuccessText(roundManager), AddToAppearElements);
+      yield return InstantiateSpacerElement(AddToAppearElements);
+      yield return InstantiateNextLineDelimitedParagraphElements(PickDilemmaSuccessText(roundManager), 
+        AddToAppearElements);
       
+      use?.Invoke(new FeedbackPhaseUIInfo() {AppearElements = appearElements});
     }
 
     public void CreateStoryTextUI(StoryPoint storyPoint)
@@ -122,6 +123,14 @@ namespace UI
     private IEnumerator InstantiateH2Element(string text, Action<BasicTextElement> use = null)
     {
       return InstantiateBasicTextElement(text, h2Prefab, use);
+    }
+
+    private IEnumerator InstantiateNextLineDelimitedParagraphElements(string text, Action<BasicTextElement> use = null)
+    {
+      return text
+        .Split('\n')
+        .Select(p => InstantiateParagraphElement(p, use))
+        .GetEnumerator();
     }
 
     private IEnumerator InstantiateParagraphElement(string text, Action<BasicTextElement> use = null)

@@ -30,7 +30,6 @@ namespace UI
     {
       this.InterpolateSinus(showAnimationDuration, y =>
       {
-        Debug.Log(y * _frameStartHeight - _frameStartHeight);
         AdjustFramePosY(y * _frameStartHeight - _frameStartHeight);
       });
     }

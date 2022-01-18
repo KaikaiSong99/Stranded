@@ -43,7 +43,6 @@ namespace UI
         var next = i + 1;
         appearElements[i].Continue = () => this.Delay(timeBetween, () =>
         {
-          Debug.Log(next);
           MakeAppearAndFocused(appearElements[next]);
         });
       }
