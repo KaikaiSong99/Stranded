@@ -26,8 +26,10 @@ public class GameManager : MonoBehaviour
     public List<GameScene> scenes;
     public int roundNumber;
     public static event Action<BaseSceneParameter> onRoundInit;
+    public static event Action onGameEnd;
 
     public EndingEvaluationOrder endingEvaluationOrder;
+    public bool DebugMode = false;
 
     private readonly List<Round> progress = new List<Round>();
     private bool roundIsFinished;
@@ -36,9 +38,23 @@ public class GameManager : MonoBehaviour
     {
         RoundManager.OnRoundEnd += AdvanceRound;    
         StoryManager.onRoundEnd += AdvanceRound;
+        TitleManager.onGameStart += StartGame;
+
+        if (DebugMode)
+        {
+            roundNumber = 1;
+            StartCoroutine(Play());
+        }
+        else 
+            StartCoroutine(LoadScene("TitleScene"));
+
+    }
+
+    private void StartGame()
+    {
+        StartCoroutine(UnloadScene("TitleScene"));
         roundNumber = 1;
         StartCoroutine(Play());
-
     }
 
     private IEnumerator Play()
@@ -68,6 +84,11 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log("End Game");
+
+        scenes.RemoveAt(scenes.Count - 1);
+        onGameEnd?.Invoke();
+
+        StartCoroutine(LoadScene("TitleScene"));
     }
 
     private void SetSceneParameters(BaseSceneParameter parameters)
