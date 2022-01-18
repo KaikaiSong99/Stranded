@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
   m_Name: OperationLeader
   m_EditorClassIdentifier: 
-  jobIcon: {fileID: 0}
+  jobIcon: {fileID: 21300000, guid: 9a1198d66f599f64c97ecb98eacfe4f6, type: 3}
   jobTitle: Operation leader
   description: Someone has to coordinate and lead the operation.
   idealCharacter: {fileID: 11400000, guid: e55d8a5e5b39d1f47ae57dec2ee80969, type: 2}

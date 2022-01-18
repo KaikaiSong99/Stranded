@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
   m_Name: Electrician
   m_EditorClassIdentifier: 
-  jobIcon: {fileID: 0}
+  jobIcon: {fileID: 21300000, guid: 5fa47bc5a0e08fa458249ee4b2ae2d10, type: 3}
   jobTitle: Electrician
   description: "Someone is responsible for fixing the radio\u2019s electric circuits."
   idealCharacter: {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
