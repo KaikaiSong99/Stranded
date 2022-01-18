@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8348437941989809150}
   - component: {fileID: 4917426867900994718}
   - component: {fileID: 841299043522059660}
+  - component: {fileID: 565959403976788131}
   m_Layer: 0
   m_Name: MainScrollerContent
   m_TagString: Untagged
@@ -75,6 +76,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &565959403976788131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7093330154817198135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5db160390e49faae89e1e7ae55e6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spacing: 20
+  h1Prefab: {fileID: 398504973082894660, guid: 5186a804945a8e441ba52b6cbc2d4a3d, type: 3}
+  h2Prefab: {fileID: 5088686335345010934, guid: f9aef86e0aa5d2c4384bb038cfe07b6c, type: 3}
+  imagePrefab: {fileID: 8159915490284469124, guid: 7efbe07b44cf3c84ca107d6740814363, type: 3}
+  paragraphPrefab: {fileID: 7356192467607186237, guid: cd50f6516eeff4c4abdb22ec6061831e, type: 3}
 --- !u!1 &7924166779775840557
 GameObject:
   m_ObjectHideFlags: 0

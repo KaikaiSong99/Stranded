@@ -12,18 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0053b2a114d5e0841adbf230a373ee52, type: 3}
   m_Name: FoodAndWaterCollecting
   m_EditorClassIdentifier: 
-  round: 0
-  characters: []
+  round: 1
+  characters:
+  - {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
+  - {fileID: 11400000, guid: 152bbd854c8de5942b1c0be03ff83aef, type: 2}
+  - {fileID: 11400000, guid: c71a3900c9cb90a47b3deeccefc50ab7, type: 2}
+  - {fileID: 11400000, guid: e55d8a5e5b39d1f47ae57dec2ee80969, type: 2}
+  - {fileID: 11400000, guid: fe8760a2e816e3e43bfe6a954b88379d, type: 2}
+  - {fileID: 11400000, guid: 1f13345abceb66c44bada9e5a7b89d3f, type: 2}
   jobs:
   - {fileID: 11400000, guid: 893eb7e2571ff5a40ab592ea538119fd, type: 2}
   - {fileID: 11400000, guid: 394d9a01ed1aaea448271be48ea0abb6, type: 2}
   - {fileID: 11400000, guid: 2fc1c9ef8159416418de6b306fd25443, type: 2}
   - {fileID: 11400000, guid: 47d4a9b3773956048ae3ebeb7e4a7ced, type: 2}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e838c2667cd5de34e915802f7b73fa88, type: 3}
   title: Food and water collecting
-  description: After spending some hours on the island, some of the survivors start
-    feeling hungry. They will need to find a source of food on the island. Luckily,
-    there are a couple of options.
+  description: 'After spending some hours on the island, some of the survivors start
+    feeling hungry.
+
+    They will need to find a source of food on the island. Luckily,
+    there are a couple of options.'
   playTime: 40
   isCounted: 1
   minJobSuccess: 1

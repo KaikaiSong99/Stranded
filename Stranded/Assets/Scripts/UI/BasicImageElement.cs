@@ -29,7 +29,10 @@ namespace UI
     private void Start()
     {
       RectTransform = GetComponent<RectTransform>();
-      
+    }
+
+    public void RefreshAspectRatio()
+    {
       var texture = image.sprite.texture;
       Assert.IsNotNull(texture); // if raised, probably Start is called before Sprite assignment
       aspectRatioFitter.aspectRatio = (float) texture.width / texture.height;

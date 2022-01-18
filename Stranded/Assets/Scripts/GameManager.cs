@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        RoundManager.OnRoundEnd += AdvanceRound;    
+        RoundManager.onRoundEnd += AdvanceRound;    
         StoryManager.onRoundEnd += AdvanceRound;
         TitleManager.onGameStart += StartGame;
 
@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour
 
     void OnDestroy() 
     {
-        RoundManager.OnRoundEnd -= AdvanceRound;    
+        RoundManager.onRoundEnd -= AdvanceRound;    
         StoryManager.onRoundEnd -= AdvanceRound;    
     }
 

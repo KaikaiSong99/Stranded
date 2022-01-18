@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using Legacy;
 using UnityEngine;
 using Model;
+using UI;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
+using Util;
 
 public class RoundManager : MonoBehaviour
 {
     // When the round is done call onRoundEnd?.Invoke(Round round)
-    public static event Action<Round> OnRoundEnd;
+    public static event Action<Round> onRoundEnd;
 
     public Dilemma Dilemma { get; private set; }
     
@@ -23,6 +25,9 @@ public class RoundManager : MonoBehaviour
     public float introTime = 5;
     public float executionTime = 5;
     public float feedbackTime = 30;
+
+    public UIBuilder uiBuilder;
+    
     public JobManager jobManager;
   
     public float timeLeft;
@@ -70,15 +75,24 @@ public class RoundManager : MonoBehaviour
         {
             FeedbackDictionary.Add(job, new Dictionary<Character, String>());
         }
+        
+        PlayAssignmentPhase();
+
         // StartCoroutine(PlayIntroPhase());
     }
-    
+
     // Sequence of operation:
     // 1. Construct all assignment phase UI elements & make them appear.
     // 2. Player goes through job assignment process (timer starts)
     // 3. Construct all feedback phase UI elements & make them appear.
     // 4. End
 
+    public void PlayAssignmentPhase()
+    {
+        Debug.Log($"Assignment phase for round {Dilemma.round} has started.");
+        uiBuilder.ConstructAssignmentPhaseUI(Dilemma);
+    }
+    
     // public IEnumerator PlayIntroPhase()
     // {
     //     Debug.Log("Intro has started");

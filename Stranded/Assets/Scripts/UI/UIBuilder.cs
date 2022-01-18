@@ -1,6 +1,10 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Model;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -19,21 +23,36 @@ namespace UI
     /// Determines where on the y axis within the space of the root rect transform the next UI element will be
     /// instantiated. Throughout the build process this value grows more and more negative.
     /// </summary>
-    private float _spawnPointer = 0f;
+    private float _spawnPointer;
+
+    /// <summary>
+    /// I know, this feels super hacky, but it is otherwise really hard to get a return value from a coroutine,
+    /// even if you know for sure the routine has finished. 
+    /// </summary>
+    private object _returnObject;
 
     private void Start()
     {
       _rootRectTransform = GetComponent<RectTransform>();
+      _spawnPointer = -spacing;
     }
 
-    public AssignmentPhaseUIInfo ConstructAssignmentPhaseUI(Dilemma dilemma, int round)
+    public AssignmentPhaseUIInfo ConstructAssignmentPhaseUI(Dilemma dilemma)
     {
-      InstantiateH1Element($"Chapter {round}");
-      InstantiateImageElement(dilemma.sprite);
-      InstantiateH2Element(dilemma.title);
-      
+      StartCoroutine(ConstructAssignmentPhaseUIRoutine(dilemma));
 
-      return new AssignmentPhaseUIInfo();
+      return null;
+    }
+
+    private IEnumerator ConstructAssignmentPhaseUIRoutine(Dilemma dilemma)
+    {
+      yield return InstantiateH1Element($"Chapter {dilemma.round}");
+      yield return InstantiateImageElement(dilemma.sprite);
+      yield return InstantiateH2Element(dilemma.title);
+      foreach (var p in dilemma.description.Split('\n'))
+      {
+        yield return InstantiateParagraphElement(p);
+      }
     }
   
     public void ConstructFeedbackPhaseUI(Round round, 
@@ -47,50 +66,62 @@ namespace UI
       
     }
 
-    private BasicTextElement InstantiateH1Element(string text)
+    private IEnumerator InstantiateH1Element(string text)
     {
       return InstantiateBasicTextElement(text, h1Prefab);
     }
 
-    private BasicTextElement InstantiateH2Element(string text)
+    private IEnumerator InstantiateH2Element(string text)
     {
       return InstantiateBasicTextElement(text, h2Prefab);
     }
 
-    private BasicTextElement InstantiateParagraphElement(string text)
+    private IEnumerator InstantiateParagraphElement(string text)
     {
       return InstantiateBasicTextElement(text, paragraphPrefab);
     }
 
-    private BasicTextElement InstantiateBasicTextElement(string text, GameObject textElPrefab)
+    private IEnumerator InstantiateBasicTextElement(string text, GameObject textElPrefab)
     {
-      var obj = InstantiateUIElement(textElPrefab);
-      var textElement = obj.GetComponent<BasicTextElement>();
-      textElement.Text = text;
+      yield return InstantiateGenericUIElement(textElPrefab, obj =>
+      {
+        var textElement = obj.GetComponent<BasicTextElement>();
+        textElement.Text = text;
 
-      _spawnPointer += textElement.bottomPadding;
+        _spawnPointer -= textElement.bottomPadding;
+      });
       
-      return textElement;
+      _returnObject = ((GameObject) _returnObject).GetComponent<BasicTextElement>();
     }
 
-    private BasicImageElement InstantiateImageElement(Sprite sprite)
+    private IEnumerator InstantiateImageElement(Sprite sprite)
     {
-      var obj = InstantiateUIElement(imagePrefab);
-      var imageElement = obj.GetComponent<BasicImageElement>();
-      imageElement.Sprite = sprite;
+      yield return InstantiateGenericUIElement(imagePrefab, obj =>
+      {
+        var imageElement = obj.GetComponent<BasicImageElement>();
+        imageElement.Sprite = sprite;
+        imageElement.RefreshAspectRatio();
+      });
 
-      return imageElement;
+      _returnObject = ((GameObject) _returnObject).GetComponent<BasicImageElement>();;
     }
     
-    private GameObject InstantiateUIElement(GameObject prefab)
+    private IEnumerator InstantiateGenericUIElement(GameObject prefab, Action<GameObject> beforeSpacing = null)
     {
+      Debug.Log($"Try to instantiate {prefab}");
       var obj = Instantiate(prefab, _rootRectTransform);
+      
       var rectTransform = obj.GetComponent<RectTransform>();
       rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, _spawnPointer);
-
-      _spawnPointer += rectTransform.sizeDelta.y + spacing;
       
-      return obj;
+      beforeSpacing?.Invoke(obj);
+
+      yield return null;
+
+      Debug.Log(rectTransform.rect.height);
+      _spawnPointer -= rectTransform.sizeDelta.y + spacing;
+
+      _returnObject = obj;
     }
   }
 }
