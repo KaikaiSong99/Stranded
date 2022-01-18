@@ -273,6 +273,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f863184da2001d3449cf90a41520d0f0, type: 3}
+--- !u!114 &224373645 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4703566083904776447, guid: f863184da2001d3449cf90a41520d0f0, type: 3}
+  m_PrefabInstance: {fileID: 224373644}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13f1da252e047a3a8d9383d2f279db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &240529716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1130,6 +1141,10 @@ PrefabInstance:
       propertyPath: jobOverviewUI
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1002451127300298247, guid: bb4cfa24227a05448b5b8e3335a56abe, type: 3}
+      propertyPath: scrollManager
+      value: 
+      objectReference: {fileID: 224373645}
     - target: {fileID: 1002451127300298247, guid: bb4cfa24227a05448b5b8e3335a56abe, type: 3}
       propertyPath: feedbackScreen
       value: 

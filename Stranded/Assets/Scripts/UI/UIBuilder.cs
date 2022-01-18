@@ -1,10 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Model;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI
 {
@@ -37,22 +35,24 @@ namespace UI
       _spawnPointer = -spacing;
     }
 
-    public AssignmentPhaseUIInfo ConstructAssignmentPhaseUI(Dilemma dilemma)
+    public IEnumerator ConstructAssignmentPhaseUI(Dilemma dilemma, Action<List<IAppearElement>> use = null)
     {
-      StartCoroutine(ConstructAssignmentPhaseUIRoutine(dilemma));
+      var appearElements = new List<IAppearElement>();
 
-      return null;
-    }
-
-    private IEnumerator ConstructAssignmentPhaseUIRoutine(Dilemma dilemma)
-    {
-      yield return InstantiateH1Element($"Chapter {dilemma.round}");
-      yield return InstantiateImageElement(dilemma.sprite);
-      yield return InstantiateH2Element(dilemma.title);
+      void AddToList(IAppearElement el)
+      {
+        appearElements.Add(el);
+      }
+      
+      yield return InstantiateH1Element($"Chapter {dilemma.round}", AddToList);
+      yield return InstantiateImageElement(dilemma.sprite, AddToList);
+      yield return InstantiateH2Element(dilemma.title, AddToList);
       foreach (var p in dilemma.description.Split('\n'))
       {
-        yield return InstantiateParagraphElement(p);
+        yield return InstantiateParagraphElement(p, AddToList);
       }
+      
+      use?.Invoke(appearElements);
     }
   
     public void ConstructFeedbackPhaseUI(Round round, 
@@ -66,49 +66,47 @@ namespace UI
       
     }
 
-    private IEnumerator InstantiateH1Element(string text)
+    private IEnumerator InstantiateH1Element(string text, Action<BasicTextElement> use = null)
     {
-      return InstantiateBasicTextElement(text, h1Prefab);
+      return InstantiateBasicTextElement(text, h1Prefab, use);
     }
 
-    private IEnumerator InstantiateH2Element(string text)
+    private IEnumerator InstantiateH2Element(string text, Action<BasicTextElement> use = null)
     {
-      return InstantiateBasicTextElement(text, h2Prefab);
+      return InstantiateBasicTextElement(text, h2Prefab, use);
     }
 
-    private IEnumerator InstantiateParagraphElement(string text)
+    private IEnumerator InstantiateParagraphElement(string text, Action<BasicTextElement> use = null)
     {
-      return InstantiateBasicTextElement(text, paragraphPrefab);
+      return InstantiateBasicTextElement(text, paragraphPrefab, use);
     }
 
-    private IEnumerator InstantiateBasicTextElement(string text, GameObject textElPrefab)
+    private IEnumerator InstantiateBasicTextElement(string text, GameObject textElPrefab, 
+      Action<BasicTextElement> use = null)
     {
       yield return InstantiateGenericUIElement(textElPrefab, obj =>
       {
         var textElement = obj.GetComponent<BasicTextElement>();
         textElement.Text = text;
+        use?.Invoke(textElement);
 
         _spawnPointer -= textElement.bottomPadding;
       });
-      
-      _returnObject = ((GameObject) _returnObject).GetComponent<BasicTextElement>();
     }
 
-    private IEnumerator InstantiateImageElement(Sprite sprite)
+    private IEnumerator InstantiateImageElement(Sprite sprite, Action<BasicImageElement> use = null)
     {
       yield return InstantiateGenericUIElement(imagePrefab, obj =>
       {
         var imageElement = obj.GetComponent<BasicImageElement>();
         imageElement.Sprite = sprite;
         imageElement.RefreshAspectRatio();
+        use?.Invoke(imageElement);
       });
-
-      _returnObject = ((GameObject) _returnObject).GetComponent<BasicImageElement>();;
     }
     
     private IEnumerator InstantiateGenericUIElement(GameObject prefab, Action<GameObject> beforeSpacing = null)
     {
-      Debug.Log($"Try to instantiate {prefab}");
       var obj = Instantiate(prefab, _rootRectTransform);
       
       var rectTransform = obj.GetComponent<RectTransform>();
@@ -118,10 +116,7 @@ namespace UI
 
       yield return null;
 
-      Debug.Log(rectTransform.rect.height);
       _spawnPointer -= rectTransform.sizeDelta.y + spacing;
-
-      _returnObject = obj;
     }
   }
 }

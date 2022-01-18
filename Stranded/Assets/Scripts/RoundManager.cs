@@ -27,6 +27,8 @@ public class RoundManager : MonoBehaviour
     public float feedbackTime = 30;
 
     public UIBuilder uiBuilder;
+
+    public ScrollManager scrollManager;
     
     public JobManager jobManager;
   
@@ -90,7 +92,10 @@ public class RoundManager : MonoBehaviour
     public void PlayAssignmentPhase()
     {
         Debug.Log($"Assignment phase for round {Dilemma.round} has started.");
-        uiBuilder.ConstructAssignmentPhaseUI(Dilemma);
+        StartCoroutine(uiBuilder.ConstructAssignmentPhaseUI(Dilemma, appearElements =>
+        {
+            scrollManager.ScrollThrough(appearElements);
+        }));
     }
     
     // public IEnumerator PlayIntroPhase()

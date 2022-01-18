@@ -13,37 +13,16 @@ namespace UI
   {
     private ScrollRect _scrollRect;
     private ScrollRect.MovementType _scrollRectStartMovementType;
-  
-    // probably not use heights but extract data from rect transforms directly
-    private float _scrollContentHeight;
-    private float _previousScrollContentHeight;
-  
-    // debug variable
-    public float verticalNormalizedPosition;
-  
+
     public float timeBetween = 0.3f;
     public float focusAnimationDuration = 0.5f;
     public bool disableScroll = true;
+    public float bottomPadding = 30f;
   
     private void Start()
     {
       _scrollRect = GetComponent<ScrollRect>();
       _scrollRectStartMovementType = _scrollRect.movementType;
-    
-      // TODO remove this
-    
-      this.Delay(1f, () => ScrollThrough(
-        gameObject.GetComponentsInChildren<ExampleAppearElement>()));
-    }
-
-    private void Update()
-    {
-      // TODO remove this
-      verticalNormalizedPosition = _scrollRect.verticalNormalizedPosition;
-      if (Input.GetKeyDown(KeyCode.Q))
-      {
-        _scrollRect.verticalNormalizedPosition = 0.5f;
-      }
     }
 
     public void ScrollThrough(IEnumerable<IAppearElement> appearElementsEnumerable)
@@ -81,11 +60,11 @@ namespace UI
 
     private void AddNewElementToScrollView(IAppearElement appearElement)
     {
-      _previousScrollContentHeight = _scrollContentHeight;
-      _scrollContentHeight += appearElement.RectTransform.rect.height;
+      var newHeight = -appearElement.RectTransform.anchoredPosition.y 
+                      + appearElement.RectTransform.rect.height + bottomPadding;
 
       var content = _scrollRect.content;
-      content.sizeDelta = new Vector2(content.sizeDelta.x, _scrollContentHeight);
+      content.sizeDelta = new Vector2(content.sizeDelta.x, newHeight);
     }
   
     private void FocusOnElement()
