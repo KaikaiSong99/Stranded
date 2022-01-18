@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 using Legacy;
 using UnityEngine;
 using Model;
@@ -29,6 +31,8 @@ public class RoundManager : MonoBehaviour
     public UIBuilder uiBuilder;
 
     public ScrollManager scrollManager;
+
+    public TimeBar timeBar;
     
     public JobManager jobManager;
   
@@ -41,6 +45,9 @@ public class RoundManager : MonoBehaviour
 
     public FeedbackManager feedbackManager;
     public AssignmentManager assignmentManager;
+
+    [CanBeNull]
+    private AssignmentPhaseUIInfo _assignmentPhaseUiInfo;
 
     // Start is called before the first frame update
     private void Start()
@@ -80,9 +87,7 @@ public class RoundManager : MonoBehaviour
             FeedbackDictionary.Add(job, new Dictionary<Character, String>());
         }
         
-        PlayAssignmentPhase();
-
-        // StartCoroutine(PlayIntroPhase());
+        SetupAssignmentPhase();
     }
 
     // Sequence of operation:
@@ -91,15 +96,18 @@ public class RoundManager : MonoBehaviour
     // 3. Construct all feedback phase UI elements & make them appear.
     // 4. End
 
-    public void PlayAssignmentPhase()
+    private void SetupAssignmentPhase()
     {
         Debug.Log($"Assignment phase for round {Dilemma.round} has started.");
-        StartCoroutine(uiBuilder.ConstructAssignmentPhaseUI(Dilemma, info =>
+        StartCoroutine(uiBuilder.ConstructAssignmentPhaseUI(this, info =>
         {
-            scrollManager.ScrollThrough(info.AppearElements);
+            _assignmentPhaseUiInfo = info;
+            scrollManager.ScrollThrough(info.AppearElements, () =>
+            {
+                SetAssignmentInteractionEnabled(true);
+                StartCoroutine(PlayAssignmentPhase());
+            });
         }));
-
-        assignmentManager.Display(Dilemma.characters, Dilemma.jobs[0], Round);
     }
     
     // public IEnumerator PlayIntroPhase()
@@ -110,21 +118,22 @@ public class RoundManager : MonoBehaviour
     //     yield return StartCoroutine(Timer(() => PlayAssignmentPhase()));
     // }
 
-    // public IEnumerator PlayAssignmentPhase()
-    // {
-    //     ShowAssignmentOverview();
-    //     Debug.Log("Assignment has started");
-    //     timeLeft = dilemma.playTime;
-    //     yield return StartCoroutine(Timer(() => PlayExecutionPhase()));
-    // }
+    private IEnumerator PlayAssignmentPhase()
+    {
+        Debug.Log("Assignment has started");
+        timeLeft = Dilemma.playTime;
+        yield return StartCoroutine(Timer(SetupExecutionPhase));
+    }
 
-    // public IEnumerator PlayExecutionPhase()
-    // {
-    //     Debug.Log("Execution has started");
-    //     timeLeft = executionTime;
-    //     ComputeCorrect();
-    //     yield return StartCoroutine(Timer(() => PlayFeedbackPhase()));
-    // }
+    private IEnumerator SetupExecutionPhase()
+    {
+        Debug.Log("Execution has started");
+        SetAssignmentInteractionEnabled(false);
+        ComputeCorrect();
+        
+        // yield return StartCoroutine(Timer(() => PlayFeedbackPhase()));
+        yield break;
+    }
 
     // public IEnumerator PlayFeedbackPhase()
     // {
@@ -138,11 +147,18 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator Timer(Func<IEnumerator> func)
     {
+        var startTime = timeLeft;
+        timeBar.Appear();
+        
         while (timeLeft > 0)
         {
-            --timeLeft;
-            yield return new WaitForSeconds(1f);
+            timeLeft -= Time.deltaTime;
+            timeBar.ProgressNormalized = 1 - timeLeft / startTime;
+            yield return null;
         }
+
+        timeLeft = 0;
+        timeBar.Disappear();
 
         yield return func();
     }
@@ -151,6 +167,17 @@ public class RoundManager : MonoBehaviour
     {
         Debug.Log($"Made assignment {job.name} - {character.firstName}");
         Round.AssignCharacterToJob(character, job);
+        RefreshUI();
+    }
+
+    private void RefreshUI()
+    {
+        _assignmentPhaseUiInfo?.JobElements?.ForEach(jobEl => jobEl.Refresh());
+    }
+
+    private void SetAssignmentInteractionEnabled(bool enable)
+    {
+        _assignmentPhaseUiInfo?.JobElements.ForEach(jobEl => jobEl.SetInteractable(enable));
     }
 
     //Compute how many of the jobs in the provided jobs list are currently correctly assigned

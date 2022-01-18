@@ -55,6 +55,8 @@ public class AssignmentManager : MonoBehaviour
             else 
                 go = Instantiate(characterCardLeft, container);
 
+            characterObjects.Add(go);
+            
             go.transform.parent = container;
             var prevRectTransform = go.GetComponent<RectTransform>();
 

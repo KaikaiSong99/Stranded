@@ -50,6 +50,12 @@ namespace UI
       StartCoroutine(SimpleLetterAppearAnimation());
     }
 
+    public void AppearImmediately()
+    {
+      _canvasGroup.alpha = 1;
+      Continue();
+    }
+
     private void Start()
     {
       RectTransform = GetComponent<RectTransform>();

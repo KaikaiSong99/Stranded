@@ -17,6 +17,11 @@ namespace UI
       Continue();
     }
 
+    public void AppearImmediately()
+    {
+      Continue();
+    }
+
     private void Start()
     {
       OnValidate();

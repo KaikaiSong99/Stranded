@@ -23,6 +23,7 @@ namespace UI
     public CanvasGroup CanvasGroup { get; private set; }
 
     private Job _job;
+    private RoundManager _roundManager;
     
     public void Appear()
     {
@@ -33,17 +34,34 @@ namespace UI
       });
     }
 
-    public void Populate(Job job)
+    public void AppearImmediately()
+    {
+      CanvasGroup.alpha = 1;
+      jobNameElement.LinkToImmediate(jobDescriptionElement, Continue);
+      jobNameElement.AppearImmediately();
+    }
+
+    public void Populate(Job job, RoundManager roundManager)
     {
       _job = job;
+      _roundManager = roundManager;
+      
       jobNameElement.Text = job.name;
       jobDescriptionElement.Text = job.description;
       jobIconElement.sprite = job.jobIcon;
     }
 
+    public void Refresh()
+    {
+      characterIconElement.sprite = _roundManager.Round.PickedCharacters.TryGetValue(_job, out var assignedCharacter) 
+        ? assignedCharacter.portrait : noCharacterSelectedIcon;
+    }
+      
+
     public void OnPress()
     {
       Debug.Log($"Pressed on {_job.name}.");
+      _roundManager.assignmentManager.Display(_roundManager.Dilemma.characters, _job, _roundManager.Round);
     }
 
     private void Start()
@@ -51,7 +69,8 @@ namespace UI
       RectTransform = GetComponent<RectTransform>();
       CanvasGroup = GetComponent<CanvasGroup>();
       CanvasGroup.alpha = 0;
-      characterIconElement.sprite = noCharacterSelectedIcon;
+      Refresh();
+      this.SetInteractable(false);
     }
   }
 }

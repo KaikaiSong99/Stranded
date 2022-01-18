@@ -31,8 +31,9 @@ namespace UI
       _spawnPointer = -spacing;
     }
 
-    public IEnumerator ConstructAssignmentPhaseUI(Dilemma dilemma, Action<AssignmentPhaseUIInfo> use = null)
+    public IEnumerator ConstructAssignmentPhaseUI(RoundManager roundManager, Action<AssignmentPhaseUIInfo> use = null)
     {
+      var dilemma = roundManager.Dilemma;
       var appearElements = new List<IAppearElement>();
       var jobElements = new List<JobElement>();
 
@@ -54,7 +55,7 @@ namespace UI
       {
         yield return InstantiateSpacerElement(AddToAppearElements);
         yield return InstantiateParagraphElement("Someone needs to...", AddToAppearElements);
-        yield return InstantiateJobElement(job, jobEl =>
+        yield return InstantiateJobElement(job, roundManager, jobEl =>
         {
           AddToAppearElements(jobEl);
           jobElements.Add(jobEl);
@@ -65,10 +66,18 @@ namespace UI
       use?.Invoke(new AssignmentPhaseUIInfo {AppearElements = appearElements, JobElements = jobElements}); 
     }
   
-    public void ConstructFeedbackPhaseUI(Round round, 
-      Dictionary<Job, Dictionary<Character, string>> feedbackDictionary)
+    public IEnumerator ConstructFeedbackPhaseUI(RoundManager roundManager, Action use = null)
     {
-    
+      var appearElements = new List<IAppearElement>();
+      var dilemma = roundManager.Dilemma;
+      
+      void AddToAppearElements(IAppearElement el)
+      {
+        appearElements.Add(el);
+      }
+
+      yield return InstantiateParagraphElement(PickDilemmaSuccessText(roundManager), AddToAppearElements);
+      
     }
 
     public void CreateStoryTextUI(StoryPoint storyPoint)
@@ -76,12 +85,24 @@ namespace UI
       
     }
 
-    private IEnumerator InstantiateJobElement(Job job, Action<JobElement> use = null)
+    private string PickDilemmaSuccessText(RoundManager roundManager)
+    {
+      var dilemma = roundManager.Dilemma;
+      var round = roundManager.Round;
+      if (round.Succeeded)
+      {
+        return dilemma.successText;
+      }
+      
+      return round.PartiallySucceeded ? dilemma.partialSuccessText : dilemma.failureText;
+    }
+
+    private IEnumerator InstantiateJobElement(Job job, RoundManager roundManager, Action<JobElement> use = null)
     {
       return InstantiateGenericUIElement(jobElementPrefab, obj =>
       {
         var jobElement = obj.GetComponent<JobElement>();
-        jobElement.Populate(job);
+        jobElement.Populate(job, roundManager);
         
         use?.Invoke(jobElement);
       });

@@ -32,6 +32,12 @@ namespace UI
       this.FadeIn(appearDuration, _canvasGroup, Continue);
     }
 
+    public void AppearImmediately()
+    {
+      _canvasGroup.alpha = 1;
+      Continue();
+    }
+
     private void Start()
     {
       RectTransform = GetComponent<RectTransform>();

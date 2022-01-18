@@ -148,8 +148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetween: 0.3
   focusAnimationDuration: 0.5
+  bottomPadding: 80
   disableScroll: 1
-  bottomPadding: 30
+  immediateMode: 1
 --- !u!222 &1719812273191831528
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,8 +16,9 @@ namespace UI
 
     public float timeBetween = 0.3f;
     public float focusAnimationDuration = 0.5f;
+    public float bottomPadding = 80f;
     public bool disableScroll = true;
-    public float bottomPadding = 30f;
+    public bool immediateMode = false;
   
     private void Start()
     {
@@ -24,7 +26,7 @@ namespace UI
       _scrollRectStartMovementType = _scrollRect.movementType;
     }
 
-    public void ScrollThrough(IEnumerable<IAppearElement> appearElementsEnumerable)
+    public void ScrollThrough(IEnumerable<IAppearElement> appearElementsEnumerable, Action atEnd = null)
     {
       var appearElements = appearElementsEnumerable.ToArray();
     
@@ -39,12 +41,19 @@ namespace UI
       for (var i = 0; i < appearElements.Length - 1; i++)
       {
         var next = i + 1;
-        appearElements[i].Continue = () => this.Delay(timeBetween, () => 
-          MakeAppearAndFocused(appearElements[next]));
+        appearElements[i].Continue = () => this.Delay(timeBetween, () =>
+        {
+          Debug.Log(next);
+          MakeAppearAndFocused(appearElements[next]);
+        });
       }
 
-      // Make the last element's continue function call Finish
-      appearElements[appearElements.Length - 1].Continue = Finish;
+      // Make the last element's continue function call Finish and end action
+      appearElements[appearElements.Length - 1].Continue = () =>
+      {
+        atEnd?.Invoke();
+        Finish();
+      };
     
       // Make the first element appear
       MakeAppearAndFocused(appearElements[0]);
@@ -54,7 +63,7 @@ namespace UI
     {
       AddNewElementToScrollView(appearElement);
       FocusOnElement();
-      appearElement.Appear();
+      MakeAppear(appearElement);
     }
 
     private void AddNewElementToScrollView(IAppearElement appearElement)
@@ -76,6 +85,18 @@ namespace UI
       {
         _scrollRect.verticalNormalizedPosition = startPosition + difference * y;
       });
+    }
+
+    private void MakeAppear(IAppearElement appearElement)
+    {
+      if (!immediateMode)
+      {
+        appearElement.Appear();
+      }
+      else
+      {
+        appearElement.AppearImmediately();
+      }
     }
 
     private void Finish()

@@ -14,5 +14,10 @@ namespace UI
     Action Continue { get; set; }
   
     void Appear();
+
+    /// <summary>
+    /// This is used for debugging to skip the appear step.
+    /// </summary>
+    void AppearImmediately();
   }
 }

@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6117647}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78039217}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 6977308223472992203}
   - component: {fileID: 1132790105484829217}
   m_Layer: 0
-  m_Name: JobField
+  m_Name: JobName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,8 +291,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -459,6 +459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1548522497049572798}
   - component: {fileID: 1866904916196113390}
+  - component: {fileID: 9004654217584772263}
   m_Layer: 0
   m_Name: AssignmentChars
   m_TagString: Untagged
@@ -485,7 +486,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1866904916196113390
 MonoBehaviour:
@@ -506,6 +507,14 @@ MonoBehaviour:
   characterCardLeft: {fileID: 4913684193611488775, guid: d306d5a642e924e4d8e8b0c8eb64a511, type: 3}
   container: {fileID: 7602597265909492529}
   emptyCharacterIcon: {fileID: 21300000, guid: e77ac7c55ea7ff242aa6583eee377e17, type: 3}
+--- !u!222 &9004654217584772263
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548522497049572799}
+  m_CullTransparentMesh: 1
 --- !u!1 &3870374222917927048
 GameObject:
   m_ObjectHideFlags: 0
