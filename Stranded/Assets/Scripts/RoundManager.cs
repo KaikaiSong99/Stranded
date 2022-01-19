@@ -7,7 +7,6 @@ using UnityEngine;
 using Model;
 using UI;
 using UnityEngine.Assertions;
-using UnityEngine.UI;
 
 public class RoundManager : MonoBehaviour
 {
@@ -29,14 +28,9 @@ public class RoundManager : MonoBehaviour
     public ScrollManager scrollManager;
 
     public TimeBar timeBar;
-    
-    public JobManager jobManager;
   
     public float timeLeft;
-
-    public GameObject jobsOverview;
-
-    public FeedbackManager feedbackManager;
+    
     public AssignmentManager assignmentManager;
 
     [CanBeNull]
@@ -97,6 +91,8 @@ public class RoundManager : MonoBehaviour
     {
         Debug.Log("Feedback has started");
         SetAssignmentInteractionEnabled(false);
+        assignmentManager.gameObject.SetActive(false);
+        
         ComputeCorrect();
 
         StartCoroutine(uiBuilder.ConstructFeedbackPhaseUI(this, info =>

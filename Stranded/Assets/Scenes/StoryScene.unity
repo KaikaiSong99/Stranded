@@ -272,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 1617274313}
     - target: {fileID: 6613761967653011546, guid: 4ff421e29a838d548a9267cc49b8e4a2, type: 3}
       propertyPath: nextTextDelay
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6613761967653011546, guid: 4ff421e29a838d548a9267cc49b8e4a2, type: 3}
       propertyPath: fadeController

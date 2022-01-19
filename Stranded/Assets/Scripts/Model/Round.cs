@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Model 
 {
@@ -31,9 +33,19 @@ namespace Model
 
         public int NumCorrect
         { get; set; }
-        
+
         public Dilemma Dilemma { get; private set; }
 
+        public bool IsJobCorrectlyAssigned(Job job)
+        {
+            if (PickedCharacters.TryGetValue(job, out var picked))
+            {
+                return picked.Equals(job.idealCharacter);
+            }
+            Debug.LogWarning("Tried checking job correctness before assignment was made.");
+            return false;
+        }
+        
         public void AssignCharacterToJob(Character character, Job job)
         {
             ClearCharacter(character);

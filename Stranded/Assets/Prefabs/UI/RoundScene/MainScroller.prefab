@@ -64,6 +64,9 @@ MonoBehaviour:
   jobElementPrefab: {fileID: 4309397307492530859, guid: a07628ec267dc304bb142b8ffc8f2d77, type: 3}
   paragraphPrefab: {fileID: 7356192467607186237, guid: cd50f6516eeff4c4abdb22ec6061831e, type: 3}
   spacerPrefab: {fileID: 8630286885008885171, guid: 13a82e69d6f08764a966e3ee794dbfc2, type: 3}
+  feedbackJobElementPrefab: {fileID: 1707828959592744133, guid: 4e85371c6a6948b469b78741844427a0, type: 3}
+  immediateSpeechBubblePrefab: {fileID: 5857015373726700889, guid: 87a6ddba86c736a40adcfc51bd898dcd, type: 3}
+  suggestSpeechBubblePrefab: {fileID: 3490400487985442338, guid: 373e1d4101b86e54592fb37427da0679, type: 3}
 --- !u!1 &7924166779775840557
 GameObject:
   m_ObjectHideFlags: 0

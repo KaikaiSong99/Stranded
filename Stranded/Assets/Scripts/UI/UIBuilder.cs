@@ -10,13 +10,16 @@ namespace UI
   public class UIBuilder : MonoBehaviour
   {
     public float spacing = 20f;
-    
+
     public GameObject h1Prefab;
     public GameObject h2Prefab;
     public GameObject imagePrefab;
     public GameObject jobElementPrefab;
     public GameObject paragraphPrefab;
     public GameObject spacerPrefab;
+    public GameObject feedbackJobElementPrefab;
+    public GameObject immediateSpeechBubblePrefab;
+    public GameObject suggestSpeechBubblePrefab;
 
     private RectTransform _rootRectTransform;
     
@@ -52,7 +55,6 @@ namespace UI
       foreach (var job in dilemma.jobs)
       {
         yield return InstantiateSpacerElement(AddToAppearElements);
-        yield return InstantiateParagraphElement("Someone needs to...", AddToAppearElements);
         yield return InstantiateJobElement(job, roundManager, jobEl =>
         {
           AddToAppearElements(jobEl);
@@ -75,10 +77,38 @@ namespace UI
       }
 
       yield return InstantiateSpacerElement(AddToAppearElements);
+      yield return InstantiateParagraphElement("What jobs succeeded?", AddToAppearElements);
+      yield return InstantiateParagraphElement("...", AddToAppearElements);
+      
+      foreach (var job in dilemma.jobs)
+      {
+        yield return InstantiateFeedbackJobElement(job, roundManager, AddToAppearElements);
+
+        var right = true;
+        foreach (var keyValuePair in roundManager.FeedbackDictionary[job])
+        {
+          var character = keyValuePair.Key;
+          var dialogue = keyValuePair.Value;
+
+          if (right)
+          {
+            yield return InstantiateImmediateSpeechBubbleElement(character, dialogue, AddToAppearElements);
+            right = false;
+          }
+          else
+          {
+            yield return InstantiateSuggestSpeechBubbleElement(character, dialogue, AddToAppearElements);
+            right = true;
+          }
+        }
+        
+        yield return InstantiateSpacerElement(AddToAppearElements);
+      }
+      
       yield return InstantiateNextLineDelimitedParagraphElements(PickDilemmaSuccessText(roundManager), 
         AddToAppearElements);
       
-      use?.Invoke(new FeedbackPhaseUIInfo() {AppearElements = appearElements});
+      use?.Invoke(new FeedbackPhaseUIInfo {AppearElements = appearElements});
     }
 
     public void CreateStoryTextUI(StoryPoint storyPoint)
@@ -96,6 +126,42 @@ namespace UI
       }
       
       return round.PartiallySucceeded ? dilemma.partialSuccessText : dilemma.failureText;
+    }
+    
+    private IEnumerator InstantiateImmediateSpeechBubbleElement(Character character, string text, 
+      Action<CharacterDialogueElement> use = null)
+    {
+      return InstantiateGenericSpeechBubbleElement(immediateSpeechBubblePrefab, character, text, use);
+    }
+    
+    private IEnumerator InstantiateSuggestSpeechBubbleElement(Character character, string text, 
+      Action<CharacterDialogueElement> use = null)
+    {
+      return InstantiateGenericSpeechBubbleElement(immediateSpeechBubblePrefab, character, text, use);
+    }
+
+    private IEnumerator InstantiateGenericSpeechBubbleElement(GameObject prefab, 
+      Character character, string feedbackText, Action<CharacterDialogueElement> use = null)
+    {
+      return InstantiateGenericUIElement(prefab, obj =>
+      {
+        var characterDialogueElement = obj.GetComponent<CharacterDialogueElement>();
+        characterDialogueElement.Populate(character, feedbackText);
+        
+        use?.Invoke(characterDialogueElement);
+      });
+    }
+
+    private IEnumerator InstantiateFeedbackJobElement(Job job, RoundManager roundManager,
+      Action<FeedbackJobElement> use = null)
+    {
+      return InstantiateGenericUIElement(feedbackJobElementPrefab, obj =>
+      {
+        var feedbackJobElement = obj.GetComponent<FeedbackJobElement>();
+        feedbackJobElement.Populate(job, roundManager);
+        
+        use?.Invoke(feedbackJobElement);
+      });
     }
 
     private IEnumerator InstantiateJobElement(Job job, RoundManager roundManager, Action<JobElement> use = null)

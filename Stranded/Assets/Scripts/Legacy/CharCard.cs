@@ -52,7 +52,7 @@ namespace Legacy
             charactersView.SetActive(false);
 
             characterManager.roundManager.AssignCharacterToJob(Character, jobCard.job);
-            characterManager.roundManager.jobManager.RefreshJobCards();
+            //characterManager.roundManager.jobManager.RefreshJobCards();
         }
     }
 }
