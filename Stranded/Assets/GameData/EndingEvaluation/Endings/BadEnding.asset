@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3295d6c176df41bdaf054cf6c614af43, type: 3}
   m_Name: BadEnding
   m_EditorClassIdentifier: 
-  ending: {fileID: 11400000, guid: 79e270dc257031743be5361ba0560a9b, type: 2}
+  ending: {fileID: 11400000, guid: 8a510ccb7f1fde14e8039a8933cda730, type: 2}
   requiredSuccessfulDilemmas: []

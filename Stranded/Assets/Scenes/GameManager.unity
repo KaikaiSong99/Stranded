@@ -229,21 +229,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1f13345abceb66c44bada9e5a7b89d3f, type: 2}
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
-      propertyPath: scenes.Array.data[0].Name
-      value: RoundScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
-      propertyPath: scenes.Array.data[1].Name
-      value: StoryScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: scenes.Array.data[0].Parameter
       value: 
-      objectReference: {fileID: 11400000, guid: 22d17484157c3b341a1177d1ce6fbc98, type: 2}
+      objectReference: {fileID: 11400000, guid: a8e591ee407a04248a45dae29934a031, type: 2}
     - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: scenes.Array.data[1].Parameter
       value: 
-      objectReference: {fileID: 11400000, guid: a89fd1a5b3fb54344878c6f0f1e25f06, type: 2}
+      objectReference: {fileID: 11400000, guid: f0571f51253a11242af41de490266f6d, type: 2}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: scenes.Array.data[2].Parameter
+      value: 
+      objectReference: {fileID: 11400000, guid: 295d907debf619f499091b11d1ffac4d, type: 2}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: scenes.Array.data[3].Parameter
+      value: 
+      objectReference: {fileID: 11400000, guid: 0db4aaaf1a95c93478375127720170f1, type: 2}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: scenes.Array.data[4].Parameter
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d6dcd013e409da4cac392be07d58c5f, type: 2}
+    - target: {fileID: 236590169699183673, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
+      propertyPath: scenes.Array.data[5].Parameter
+      value: 
+      objectReference: {fileID: 11400000, guid: 065dbdf7fbafe174eb5d5ca1690e9b67, type: 2}
     - target: {fileID: 4010763269622470980, guid: ca851d92e40cdf8418409bcf0fe52bf8, type: 3}
       propertyPath: m_RootOrder
       value: 0

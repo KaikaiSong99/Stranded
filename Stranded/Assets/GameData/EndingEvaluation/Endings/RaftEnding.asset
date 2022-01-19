@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3295d6c176df41bdaf054cf6c614af43, type: 3}
   m_Name: RaftEnding
   m_EditorClassIdentifier: 
-  ending: {fileID: 11400000, guid: 8493fec1ef9f0404ebdf1bdf5c9220e2, type: 2}
+  ending: {fileID: 11400000, guid: ef3637e63afbca5499d9f3e7043a7ee6, type: 2}
   requiredSuccessfulDilemmas:
   - {fileID: 11400000, guid: c515757f8e8bd5445a7c9bdf9ab34d4e, type: 2}
