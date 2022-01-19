@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b55fa4c40c86f4582b309f4e6f227d, type: 3}
+  m_Name: Intro (Dutch)
+  m_EditorClassIdentifier: 
+  round: 0
+  characters: []
+  storyArt: {fileID: 0}
+  storyText:
+  - In het midden van de Stille Oceaan, vaart een cruise schip genaamd "De Amadea"
+    naar Zuid-Amerika. Op deze reis van kalmte en plezier, had niemand zich kunnen
+    voorstellen wat er zich zou afspelen in de volgende paar uren...
+  - 'Een donderend geluid gaat door de hallen heen en het schip zwaait heen en weer.
+    De kapitein geeft de situatie over de intercom: Het schip is opengescheurd door
+    een scherpe rots.'
+  - De passagiers rennen naar het dek om in de vele reddingsboten te stappen. Een
+    voor een worden de boten in het water gedropt.
+  - Opeens slaat de nood weer toe! Een storm breekt aan en hoge golven beginnen zich
+    te vormen. Een kleine reddingsboot wordt meegesleurd, weg van de rest en landt
+    aan op de kust van een eiland. De boot komt op land en crasht tegen de kleine
+    stenen.
+  - De passagiers stappen gelukkig ongedeerd uit de boot en zetten voet op nieuwe
+    land. Deze groep van ongelukkige passagiers bevinden zich op een onbewoond eiland,
+    alleen...
+  playTime: 0

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: MaterialExpert (Dutch)
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 21300000, guid: f6691325e01ba3c46806bfebaa864db1, type: 3}
+  jobTitle: Materiaal Specialist
+  description: 'Someone needs to examine the quality of collected materials to ensure
+    they are light, buoyant, and strong.
+
+
+    Iemand moet de kwaliteit van elk gevonden
+    materiaal inspecteren om ervoor te zorgen dat het licht en sterk is en dat het
+    kan drijven.'
+  idealCharacter: {fileID: 11400000, guid: c71a3900c9cb90a47b3deeccefc50ab7, type: 2}
+  idealAssignedDialogue: Als dit vlot zinkt, dan kan het 100% niet aan de materialen
+    liggen. Ik heb het wel 5 keer gecheckt!
+  idealSuggestDialogue: Als je een second opinion wilt hebben op de kwaliteit van
+    het touw en hout, geef mij een gil!

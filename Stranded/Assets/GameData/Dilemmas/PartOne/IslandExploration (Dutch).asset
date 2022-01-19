@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0053b2a114d5e0841adbf230a373ee52, type: 3}
+  m_Name: IslandExploration (Dutch)
+  m_EditorClassIdentifier: 
+  round: 0
+  characters: []
+  jobs:
+  - {fileID: 11400000, guid: bfaae737136485240916277c025ff20f, type: 2}
+  - {fileID: 11400000, guid: 4b0b23d9b07aad44aab8c83fc0d3b087, type: 2}
+  - {fileID: 11400000, guid: 93f6a69748e1e9f40843ebb2f55bead2, type: 2}
+  sprite: {fileID: 0}
+  title: Het eiland verkennen
+  description: Om zoveel mogelijk kans te hebben om te overleven, besluit de groep
+    om een expeditie rondom het eiland te maken om het in kaart te brengen en te
+    kijken waar materiaal te vinden is.
+  playTime: 30
+  isCounted: 1
+  minJobSuccess: 1
+  successText: De expeditie ging sneller dan verwacht. Het team kom goed samenwerken
+    en voordat iemand het door had, hadden ze een volledige kaart van het eiland
+    gemaakt. Ze kwamen wel wat wilde dieren tegen, maar gelukkig konden ze hen ontwijken.
+  partialSuccessText: De expeditie bleek toch een groot avontuur te zijn. Het team
+    raakte de weg kwijt in het bos en kwam zelf oog-in-oog te staan met een gorilla-beer.
+    Gelukkig kwamen ze terug bij het kamp ongedeerd, met een redelijke kaart.
+  failureText: 'Ze werden gelijk verdwaald nadat ze een stap in het bos hadden gezet.
+    Nadat ze vreemde geluiden uit de bosjes hadden gehoord, besloten ze om zo hard
+    mogelijk weg te rennen.
+
+    Na een stevige sprint kwamen ze uiteindelijk terug
+    bij het kamp. Jammer genoeg hebben ze weinig informatie kunnen halen...'

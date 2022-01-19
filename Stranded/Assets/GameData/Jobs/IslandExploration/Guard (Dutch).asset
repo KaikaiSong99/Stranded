@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: Guard (Dutch)
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 21300000, guid: 6733312098000f7489c4ea7a7b34945f, type: 3}
+  jobTitle: Bodyguard
+  description: Iemand moet het team beschermen tegen wilde beesten.
+  idealCharacter: {fileID: 0}
+  idealAssignedDialogue: Ik moet zeggen, die beesten in het bos rennen al snel weg.
+    Dat was tof zeg!
+  idealSuggestDialogue: 'Hier, een tip: als je oog-in-oog staat met een dier, blijf
+    het aanstaren en kijk niet weg.'

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: BuildingAWaterDistiller (Dutch)
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 21300000, guid: f201aa33d1b706f4bab3433cf5a0bb1c, type: 3}
+  jobTitle: Een water distiller bouwen
+  description: Iemand moet een zuiveringssyteem voor water bouwen van plastic flessen.
+  idealCharacter: {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
+  idealAssignedDialogue: Dat was leuk! Laat me weten wanneer ik nog zo'n systeem
+    kan maken!
+  idealSuggestDialogue: Weet je, dat is echt iets wat ik leuk zou hebben gevonden...
+    Volgens mij heb ik vroeger ook zoiets gebouwd...

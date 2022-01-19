@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: RaftDesigner (Dutch)
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 21300000, guid: 01f2cf3025fa4534d8131e63ad488797, type: 3}
+  jobTitle: Vlot ontwerper
+  description: Iemand moet het ontwerp van het vlot maken
+  idealCharacter: {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
+  idealAssignedDialogue: Het is niet optimaal geworden zoals ik het getekend had,
+    maar met deze materialen kunnen we toch nog een eind overweg!
+  idealSuggestDialogue: Uhmm... Ik weet niet zeker of dat vlot op zee kan... Ik zie
+    al gelijk een zwak punt rond het midden.
