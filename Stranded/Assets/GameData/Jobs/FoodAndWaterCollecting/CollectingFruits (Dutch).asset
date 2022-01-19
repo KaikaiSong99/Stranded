@@ -15,7 +15,7 @@ MonoBehaviour:
   jobIcon: {fileID: 21300000, guid: cbc16dec24460a441a72b10d34f91a11, type: 3}
   jobTitle: Fruit verzamelen
   description: Iemand moet fruit in het bos verzamelen.
-  idealCharacter: {fileID: 11400000, guid: 1f13345abceb66c44bada9e5a7b89d3f, type: 2}
+  idealCharacter: {fileID: 11400000, guid: 5e0c65aa181c69e4bbe19959f70403fd, type: 2}
   idealAssignedDialogue: Oh, is het al klaar? Zulk soort taken zijn echt momenten
     voor mij waar ik aan niets hoef te denken en gewoon aan de slag kan.
   idealSuggestDialogue: 'Je kon niet eens wat fruit verzamelen? Ik had 100% met je

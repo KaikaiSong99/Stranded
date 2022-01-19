@@ -15,7 +15,7 @@ MonoBehaviour:
   jobIcon: {fileID: 21300000, guid: f201aa33d1b706f4bab3433cf5a0bb1c, type: 3}
   jobTitle: Een water distiller bouwen
   description: Iemand moet een zuiveringssyteem voor water bouwen van plastic flessen.
-  idealCharacter: {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
+  idealCharacter: {fileID: 11400000, guid: 476a59747bea83c4c83e8ce110e68653, type: 2}
   idealAssignedDialogue: Dat was leuk! Laat me weten wanneer ik nog zo'n systeem
     kan maken!
   idealSuggestDialogue: Weet je, dat is echt iets wat ik leuk zou hebben gevonden...

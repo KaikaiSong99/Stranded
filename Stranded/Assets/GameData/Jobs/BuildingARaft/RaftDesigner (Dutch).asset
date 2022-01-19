@@ -15,7 +15,7 @@ MonoBehaviour:
   jobIcon: {fileID: 21300000, guid: 01f2cf3025fa4534d8131e63ad488797, type: 3}
   jobTitle: Vlot ontwerper
   description: Iemand moet het ontwerp van het vlot maken
-  idealCharacter: {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
+  idealCharacter: {fileID: 11400000, guid: 476a59747bea83c4c83e8ce110e68653, type: 2}
   idealAssignedDialogue: Het is niet optimaal geworden zoals ik het getekend had,
     maar met deze materialen kunnen we toch nog een eind overweg!
   idealSuggestDialogue: Uhmm... Ik weet niet zeker of dat vlot op zee kan... Ik zie

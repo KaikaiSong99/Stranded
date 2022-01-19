@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: FirstClimber (Dutch)
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 21300000, guid: c5a36ff11e655684f96635a249fafea1, type: 3}
-  jobTitle: 
-  description: Iemand moet als eerste de radio toren beklimmen om een pad te maken.
-  idealCharacter: {fileID: 11400000, guid: 152bbd854c8de5942b1c0be03ff83aef, type: 2}
+  jobTitle: Pionier klimmer
+  description: Iemand moet als eerste de radio toren beklimmen om een veilig pad
+    naar boven te vinden voor de anderen.
+  idealCharacter: {fileID: 11400000, guid: 72803652d12b64f4a9071e60bf2d7d11, type: 2}
   idealAssignedDialogue: Gelukkig ging ik vaak naar de fitness zaal op het schip.
     Als iemand anders het had gedaan, dan hadden ze misschien wel een arm verloren!
   idealSuggestDialogue: Wacht eens even, jullie zochten naar een klimmer? Jullie

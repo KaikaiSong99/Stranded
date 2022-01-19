@@ -15,7 +15,7 @@ MonoBehaviour:
   jobIcon: {fileID: 21300000, guid: 9a1198d66f599f64c97ecb98eacfe4f6, type: 3}
   jobTitle: Operatie Leider
   description: Iemand moet het team coordineren en de operatie leiden.
-  idealCharacter: {fileID: 11400000, guid: e55d8a5e5b39d1f47ae57dec2ee80969, type: 2}
+  idealCharacter: {fileID: 11400000, guid: 2c2c98d2b5bf6ad43b9799d24af46dbe, type: 2}
   idealAssignedDialogue: Ik zeg dat dit een succes was! Jullie hebben een ontzettende
     doorzettings vermogen getoond en ik ben trots op jullie allemaal!
   idealSuggestDialogue: 

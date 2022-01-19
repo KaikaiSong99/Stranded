@@ -46,7 +46,7 @@ namespace UI
       _job = job;
       _roundManager = roundManager;
       
-      jobNameElement.Text = job.name;
+      jobNameElement.Text = job.jobTitle;
       jobDescriptionElement.Text = job.description;
       jobIconElement.sprite = job.jobIcon;
     }

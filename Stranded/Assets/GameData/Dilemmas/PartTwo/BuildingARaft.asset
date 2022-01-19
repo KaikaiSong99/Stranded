@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b8c0979c627dfa444a63fab309d5a5ca, type: 2}
   - {fileID: 11400000, guid: 4549ed6ccbdc6364c8c8ec126ec73172, type: 2}
   - {fileID: 11400000, guid: f2e88fc4cd9b6464b9fd90b861c4b70b, type: 2}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 2ab5e79dae400fd4ba8880042f2d2bb7, type: 3}
   title: Building a raft
   description: A raft is the only way to escape the island on their own. The survivors
     decide to make an attempt at building a raft that is reliable and functional

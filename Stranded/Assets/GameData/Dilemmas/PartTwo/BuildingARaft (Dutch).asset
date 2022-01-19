@@ -12,19 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0053b2a114d5e0841adbf230a373ee52, type: 3}
   m_Name: BuildingARaft (Dutch)
   m_EditorClassIdentifier: 
-  round: 0
-  characters: []
+  round: 4
+  characters:
+  - {fileID: 11400000, guid: 476a59747bea83c4c83e8ce110e68653, type: 2}
+  - {fileID: 11400000, guid: 72803652d12b64f4a9071e60bf2d7d11, type: 2}
+  - {fileID: 11400000, guid: 8b146228100a2454493cacf534637ad4, type: 2}
+  - {fileID: 11400000, guid: 2c2c98d2b5bf6ad43b9799d24af46dbe, type: 2}
+  - {fileID: 11400000, guid: c2c3f20aed9316a4389fbcfec3e7c21e, type: 2}
+  - {fileID: 11400000, guid: 5e0c65aa181c69e4bbe19959f70403fd, type: 2}
   jobs:
-  - {fileID: 11400000, guid: 1a74244982a90a741bd50ae5f69c62ef, type: 2}
-  - {fileID: 11400000, guid: b8c0979c627dfa444a63fab309d5a5ca, type: 2}
-  - {fileID: 11400000, guid: 4549ed6ccbdc6364c8c8ec126ec73172, type: 2}
-  - {fileID: 11400000, guid: f2e88fc4cd9b6464b9fd90b861c4b70b, type: 2}
+  - {fileID: 11400000, guid: ad0431cc23795464f90d8ed3fa461be8, type: 2}
+  - {fileID: 11400000, guid: 29db4da476a49e74ca97e8a871d82fa3, type: 2}
+  - {fileID: 11400000, guid: 7d2f4615fc686d04b92f8b36e7098f3d, type: 2}
+  - {fileID: 11400000, guid: bc260d533e3482b4b81e9f36b355d343, type: 2}
   sprite: {fileID: 21300000, guid: 2ab5e79dae400fd4ba8880042f2d2bb7, type: 3}
   title: Een vlot bouwen
   description: De enige manier om het eiland te verlaten, is door een vlot te bouwen.
     De groep besluit om toch een poging te doen. Het vlot moet stevig en functioneel
     genoeg zijn om hen naar vaste land te brengen.
-  playTime: 40
+  playTime: 50
   isCounted: 1
   minJobSuccess: 3
   successText: Alles ging volgens plan en het vlot was groot genoeg voor iedereen,

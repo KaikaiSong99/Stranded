@@ -41,7 +41,7 @@ namespace UI
 
     public void Populate(Job job, RoundManager roundManager)
     {
-      jobNameElement.Text = job.name;
+      jobNameElement.Text = job.jobTitle;
       jobIconElement.sprite = job.jobIcon;
       successIcon.sprite = roundManager.Round.IsJobCorrectlyAssigned(job) ? successSprite : failureSprite;
     }

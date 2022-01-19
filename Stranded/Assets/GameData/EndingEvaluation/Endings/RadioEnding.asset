@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ending: {fileID: 11400000, guid: 71e2d6f0ae6c3524aac9953a3cae9db8, type: 2}
   requiredSuccessfulDilemmas:
-  - {fileID: 11400000, guid: f0a268627dfa96241ab472c008088c43, type: 2}
+  - {fileID: 11400000, guid: 0d6dcd013e409da4cac392be07d58c5f, type: 2}

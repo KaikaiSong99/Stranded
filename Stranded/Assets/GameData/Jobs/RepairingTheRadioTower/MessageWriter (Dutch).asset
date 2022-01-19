@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: MessageWriter (Dutch)
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 21300000, guid: e9faa1bdc8e045645bc6c4ef3f91754f, type: 3}
-  jobTitle: Een radio bericht sturen
-  description: Iemand moet een kort, maar volledige S.O.S. bericht sturen
-  idealCharacter: {fileID: 11400000, guid: fe8760a2e816e3e43bfe6a954b88379d, type: 2}
+  jobTitle: Een radio bericht schrijven
+  description: Iemand moet een kort, maar volledige S.O.S. bericht schrijven om uit
+    te zenden.
+  idealCharacter: {fileID: 11400000, guid: c2c3f20aed9316a4389fbcfec3e7c21e, type: 2}
   idealAssignedDialogue: Ik hoop dat ze ons bericht begrijpen. Het was een hele klus
     om zoveel mogelijk te beschrijven in een klein aantal woorden.
   idealSuggestDialogue: Een taak waarbij ik kan schrijven? Hoe had ik zoiets aan

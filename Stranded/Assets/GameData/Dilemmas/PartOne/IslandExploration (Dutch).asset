@@ -12,18 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0053b2a114d5e0841adbf230a373ee52, type: 3}
   m_Name: IslandExploration (Dutch)
   m_EditorClassIdentifier: 
-  round: 0
-  characters: []
+  round: 2
+  characters:
+  - {fileID: 11400000, guid: 476a59747bea83c4c83e8ce110e68653, type: 2}
+  - {fileID: 11400000, guid: 72803652d12b64f4a9071e60bf2d7d11, type: 2}
+  - {fileID: 11400000, guid: 8b146228100a2454493cacf534637ad4, type: 2}
+  - {fileID: 11400000, guid: 2c2c98d2b5bf6ad43b9799d24af46dbe, type: 2}
+  - {fileID: 11400000, guid: c2c3f20aed9316a4389fbcfec3e7c21e, type: 2}
+  - {fileID: 11400000, guid: 5e0c65aa181c69e4bbe19959f70403fd, type: 2}
   jobs:
-  - {fileID: 11400000, guid: bfaae737136485240916277c025ff20f, type: 2}
-  - {fileID: 11400000, guid: 4b0b23d9b07aad44aab8c83fc0d3b087, type: 2}
-  - {fileID: 11400000, guid: 93f6a69748e1e9f40843ebb2f55bead2, type: 2}
-  sprite: {fileID: 0}
+  - {fileID: 11400000, guid: c836e51a551a223469f20cc4b192f415, type: 2}
+  - {fileID: 11400000, guid: 628f4eae21fd1cb4a985e1152267f07b, type: 2}
+  - {fileID: 11400000, guid: 3ca5da4e8357d4f44bc4181d57fef1da, type: 2}
+  sprite: {fileID: 21300000, guid: e838c2667cd5de34e915802f7b73fa88, type: 3}
   title: Het eiland verkennen
   description: Om zoveel mogelijk kans te hebben om te overleven, besluit de groep
     om een expeditie rondom het eiland te maken om het in kaart te brengen en te
     kijken waar materiaal te vinden is.
-  playTime: 30
+  playTime: 45
   isCounted: 1
   minJobSuccess: 1
   successText: De expeditie ging sneller dan verwacht. Het team kom goed samenwerken

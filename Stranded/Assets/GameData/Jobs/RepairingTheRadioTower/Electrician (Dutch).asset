@@ -15,12 +15,8 @@ MonoBehaviour:
   jobIcon: {fileID: 21300000, guid: 5fa47bc5a0e08fa458249ee4b2ae2d10, type: 3}
   jobTitle: Electricien
   description: Iemand moet de elektronica van de radio repareren.
-  idealCharacter: {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
-  idealAssignedDialogue: 'A fun little puzzle that was. It goes to show that even
-    highschool physics is still very practically applicable!
-
-
-    Wat een leuke
-    puzzeltje was dat! Zo zie je maar dat iedereen een beetje natuurkunde moet kennen!'
+  idealCharacter: {fileID: 11400000, guid: 476a59747bea83c4c83e8ce110e68653, type: 2}
+  idealAssignedDialogue: Wat een leuke puzzeltje was dat! Zo zie je maar dat iedereen
+    een beetje natuurkunde moet kennen!
   idealSuggestDialogue: Je had aan mij moeten vertellen dat je aan elektronica zou
     werken! Ik had je graag alle hulp en gereedschap willen geven.

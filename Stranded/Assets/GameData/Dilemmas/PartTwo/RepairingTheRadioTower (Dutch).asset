@@ -12,21 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0053b2a114d5e0841adbf230a373ee52, type: 3}
   m_Name: RepairingTheRadioTower (Dutch)
   m_EditorClassIdentifier: 
-  round: 0
-  characters: []
+  round: 3
+  characters:
+  - {fileID: 11400000, guid: 476a59747bea83c4c83e8ce110e68653, type: 2}
+  - {fileID: 11400000, guid: 72803652d12b64f4a9071e60bf2d7d11, type: 2}
+  - {fileID: 11400000, guid: 8b146228100a2454493cacf534637ad4, type: 2}
+  - {fileID: 11400000, guid: 2c2c98d2b5bf6ad43b9799d24af46dbe, type: 2}
+  - {fileID: 11400000, guid: c2c3f20aed9316a4389fbcfec3e7c21e, type: 2}
+  - {fileID: 11400000, guid: 5e0c65aa181c69e4bbe19959f70403fd, type: 2}
   jobs:
-  - {fileID: 11400000, guid: 5f312f924e508984088e742ce82052bb, type: 2}
-  - {fileID: 11400000, guid: f21ac2cb194e1a64cb0d40d56d56d79b, type: 2}
-  - {fileID: 11400000, guid: 4ab8aef33b5852444af4663c668f3932, type: 2}
-  - {fileID: 11400000, guid: 30287c591cc7aea4fb4e44069cab866e, type: 2}
-  sprite: {fileID: 0}
+  - {fileID: 11400000, guid: 31e5d462fcd6edd44b377d2824c0b80b, type: 2}
+  - {fileID: 11400000, guid: 5f9a95192ab253c4d879de240ca19bc9, type: 2}
+  - {fileID: 11400000, guid: fab242ee0b58b7c4788ffd8b115dbf97, type: 2}
+  - {fileID: 11400000, guid: bd027ebc7d14de248814cf9122e0e646, type: 2}
+  sprite: {fileID: 21300000, guid: 30c81882ba50ea04e9661699703b1eec, type: 3}
   title: De radio toren repareren
   description: Iemand van de groep zag dat in het midden van het eiland, op de top
     van de berg een oude radio toren te zien was. Geweldig! De groep besluit om de
     radio te repareren om zo een S.O.S. bericht uit te sturen. De toren lijkt echter
     niet gebruikt te zijn in een aantal jaren. Er is veel roest en stukken van de
     ladder ontbreken.
-  playTime: 40
+  playTime: 50
   isCounted: 1
   minJobSuccess: 3
   successText: Het team deed zijn werk en alles verliep volgens plan. Het lukte de

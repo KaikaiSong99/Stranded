@@ -43,19 +43,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59aa6afb854803d43acd3e666e282bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters: []
+  characters:
+  - {fileID: 11400000, guid: 476a59747bea83c4c83e8ce110e68653, type: 2}
+  - {fileID: 11400000, guid: 72803652d12b64f4a9071e60bf2d7d11, type: 2}
+  - {fileID: 11400000, guid: 8b146228100a2454493cacf534637ad4, type: 2}
+  - {fileID: 11400000, guid: 2c2c98d2b5bf6ad43b9799d24af46dbe, type: 2}
+  - {fileID: 11400000, guid: c2c3f20aed9316a4389fbcfec3e7c21e, type: 2}
+  - {fileID: 11400000, guid: 5e0c65aa181c69e4bbe19959f70403fd, type: 2}
   scenes:
   - Name: StoryScene
-    Parameter: {fileID: 11400000, guid: a89fd1a5b3fb54344878c6f0f1e25f06, type: 2}
+    Parameter: {fileID: 11400000, guid: a8e591ee407a04248a45dae29934a031, type: 2}
   - Name: RoundScene
-    Parameter: {fileID: 11400000, guid: 22d17484157c3b341a1177d1ce6fbc98, type: 2}
+    Parameter: {fileID: 11400000, guid: f0571f51253a11242af41de490266f6d, type: 2}
   - Name: RoundScene
-    Parameter: {fileID: 11400000, guid: d52fff000791d2147b0a905e33b15f10, type: 2}
+    Parameter: {fileID: 11400000, guid: 295d907debf619f499091b11d1ffac4d, type: 2}
   - Name: StoryScene
-    Parameter: {fileID: 11400000, guid: 15a75753b6b10c34aa4104a3b3d27bbd, type: 2}
+    Parameter: {fileID: 11400000, guid: 0db4aaaf1a95c93478375127720170f1, type: 2}
   - Name: RoundScene
-    Parameter: {fileID: 11400000, guid: f0a268627dfa96241ab472c008088c43, type: 2}
+    Parameter: {fileID: 11400000, guid: 0d6dcd013e409da4cac392be07d58c5f, type: 2}
   - Name: RoundScene
-    Parameter: {fileID: 11400000, guid: c515757f8e8bd5445a7c9bdf9ab34d4e, type: 2}
+    Parameter: {fileID: 11400000, guid: 065dbdf7fbafe174eb5d5ca1690e9b67, type: 2}
   roundNumber: 0
   endingEvaluationOrder: {fileID: 11400000, guid: b10647fe602b0314086772a714527ed1, type: 2}
+  DebugMode: 0

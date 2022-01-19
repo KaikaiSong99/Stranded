@@ -122,5 +122,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottomPadding: 10
   textComponent: {fileID: 6226674985752436}
-  letterAppearDuration: 0.05
+  letterAppearDuration: 0.06
   afterCompletionDuration: 0.3

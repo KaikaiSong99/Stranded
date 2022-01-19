@@ -15,7 +15,7 @@ MonoBehaviour:
   jobIcon: {fileID: 21300000, guid: 5440754e45b5c944db574085e600adaa, type: 3}
   jobTitle: De Weg wijzer
   description: Iemand moet de leiding nemen en vertellen waar het team naar toe gaat.
-  idealCharacter: {fileID: 11400000, guid: e55d8a5e5b39d1f47ae57dec2ee80969, type: 2}
+  idealCharacter: {fileID: 11400000, guid: 2c2c98d2b5bf6ad43b9799d24af46dbe, type: 2}
   idealAssignedDialogue: Zoals ik al zei, als je mij volgt dan zul je nooit de weg
     kwijt raken!
   idealSuggestDialogue: De weg wijzen? Dat zou niet zo moelijk moeten zijn, toch?

@@ -21,7 +21,7 @@ public class CharacterScript : MonoBehaviour, IPointerClickHandler
         get => _character;
         set { 
             _character = value; 
-            name.text = value.name;
+            name.text = value.firstName;
             portrait.sprite = value.portrait;
             age.text = value.age.ToString();
             description.text = value.description;
