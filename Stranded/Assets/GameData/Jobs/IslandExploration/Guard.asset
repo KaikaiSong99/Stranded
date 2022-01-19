@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
   m_Name: Guard
   m_EditorClassIdentifier: 
-  jobIcon: {fileID: 0}
+  jobIcon: {fileID: 21300000, guid: 6733312098000f7489c4ea7a7b34945f, type: 3}
   jobTitle: Guard
   description: Someone comes along to guard against dangerous animals.
   idealCharacter: {fileID: 11400000, guid: 152bbd854c8de5942b1c0be03ff83aef, type: 2}

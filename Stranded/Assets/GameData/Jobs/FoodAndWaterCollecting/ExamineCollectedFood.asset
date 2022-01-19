@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
   m_Name: ExamineCollectedFood
   m_EditorClassIdentifier: 
-  jobIcon: {fileID: 0}
+  jobIcon: {fileID: 21300000, guid: c403a7ec2e1b9464cadad7eb34d3baae, type: 3}
   jobTitle: Examine collected food
   description: Someone will examine the edibility of collected food.
   idealCharacter: {fileID: 11400000, guid: c71a3900c9cb90a47b3deeccefc50ab7, type: 2}

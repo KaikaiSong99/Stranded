@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
   m_Name: BuildingAWaterDistiller
   m_EditorClassIdentifier: 
-  jobIcon: {fileID: 0}
+  jobIcon: {fileID: 21300000, guid: f201aa33d1b706f4bab3433cf5a0bb1c, type: 3}
   jobTitle: Building a water distiller
   description: Someone needs to build a water distiller from plastic bottles.
   idealCharacter: {fileID: 11400000, guid: cafc5b6b7d49bd64caf6770840cf57aa, type: 2}
