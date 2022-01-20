@@ -10,15 +10,16 @@ using Model;
 public struct JSONInformation
 {
     public string flag;
-};
+    public List<JSONStrandedData> data;
+}
 
 [Serializable]
 public struct JSONStrandedData
 {
-    public string flag;
     public string dilemma;
     public string task;
     public string character;
+    public string ideal;
 };
 
 public class NetworkManager : MonoBehaviour
@@ -114,18 +115,25 @@ public class NetworkManager : MonoBehaviour
 
     public void SendRoundData(Round round) 
     {
+        var info = new JSONInformation();
+        info.flag = "SEND_GAME_DATA";
+        info.data = new List<JSONStrandedData>();
+        
         foreach (var kv in round.PickedCharacters)
         {
-            JSONStrandedData jsonStranded = new JSONStrandedData();
-            jsonStranded.flag = "SEND_GAME_DATA";
+            var jsonStranded = new JSONStrandedData();
             jsonStranded.dilemma = round.Dilemma.title;
             jsonStranded.task = kv.Key.jobTitle;
             jsonStranded.character = kv.Value.firstName;
-            string jsonPublishMessage = JsonUtility.ToJson(jsonStranded);
+            jsonStranded.ideal = kv.Key.idealCharacter.firstName;
+            info.data.Add(jsonStranded);
+        }
 
-            pubnub.Publish()
+
+
+        pubnub.Publish()
             .Channel(currentChannel)
-            .Message(jsonStranded)
+            .Message(info)
             .Async((result, status) => {
                 if (!status.Error) {
                     Debug.Log(string.Format("DateTime {0}, In Publish Example, Timetoken: {1}", DateTime.UtcNow , result.Timetoken));
@@ -134,7 +142,6 @@ public class NetworkManager : MonoBehaviour
                     Debug.Log(status.ErrorData.Info);
                 }
             });
-        }
     }
 
     public void UnsubscribeAll()

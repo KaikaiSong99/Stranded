@@ -25,4 +25,5 @@ MonoBehaviour:
   - "Vervolgens is er Lucy. \nZoiets avontuurlijks maakt ze normaal nooit mee maar
     ze weet zich snel aan te passen.\r\n\nNonchalant klopt ze het zand van haar nette
     jasje en vervolgens besluit ze meteen kennis te maken met iedereen.\r"
-  playTime: 15
+  playTime: 3
+  isEndPoint: 0

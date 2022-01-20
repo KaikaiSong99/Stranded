@@ -43,10 +43,9 @@ public class GameManager : MonoBehaviour
         if (DebugMode)
         {
             roundNumber = 1;
-            StartCoroutine(Play());
+            scenes = scenes.Where(scene => scene.Name == "RoundScene").ToList();
         }
-        else 
-            StartCoroutine(LoadScene("TitleScene"));
+        StartCoroutine(LoadScene("TitleScene"));
 
     }
 

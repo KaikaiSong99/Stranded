@@ -25,4 +25,5 @@ MonoBehaviour:
   - "Van de gestrandden is Ela de oudste. Ze ziet er vermoeid uit maar niet verward.\r\n\nKort
     werpt ze een blik op de gesneuvelde boot. Terwijl ze kijkt, vliegen er een aantal
     gedachten door haar hoofd. Maar snel laat ze die weer vallen.\r"
-  playTime: 15
+  playTime: 3
+  isEndPoint: 0

@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4703566083904776447, guid: f863184da2001d3449cf90a41520d0f0, type: 3}
+      propertyPath: timeBetween
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7924166779775840557, guid: f863184da2001d3449cf90a41520d0f0, type: 3}
       propertyPath: m_Name
       value: MainScroller

@@ -29,7 +29,8 @@ MonoBehaviour:
   title: Eten & Drinken zoeken
   description: "Na een tijdje op het eiland te zijn geweest, voelen sommige mensen
     zich hongerig. \nDus ze besluiten om voedsel te zoeken, waarmee ze het een tijdje
-    kunnen doen.\nDe groep steekt de koppen bij elkaar en komt met de volgende plannen:"
+    kunnen doen.\nDe groep steekt de koppen bij elkaar en komen met een paar plannen.\nMaar
+    wie doet wat?"
   playTime: 60
   isCounted: 1
   minJobSuccess: 1

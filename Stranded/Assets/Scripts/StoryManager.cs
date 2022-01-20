@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Legacy;
 using UnityEngine;
 using UnityEngine.UI;
 using Model;
@@ -16,6 +15,8 @@ public class StoryManager : MonoBehaviour
     public TextMeshProUGUI endText;
 
     private float nextTextDelay = 0f;
+    public float letterAppearDuration = 0.04f;
+    public float periodDelay = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class StoryManager : MonoBehaviour
         endText.gameObject.SetActive(false);
         storyText.text = "";
     }
-    
+
     // Start this story round (is called from GameManager)
     // Cast the parameters to StoryPoint type with "StoryPoint s = parameters as StoryPoint"
     // Could also check if it is a StoryPoint and return if not
@@ -47,6 +48,15 @@ public class StoryManager : MonoBehaviour
         
         foreach (var text in story.storyText)
         {
+            for (var l = 0; l < text.Length; l++)
+            {
+                if (text[l] == '\n') 
+                    yield return new WaitForSeconds(periodDelay);
+
+                storyText.text = text.Substring(0, l);
+                yield return new WaitForSeconds(letterAppearDuration);
+            }
+
             storyText.text = text;
             yield return new WaitForSeconds(nextTextDelay);
         }

@@ -23,16 +23,17 @@ MonoBehaviour:
   storyArt: {fileID: 21300000, guid: 7a5d7e0b0dd78a143bb3d0a4d3699a35, type: 3}
   storyText:
   - "In het midden van de Stille Oceaan, vaart een cruise schip genaamd \"De Amadea\"
-    naar Zuid-Amerika. \nOp deze kalme en plezierige reis, had niemand zich kunnen
+    naar Zuid-Amerika. \n\nOp deze kalme en plezierige reis, had niemand zich kunnen
     voorstellen wat er zich zou afspelen in de volgende paar uren..."
   - "Opeens klinkt een donderend geluid door de hallen heen en het schip zwaait heen
-    en weer. \nDe kapitein geeft de situatie over de intercom: Het schip is opengescheurd
+    en weer. \n\nDe kapitein geeft de situatie over de intercom: Het schip is opengescheurd
     door een scherpe rots."
   - "De passagiers rennen naar het dek om in de vele reddingsboten te stappen. \nE\xE9n
     voor \xE9\xE9n worden de boten in het water gedropt."
   - "Opeens slaat de nood weer toe! Een storm breekt aan en hoge golven beginnen
-    zich te vormen. \nE\xE9n van de kleine reddingsboten wordt meegesleurd en landt
-    aan op de kust van een eiland. De boot crasht op het strand."
+    zich te vormen. \n\nE\xE9n van de kleine reddingsboten wordt meegesleurd en landt
+    aan op de kust van een eiland. \nDe boot crasht op het strand."
   - "De passagiers stappen duizelig uit de boot en zetten voet aan land. Deze ongelukkige
-    groep  bevindt zich op een onbewoond eiland, alleen.\nHier zijn ze:\t"
-  playTime: 10
+    groep bevindt zich op een onbewoond eiland, alleen.\n\nHier zijn ze:\t"
+  playTime: 3
+  isEndPoint: 0

@@ -12,12 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b55fa4c40c86f4582b309f4e6f227d, type: 3}
   m_Name: FionaIntro (Dutch)
   m_EditorClassIdentifier: 
-  round: 0
-  characters: []
+  round: 1
+  characters:
+  - {fileID: 11400000, guid: 476a59747bea83c4c83e8ce110e68653, type: 2}
+  - {fileID: 11400000, guid: 72803652d12b64f4a9071e60bf2d7d11, type: 2}
+  - {fileID: 11400000, guid: 8b146228100a2454493cacf534637ad4, type: 2}
+  - {fileID: 11400000, guid: 2c2c98d2b5bf6ad43b9799d24af46dbe, type: 2}
+  - {fileID: 11400000, guid: c2c3f20aed9316a4389fbcfec3e7c21e, type: 2}
+  - {fileID: 11400000, guid: 5e0c65aa181c69e4bbe19959f70403fd, type: 2}
   storyArt: {fileID: 21300000, guid: ad014baafa8b64143b1eb8b190f6ffce, type: 3}
   storyText:
   - "Van iedereen heeft Fiona de meeste moeite met stilzitten. Zodra iedereen uit
     de reddingsboot is, trekt ze hem in een vloeiende beweging op zijn kant. \r\n\nEr
     zit een enorm gat in de bodem. Ge\xEFrriteerd duwt ze het ding weer van haar
     af.\r"
-  playTime: 15
+  playTime: 3
+  isEndPoint: 0

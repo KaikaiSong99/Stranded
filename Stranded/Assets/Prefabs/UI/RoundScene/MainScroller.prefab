@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13f1da252e047a3a8d9383d2f279db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetween: 0.3
+  timeBetween: 1
   focusAnimationDuration: 0.5
   bottomPadding: 80
   disableScroll: 1

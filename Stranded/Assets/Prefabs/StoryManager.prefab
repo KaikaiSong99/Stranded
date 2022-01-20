@@ -45,6 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyArt: {fileID: 0}
   storyText: {fileID: 0}
-  nextTextDelay: 11
-  timeLeft: 0
-  transitionController: {fileID: 0}
+  endText: {fileID: 0}
+  letterAppearDuration: 0.06
+  periodDelay: 1

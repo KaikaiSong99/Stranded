@@ -36,4 +36,5 @@ MonoBehaviour:
     current carries it to the shore of an island. The lifeboat crashes into the pebbles.
   - The passengers of the broken lifeboat step out onto this new land. This small
     group of unfortunate survivors find themselves alone on a deserted island, stranded.
-  playTime: 10
+  playTime: 3
+  isEndPoint: 0

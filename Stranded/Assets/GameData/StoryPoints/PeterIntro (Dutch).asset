@@ -26,4 +26,5 @@ MonoBehaviour:
     Hij heeft de kruiswoordpuzzel die hij aan het doen was op de boot nog steeds
     in zijn linkerhand.\r\n\nMet een vriendelijke lach begroet hij zijn lotgenoten.
     \r"
-  playTime: 15
+  playTime: 3
+  isEndPoint: 0

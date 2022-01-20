@@ -18,5 +18,5 @@ MonoBehaviour:
   idealCharacter: {fileID: 11400000, guid: 8b146228100a2454493cacf534637ad4, type: 2}
   idealAssignedDialogue: "Na een paar experimenten wist ik meteen welke paddenstoelen
     giftig waren. \nDit voelde heel goed om te doen."
-  idealSuggestDialogue: Sorry dat ik onderbreek, maar een paar simpele experimenten
-    zouden genoeg moeten zijn geweest om die giftige dingen te identificeren.
+  idealSuggestDialogue: Sorry dat ik onderbreek, maar met een paar simpele experimenten
+    hadden we de giftige dingen er uit kunnen halen.

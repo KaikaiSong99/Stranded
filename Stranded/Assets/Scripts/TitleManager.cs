@@ -9,7 +9,7 @@ using Model;
 public class TitleManager : MonoBehaviour
 {
 
-    public TMP_InputField PinInputField;
+    public InputField PinInputField;
     public TitleScriptable TitleText;
 
     public CanvasGroup LoadingScreen;
