@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 21300000, guid: c5a36ff11e655684f96635a249fafea1, type: 3}
   jobTitle: Pionier klimmer
-  description: Iemand moet als eerste de radio toren beklimmen om een veilig pad
-    naar boven te vinden voor de anderen.
+  description: Iemand moet de groep voorgaan om een veilig pad naar boven te vinden.
   idealCharacter: {fileID: 11400000, guid: 72803652d12b64f4a9071e60bf2d7d11, type: 2}
-  idealAssignedDialogue: Gelukkig ging ik vaak naar de fitness zaal op het schip.
-    Als iemand anders het had gedaan, dan hadden ze misschien wel een arm verloren!
-  idealSuggestDialogue: Wacht eens even, jullie zochten naar een klimmer? Jullie
-    hadden mij moeten vragen!
+  idealAssignedDialogue: "Gelukkig ging ik vaak naar de fitness op het schip. \nAls
+    iemand anders het had gedaan, dan hadden ze misschien wel een arm verloren!"
+  idealSuggestDialogue: "Wacht eens even, jullie zochten naar een klimmer? \nJullie
+    hadden mij moeten vragen!"

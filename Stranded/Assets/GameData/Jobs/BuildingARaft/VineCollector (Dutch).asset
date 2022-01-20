@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 21300000, guid: 2a491c4edf5a0a34eb04f329cb3529b7, type: 3}
   jobTitle: Planten voor touw zoeken
-  description: Iemand moet materiaal voor touw zoeken. Lianen, kleine plantjes, alles
-    wat stevig en lang is.
+  description: "Iemand moet materiaal voor touw zoeken. \nLianen, kleine planten,
+    alles wat stevig is."
   idealCharacter: {fileID: 11400000, guid: 5e0c65aa181c69e4bbe19959f70403fd, type: 2}
   idealAssignedDialogue: Klaar! Erg simpel om te doen, maar super bevredigend.
-  idealSuggestDialogue: Ik kon wel een wandeling door het bos hebben gebruikt. Kan
-    ik even tot rust komen in de natuur.
+  idealSuggestDialogue: "Een zoektocht in het bos? \nDat had ik wel kunnen gebruiken.
+    \nKan ik even mijn verstand op nul zetten."

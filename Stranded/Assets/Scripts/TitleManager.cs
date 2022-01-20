@@ -50,9 +50,15 @@ public class TitleManager : MonoBehaviour
     public void SendPin()
     {
         string pin = PinInputField.text;
-        if (isSanitized(pin))
+        if (pin == "0000")
         {
-            Debug.Log(pin);
+            EnableLoadingScreen();
+            CancelButton.interactable = false;
+            OnStartGame();
+        }
+        else if (isSanitized(pin))
+        {
+            ErrorText.text = "";
             onPinConfirmed?.Invoke(ChannelPrefix + pin);
             EnableLoadingScreen();
         }

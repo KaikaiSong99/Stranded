@@ -16,7 +16,7 @@ MonoBehaviour:
   jobTitle: Hout verzamelen
   description: Iemand moet hout hakken om het vlot in elkaar te zetten.
   idealCharacter: {fileID: 11400000, guid: 72803652d12b64f4a9071e60bf2d7d11, type: 2}
-  idealAssignedDialogue: Wat jammer dat we al het hout voor het vlot hebben gebruikt..
-    Sommige van ze waren erg goed als fitness apparatuur.
-  idealSuggestDialogue: Onderschat het gewicht van hout niet! Ze zijn loeizwaar!
-    Als ik jou was, zou ik met iets veel kleiners beginnen!
+  idealAssignedDialogue: "Wat jammer dat we al het hout voor het vlot hebben gebruikt..
+    \nSommige van ze waren goed te gebruiken als fitness apparatuur."
+  idealSuggestDialogue: "Onderschat de stevigheid van hout niet! \nZe zijn super
+    stevig! \nAls ik jou was, zou ik met iets veel kleiners beginnen!"

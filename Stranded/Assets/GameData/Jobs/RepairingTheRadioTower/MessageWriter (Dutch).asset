@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Iemand moet een kort, maar volledige S.O.S. bericht schrijven om uit
     te zenden.
   idealCharacter: {fileID: 11400000, guid: c2c3f20aed9316a4389fbcfec3e7c21e, type: 2}
-  idealAssignedDialogue: Ik hoop dat ze ons bericht begrijpen. Het was een hele klus
-    om zoveel mogelijk te beschrijven in een klein aantal woorden.
-  idealSuggestDialogue: Een taak waarbij ik kan schrijven? Hoe had ik zoiets aan
-    mij voorbij laten gaan?
+  idealAssignedDialogue: "Ik hoop dat ze ons bericht begrijpen. \nHet was een hele
+    klus om zoveel mogelijk te beschrijven in een klein aantal woorden."
+  idealSuggestDialogue: "Een taak waarbij ik kan schrijven? \nHoe had ik zoiets aan
+    mij voorbij laten gaan?"

@@ -20,4 +20,5 @@ MonoBehaviour:
     trembles as lightning strikes one of the old trees in the forest.
   - The group huddles up together under the lifeboat on the beach. They need to find
     a way to escape from this island fast.
-  playTime: 0
+  playTime: 10
+  isEndPoint: 0

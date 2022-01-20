@@ -16,6 +16,6 @@ MonoBehaviour:
   firstName: Mustafa
   age: 19
   description: Verlegen, met een slanke figuur
-  incorrectlyAssignedDialogue: Sorry iedereen! Ik weet echt niet wat er gebeurd is...
-    Ik zat waarschijnlijk te dromen over deze superhelden strip die ik aan het schrijven
+  incorrectlyAssignedDialogue: Sorry! Ik weet echt niet wat er gebeurd is... Ik zat
+    waarschijnlijk te dromen over mijn superhelden stripboek die ik aan het schrijven
     ben.

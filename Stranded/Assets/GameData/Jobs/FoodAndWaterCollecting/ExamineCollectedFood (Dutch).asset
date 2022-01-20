@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jobIcon: {fileID: 21300000, guid: c403a7ec2e1b9464cadad7eb34d3baae, type: 3}
   jobTitle: Voedsel kwaliteit onderzoeken
-  description: Iemand moet de kwaliteit van het eten onderzoeken.
+  description: Iemand moet onderzoeken of het voedsel wel eetbaar is.
   idealCharacter: {fileID: 11400000, guid: 8b146228100a2454493cacf534637ad4, type: 2}
-  idealAssignedDialogue: Na een paar experimenten had ik de giftige paddenstoelen
-    er zo uit gepikt. Dit was heel voldoenend werk.
+  idealAssignedDialogue: "Na een paar experimenten wist ik meteen welke paddenstoelen
+    giftig waren. \nDit voelde heel goed om te doen."
   idealSuggestDialogue: Sorry dat ik onderbreek, maar een paar simpele experimenten
-    zouden genoeg moeten zijn geweest om de giftige dingen te identificeren.
+    zouden genoeg moeten zijn geweest om die giftige dingen te identificeren.

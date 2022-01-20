@@ -16,7 +16,7 @@ MonoBehaviour:
   jobTitle: Bodyguard
   description: Iemand moet het team beschermen tegen wilde beesten.
   idealCharacter: {fileID: 11400000, guid: 72803652d12b64f4a9071e60bf2d7d11, type: 2}
-  idealAssignedDialogue: Ik moet zeggen, die beesten in het bos rennen al snel weg.
-    Dat was tof zeg!
-  idealSuggestDialogue: 'Hier, een tip: als je oog-in-oog staat met een dier, blijf
-    het aanstaren en kijk niet weg.'
+  idealAssignedDialogue: Ik moet zeggen, die wilde dieren zijn toch niet zo intimiderend.
+    Wat een spannende tocht was dat, zeg!
+  idealSuggestDialogue: 'Een tip: als je oog-in-oog staat met een dier, blijf het
+    aanstaren en kijk nooit weg.'

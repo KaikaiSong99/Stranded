@@ -68,7 +68,6 @@ public class RoundManager : MonoBehaviour
 
     private void SetupAssignmentPhase()
     {
-        Debug.Log($"Assignment phase for round {Dilemma.round} has started.");
         StartCoroutine(uiBuilder.ConstructAssignmentPhaseUI(this, info =>
         {
             _assignmentPhaseUiInfo = info;
@@ -82,14 +81,12 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator PlayAssignmentPhase()
     {
-        Debug.Log("Assignment has started");
         timeLeft = Dilemma.playTime;
         yield return StartCoroutine(Timer(PlayFeedbackPhase));
     }
 
     private void PlayFeedbackPhase()
     {
-        Debug.Log("Feedback has started");
         SetAssignmentInteractionEnabled(false);
         assignmentManager.gameObject.SetActive(false);
         
@@ -106,21 +103,9 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator WrapUpRound()
     {
-        Debug.Log("Wrap-up has started");
         yield return new WaitForSeconds(postRoundTime);
-        
         onRoundEnd?.Invoke(Round);
     }
-
-    // public IEnumerator PlayFeedbackPhase()
-    // {
-    //     Debug.Log("Feedback has started");
-    //     timeLeft = feedbackTime;
-    //     feedbackManager.gameObject.SetActive(true);
-    //     StartCoroutine(feedbackManager.Show(feedback, round.PickedCharacters));
-    //     yield return StartCoroutine(Timer(() => null));
-    //     onRoundEnd?.Invoke(round);
-    // }
 
     private IEnumerator Timer(Action action)
     {
@@ -142,7 +127,6 @@ public class RoundManager : MonoBehaviour
 
     public void AssignCharacterToJob(Character character, Job job)
     {
-        Debug.Log($"Made assignment {job.name} - {character.firstName}");
         Round.AssignCharacterToJob(character, job);
         RefreshUI();
     }
@@ -192,7 +176,6 @@ public class RoundManager : MonoBehaviour
     //Adds feedback for a specific character
     private void AddFeedback(Job job, Character character, String dialogue)
     {
-        Debug.Log($"Added Feedback: {character.firstName} - {dialogue}");
         Dictionary<Character, String> characterFeedback;
         
         if (FeedbackDictionary.TryGetValue(job, out characterFeedback))

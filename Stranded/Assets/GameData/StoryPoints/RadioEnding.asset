@@ -21,4 +21,5 @@ MonoBehaviour:
   - The light slowly grew more pronounced and it turned out to belong to a rescue
     ship alerted by their distress signal. It headed straight for the island. After
     it arrived, the survivors were taken aboard and, with that, they were saved!
-  playTime: 0
+  playTime: 15
+  isEndPoint: 1

@@ -46,7 +46,7 @@ namespace UI
         appearElements.Add(el);
       }
       
-      yield return InstantiateH1Element($"Chapter {dilemma.round}", AddToAppearElements);
+      yield return InstantiateH1Element($"CHAPTER {dilemma.round}", AddToAppearElements);
       yield return InstantiateImageElement(dilemma.sprite, AddToAppearElements);
       yield return InstantiateH2Element(dilemma.title, AddToAppearElements);
 
@@ -77,7 +77,8 @@ namespace UI
       }
 
       yield return InstantiateSpacerElement(AddToAppearElements);
-      yield return InstantiateParagraphElement("What jobs succeeded?", AddToAppearElements);
+      yield return InstantiateParagraphElement("Het team kwam terug naar kamp.", AddToAppearElements);
+      yield return InstantiateParagraphElement("Hoe was het gegaan?", AddToAppearElements);
       yield return InstantiateParagraphElement("...", AddToAppearElements);
       
       foreach (var job in dilemma.jobs)

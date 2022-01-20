@@ -470,10 +470,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 55627118}
     m_Modifications:
     - target: {fileID: 1902444135, guid: 846ebcbf58619fe4abb425d492100d40, type: 3}
-      propertyPath: TitleText
-      value: 
-      objectReference: {fileID: 11400000, guid: 6bd681be61313224c89480866f901bd2, type: 2}
-    - target: {fileID: 1902444135, guid: 846ebcbf58619fe4abb425d492100d40, type: 3}
       propertyPath: CancelText
       value: 
       objectReference: {fileID: 3885155800150302579}

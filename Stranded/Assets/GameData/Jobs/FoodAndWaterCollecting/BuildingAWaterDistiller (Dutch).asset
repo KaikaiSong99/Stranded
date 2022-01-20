@@ -16,7 +16,7 @@ MonoBehaviour:
   jobTitle: Een water distiller bouwen
   description: Iemand moet een zuiveringssyteem voor water bouwen van plastic flessen.
   idealCharacter: {fileID: 11400000, guid: 476a59747bea83c4c83e8ce110e68653, type: 2}
-  idealAssignedDialogue: Dat was leuk! Laat me weten wanneer ik nog zo'n systeem
-    kan maken!
-  idealSuggestDialogue: Weet je, dat is echt iets wat ik leuk zou hebben gevonden...
-    Volgens mij heb ik vroeger ook zoiets gebouwd...
+  idealAssignedDialogue: "Dat was leuk! \nLaat me weten wanneer ik nog zo'n systeem
+    kan maken!"
+  idealSuggestDialogue: "Weet je, dat is echt iets wat ik leuk zou hebben gevonden...
+    \nVolgens mij heb ik vroeger ook zoiets gebouwd..."

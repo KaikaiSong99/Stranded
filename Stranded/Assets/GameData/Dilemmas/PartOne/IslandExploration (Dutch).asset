@@ -26,21 +26,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3ca5da4e8357d4f44bc4181d57fef1da, type: 2}
   sprite: {fileID: 21300000, guid: e838c2667cd5de34e915802f7b73fa88, type: 3}
   title: Het eiland verkennen
-  description: Om zoveel mogelijk kans te hebben om te overleven, besluit de groep
-    om een expeditie rondom het eiland te maken om het in kaart te brengen en te
-    kijken waar materiaal te vinden is.
+  description: "Om hun overlevingskans zoveel mogelijk te vergroten, besluit de groep
+    om een expeditie rondom het eiland te maken om het in kaart te brengen. \nTegelijkertijd
+    willen ze een oog open houden voor goed materiaal:"
   playTime: 45
   isCounted: 1
   minJobSuccess: 1
-  successText: De expeditie ging sneller dan verwacht. Het team kom goed samenwerken
-    en voordat iemand het door had, hadden ze een volledige kaart van het eiland
-    gemaakt. Ze kwamen wel wat wilde dieren tegen, maar gelukkig konden ze hen ontwijken.
-  partialSuccessText: De expeditie bleek toch een groot avontuur te zijn. Het team
-    raakte de weg kwijt in het bos en kwam zelf oog-in-oog te staan met een gorilla-beer.
-    Gelukkig kwamen ze terug bij het kamp ongedeerd, met een redelijke kaart.
-  failureText: 'Ze werden gelijk verdwaald nadat ze een stap in het bos hadden gezet.
-    Nadat ze vreemde geluiden uit de bosjes hadden gehoord, besloten ze om zo hard
-    mogelijk weg te rennen.
-
-    Na een stevige sprint kwamen ze uiteindelijk terug
-    bij het kamp. Jammer genoeg hebben ze weinig informatie kunnen halen...'
+  successText: "De expeditie ging sneller dan verwacht. \nHet team kon goed samenwerken
+    en al snel hadden het eiland volledig in kaart gebracht. \nZe kwamen wel wat
+    wilde dieren tegen, maar gelukkig konden ze hen gemakkelijk ontwijken."
+  partialSuccessText: "De expeditie bleek toch een groter avontuur te zijn dan verwacht.
+    \nHet team raakte na een tijdje de weg kwijt en kwam zelfs oog-in-oog te staan
+    met een gorilla-beer! \nGelukkig kwamen ze terug bij het kamp ongedeerd met een
+    redelijke kaart."
+  failureText: "Het team raakte verdwaald nadat ze een stap in het bos hadden gezet.
+    Nadat iemand vreemde geluiden had gehoord, besloten ze om zo hard mogelijk weg
+    te rennen.\nNa een lange en moeizame dag kwamen ze uiteindelijk terug bij het
+    kamp. \nJammer genoeg hebben ze niet zoveel van de eiland kunnen zien..."

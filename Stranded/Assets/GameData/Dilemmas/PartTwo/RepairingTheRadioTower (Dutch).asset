@@ -27,20 +27,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bd027ebc7d14de248814cf9122e0e646, type: 2}
   sprite: {fileID: 21300000, guid: 30c81882ba50ea04e9661699703b1eec, type: 3}
   title: De radio toren repareren
-  description: Iemand van de groep zag dat in het midden van het eiland, op de top
-    van de berg een oude radio toren te zien was. Geweldig! De groep besluit om de
-    radio te repareren om zo een S.O.S. bericht uit te sturen. De toren lijkt echter
-    niet gebruikt te zijn in een aantal jaren. Er is veel roest en stukken van de
-    ladder ontbreken.
+  description: "Tijdens de expeditie zag Iemand van de groep een radio toren op de
+    top van een berg.\nGeweldig!  \nDe toren zit helaas vol met roest en het apparatuur
+    doet het niet. \nDe groep maakt een plan om de toren te repareren en een S.O.S.
+    bericht uit te sturen:"
   playTime: 50
   isCounted: 1
   minJobSuccess: 3
-  successText: Het team deed zijn werk en alles verliep volgens plan. Het lukte de
-    groep om de toren te repareren en een S.O.S. signaal uit te sturen. Het is helaas
-    niet zeker dat iemand het bericht heeft gehoord...
-  partialSuccessText: Het duurde een aantal pogingen, maar met veel bloed, zweet
-    en tranen, werd de radio toren toch nog gerepareerd. Het is helaas niet zeker
-    dat iemand het bericht heeft gehoord...
-  failureText: De groep deed hun best om de radio toren te repareren, maar het kostte
-    zoveel tijd dat er een storm kwam die de toren verwoestte. De groep zal een andere
-    manier moeten zoeken om hulp te vragen...
+  successText: "Het team deed zijn werk en alles verliep netjes volgens plan. \nHet
+    lukte de groep om de toren te repareren en een S.O.S. signaal uit te sturen.
+    \nHopelijk komt iemand ze snel redden..."
+  partialSuccessText: "Het duurde een aantal pogingen, maar met veel bloed, zweet
+    en tranen, werd de radio toren uiteindelijk toch nog gerepareerd. \nHet is nog
+    maar de vraag of iemand het bericht heeft gehoord..."
+  failureText: "De groep deed hun best om de radio toren te repareren, maar het kostte
+    zoveel tijd dat er een storm kwam die de radio totaal verwoestte. \nDe groep
+    zal maar een een andere manier moeten zoeken om hulp te vragen..."

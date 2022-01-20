@@ -10,7 +10,7 @@ using Model;
 public class CharacterScript : MonoBehaviour, IPointerClickHandler
 {
     public Image portrait;
-    public TextMeshProUGUI name;
+    public TextMeshProUGUI characterName;
     public TextMeshProUGUI age;
     public TextMeshProUGUI description;
     public Image assignedJob;
@@ -21,7 +21,7 @@ public class CharacterScript : MonoBehaviour, IPointerClickHandler
         get => _character;
         set { 
             _character = value; 
-            name.text = value.firstName;
+            characterName.text = value.firstName;
             portrait.sprite = value.portrait;
             age.text = value.age.ToString();
             description.text = value.description;

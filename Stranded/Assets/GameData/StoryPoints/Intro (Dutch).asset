@@ -12,23 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b55fa4c40c86f4582b309f4e6f227d, type: 3}
   m_Name: Intro (Dutch)
   m_EditorClassIdentifier: 
-  round: 0
-  characters: []
-  storyArt: {fileID: 0}
+  round: 1
+  characters:
+  - {fileID: 11400000, guid: 476a59747bea83c4c83e8ce110e68653, type: 2}
+  - {fileID: 11400000, guid: 72803652d12b64f4a9071e60bf2d7d11, type: 2}
+  - {fileID: 11400000, guid: 8b146228100a2454493cacf534637ad4, type: 2}
+  - {fileID: 11400000, guid: 2c2c98d2b5bf6ad43b9799d24af46dbe, type: 2}
+  - {fileID: 11400000, guid: c2c3f20aed9316a4389fbcfec3e7c21e, type: 2}
+  - {fileID: 11400000, guid: 5e0c65aa181c69e4bbe19959f70403fd, type: 2}
+  storyArt: {fileID: 21300000, guid: 7a5d7e0b0dd78a143bb3d0a4d3699a35, type: 3}
   storyText:
-  - In het midden van de Stille Oceaan, vaart een cruise schip genaamd "De Amadea"
-    naar Zuid-Amerika. Op deze reis van kalmte en plezier, had niemand zich kunnen
-    voorstellen wat er zich zou afspelen in de volgende paar uren...
-  - 'Een donderend geluid gaat door de hallen heen en het schip zwaait heen en weer.
-    De kapitein geeft de situatie over de intercom: Het schip is opengescheurd door
-    een scherpe rots.'
-  - De passagiers rennen naar het dek om in de vele reddingsboten te stappen. Een
-    voor een worden de boten in het water gedropt.
-  - Opeens slaat de nood weer toe! Een storm breekt aan en hoge golven beginnen zich
-    te vormen. Een kleine reddingsboot wordt meegesleurd, weg van de rest en landt
-    aan op de kust van een eiland. De boot komt op land en crasht tegen de kleine
-    stenen.
-  - De passagiers stappen gelukkig ongedeerd uit de boot en zetten voet op nieuwe
-    land. Deze groep van ongelukkige passagiers bevinden zich op een onbewoond eiland,
-    alleen...
-  playTime: 0
+  - "In het midden van de Stille Oceaan, vaart een cruise schip genaamd \"De Amadea\"
+    naar Zuid-Amerika. \nOp deze kalme en plezierige reis, had niemand zich kunnen
+    voorstellen wat er zich zou afspelen in de volgende paar uren..."
+  - "Opeens klinkt een donderend geluid door de hallen heen en het schip zwaait heen
+    en weer. \nDe kapitein geeft de situatie over de intercom: Het schip is opengescheurd
+    door een scherpe rots."
+  - "De passagiers rennen naar het dek om in de vele reddingsboten te stappen. \nE\xE9n
+    voor \xE9\xE9n worden de boten in het water gedropt."
+  - "Opeens slaat de nood weer toe! Een storm breekt aan en hoge golven beginnen
+    zich te vormen. \nE\xE9n van de kleine reddingsboten wordt meegesleurd en landt
+    aan op de kust van een eiland. De boot crasht op het strand."
+  - "De passagiers stappen duizelig uit de boot en zetten voet aan land. Deze ongelukkige
+    groep  bevindt zich op een onbewoond eiland, alleen.\nHier zijn ze:\t"
+  playTime: 10

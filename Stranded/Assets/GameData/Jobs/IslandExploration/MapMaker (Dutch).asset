@@ -16,7 +16,7 @@ MonoBehaviour:
   jobTitle: Kaarten maker
   description: Iemand moet mee om de kaart te tekenen.
   idealCharacter: {fileID: 11400000, guid: c2c3f20aed9316a4389fbcfec3e7c21e, type: 2}
-  idealAssignedDialogue: Wow, Ik had niet verwacht dat dit zo leuk kon zijn. Als
-    we terug zijn, dan wil ik hem inkleuren!
-  idealSuggestDialogue: Wacht eens, iemand moest een kaart tekenen? Ik ben best goed
-    met een potlood!
+  idealAssignedDialogue: "Wow, Ik had niet verwacht dat dit zo leuk kon zijn. \nAls
+    we terug zijn, dan wil ik hem inkleuren!"
+  idealSuggestDialogue: "Wacht eens, iemand moest een kaart tekenen? \nIk ben best
+    goed met een potlood!"

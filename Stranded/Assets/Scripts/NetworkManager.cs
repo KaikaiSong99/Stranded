@@ -66,7 +66,6 @@ public class NetworkManager : MonoBehaviour
                     pubnub.Reconnect();
                     break;
                 case PNStatusCategory.PNConnectedCategory:
-                    Debug.Log($"Connected to {currentChannel}");
                     break;
                 default:
                     break;
@@ -76,7 +75,6 @@ public class NetworkManager : MonoBehaviour
         if (message.MessageResult != null)
         {
             string messageToString = pubnub.JsonLibrary.SerializeToJsonString(message.MessageResult.Payload);
-            Debug.Log($"{messageToString} - {messageToString.Contains("flag")}");
             
             if (messageToString.Contains("flag"))
             {
@@ -99,7 +97,6 @@ public class NetworkManager : MonoBehaviour
 
     public void SubscribeToChannel(string channel)
     {
-        Debug.Log($"Subscribing to {channel}");
         pubnub.UnsubscribeAll()
             .Async((result, status) => {
                 if(status.Error){
@@ -126,8 +123,6 @@ public class NetworkManager : MonoBehaviour
             jsonStranded.character = kv.Value.firstName;
             string jsonPublishMessage = JsonUtility.ToJson(jsonStranded);
 
-            Debug.Log(jsonPublishMessage);
-
             pubnub.Publish()
             .Channel(currentChannel)
             .Message(jsonStranded)
@@ -144,7 +139,6 @@ public class NetworkManager : MonoBehaviour
 
     public void UnsubscribeAll()
     {
-        Debug.Log("Unsubscribe All");
         pubnub.UnsubscribeAll()
         .Async((result, status) => {
             if(status.Error){

@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   round: 0
   characters: []
-  storyArt: {fileID: 0}
+  storyArt: {fileID: 21300000, guid: 2ab5e79dae400fd4ba8880042f2d2bb7, type: 3}
   storyText:
-  - Nadat de groep succesvol was in het maken van een vlot, besloten ze om te wacten
-    totdat de storm voorbij was gegaan. Na een tijdje konden ze met het vlot de zee
-    in.
+  - Nadat de groep succesvol was in het maken van een vlot, besloten ze om te wachten
+    totdat de storm voorbij was. Na een tijdje konden ze met het vlot de zee in.
   - De reis was toch nog een beetje eng, maar uiteindelijk vaarden ze door de zee
-    en de groep kwam terecht op een grotere eiland. Gelukkig wel bewoond dit keer.
-    Ze werden vriendelijk ontvangen en werden gered.
-  playTime: 0
+    en ze kwamen terecht op een andere eiland. Gelukkig wel bewoond dit keer. Ze
+    werden daar met open armen ontvangen en kwamen veilig thuis.
+  playTime: 15
+  isEndPoint: 1

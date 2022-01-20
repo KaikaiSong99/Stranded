@@ -27,22 +27,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bc260d533e3482b4b81e9f36b355d343, type: 2}
   sprite: {fileID: 21300000, guid: 2ab5e79dae400fd4ba8880042f2d2bb7, type: 3}
   title: Een vlot bouwen
-  description: De enige manier om het eiland te verlaten, is door een vlot te bouwen.
-    De groep besluit om toch een poging te doen. Het vlot moet stevig en functioneel
-    genoeg zijn om hen naar vaste land te brengen.
+  description: "De enige manier om het eiland zelf te verlaten, is door een vlot
+    te bouwen. Wie weet hoelang het nog duurt voordat hulp komt? \nDe groep besluit
+    om toch een poging te doen. \nHet vlot moet stevig en functioneel genoeg zijn
+    om hen naar vaste land te brengen."
   playTime: 50
   isCounted: 1
   minJobSuccess: 3
-  successText: Alles ging volgens plan en het vlot was groot genoeg voor iedereen,
-    zonder te lekken! Hiermee kunnen ze zeker elke storm weerstaan.
-  partialSuccessText: 'The survivors ran into unexpected problems when they were
-    making the raft but they managed to finalize the work somehow. The raft worked
-    well enough and could hold their weight.
+  successText: "Alles ging volgens plan en het vlot was groot genoeg voor iedereen
+    en zonder lekages! \nHiermee kunnen ze zeker elke storm weerstaan!"
+  partialSuccessText: 'Er waren veel onverwachte problemen waardoor het vlot niet
+    zo goed was als gepland.
 
-
-    Er waren veel onverwachte problemen
-    waardoor het vlot niet zo goed was als gepland. Na veel werk was het uiteindelijk
-    klaar en was net goed genoed om iedereen drijvende te houden.'
-  failureText: De groep deed hun uiterste best om de vlot af te maken, maar het kostte
-    teveel tijd en energie. Toen ze eindelijk iets hadden, deden ze een drijf test.
-    Helaas faalde het vlot de test en al dat werk zonk naar de bodem.
+    Na veel werk was het uiteindelijk klaar en was
+    net goed genoed om iedereen droog te houden.'
+  failureText: "De groep deed hun uiterste best om het vlot af te maken, maar het
+    kostte teveel tijd en energie. \nToen ze eindelijk iets hadden, deden ze een
+    testdraai. \nHelaas brak het vlot al snel en verdween de zee in..."
