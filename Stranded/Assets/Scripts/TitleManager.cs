@@ -9,10 +9,10 @@ using Model;
 public class TitleManager : MonoBehaviour
 {
 
-    public InputField PinInputField;
     public TitleScriptable TitleText;
 
     public CanvasGroup LoadingScreen;
+    public CanvasGroup PinScreen;
 
     public static event Action<string> onPinConfirmed;
     public static event Action onGameStart;
@@ -21,6 +21,7 @@ public class TitleManager : MonoBehaviour
     public TextMeshProUGUI SendPinText;
     public TextMeshProUGUI WaitingText;
     public TextMeshProUGUI CancelText;
+    public TextMeshProUGUI PinText;
     public Button CancelButton;
     
 
@@ -33,6 +34,7 @@ public class TitleManager : MonoBehaviour
         WaitingText.text = TitleText.waitingForServerText;
         CancelText.text = TitleText.cancelWaitingText;
         NetworkManager.onStartReceived += OnStartGame;
+        PinManager.onPinSent += SendPin;
         isGameStart = false;
     }
 
@@ -41,15 +43,29 @@ public class TitleManager : MonoBehaviour
         if (text.Length < 4)
         {
             ErrorText.text = TitleText.errorLengthIncorrectText;
+            IEnumerator RemoveErrorWithDelay()
+            {
+                yield return new WaitForSeconds(5f);
+                ErrorText.text = "";
+            }
+
+            StartCoroutine(RemoveErrorWithDelay());
             return false;
         }
 
         return true;
     }
 
-    public void SendPin()
+    public void OpenPinScreen()
     {
-        string pin = PinInputField.text;
+        PinScreen.gameObject.SetActive(true);
+    }
+
+    public void SendPin(string pin)
+    {
+        PinScreen.gameObject.SetActive(false);
+        PinText.text = pin;
+
         if (pin == "0000")
         {
             EnableLoadingScreen();
@@ -95,6 +111,11 @@ public class TitleManager : MonoBehaviour
         yield return new WaitForSeconds(5);
         onGameStart?.Invoke();
         yield return null;
+    }
+
+    private void OnDestroy() {
+        PinManager.onPinSent -= SendPin;
+        NetworkManager.onStartReceived -= OnStartGame;
     }
 
 
