@@ -10,15 +10,16 @@ using Model;
 public struct JSONInformation
 {
     public string flag;
-};
+    public List<JSONStrandedData> data;
+}
 
 [Serializable]
 public struct JSONStrandedData
 {
-    public string flag;
     public string dilemma;
     public string task;
     public string character;
+    public string ideal;
 };
 
 public class NetworkManager : MonoBehaviour
@@ -46,8 +47,8 @@ public class NetworkManager : MonoBehaviour
         Debug.Log(pubnubUuid);
 
         PNConfiguration pnConfiguration = new PNConfiguration();
-        pnConfiguration.PublishKey = "pub-c-8a52cd59-8e69-4b03-bb18-01b788f3d512";
-        pnConfiguration.SubscribeKey = "sub-c-7609cf94-7225-11ec-9c8d-9eb9413efc82";
+        pnConfiguration.PublishKey = "pub-c-8fbea598-c1c7-407c-8810-3e1ffd745e44";
+        pnConfiguration.SubscribeKey = "sub-c-e53297aa-789e-11ec-add2-a260b15b99c5";
         pnConfiguration.LogVerbosity = PNLogVerbosity.BODY;
         pnConfiguration.UUID = pubnubUuid;
         pubnub = new PubNub(pnConfiguration);
@@ -66,7 +67,6 @@ public class NetworkManager : MonoBehaviour
                     pubnub.Reconnect();
                     break;
                 case PNStatusCategory.PNConnectedCategory:
-                    Debug.Log($"Connected to {currentChannel}");
                     break;
                 default:
                     break;
@@ -76,7 +76,6 @@ public class NetworkManager : MonoBehaviour
         if (message.MessageResult != null)
         {
             string messageToString = pubnub.JsonLibrary.SerializeToJsonString(message.MessageResult.Payload);
-            Debug.Log($"{messageToString} - {messageToString.Contains("flag")}");
             
             if (messageToString.Contains("flag"))
             {
@@ -99,7 +98,6 @@ public class NetworkManager : MonoBehaviour
 
     public void SubscribeToChannel(string channel)
     {
-        Debug.Log($"Subscribing to {channel}");
         pubnub.UnsubscribeAll()
             .Async((result, status) => {
                 if(status.Error){
@@ -117,20 +115,25 @@ public class NetworkManager : MonoBehaviour
 
     public void SendRoundData(Round round) 
     {
+        var info = new JSONInformation();
+        info.flag = "SEND_GAME_DATA";
+        info.data = new List<JSONStrandedData>();
+        
         foreach (var kv in round.PickedCharacters)
         {
-            JSONStrandedData jsonStranded = new JSONStrandedData();
-            jsonStranded.flag = "SEND_GAME_DATA";
+            var jsonStranded = new JSONStrandedData();
             jsonStranded.dilemma = round.Dilemma.title;
             jsonStranded.task = kv.Key.jobTitle;
             jsonStranded.character = kv.Value.firstName;
-            string jsonPublishMessage = JsonUtility.ToJson(jsonStranded);
+            jsonStranded.ideal = kv.Key.idealCharacter.firstName;
+            info.data.Add(jsonStranded);
+        }
 
-            Debug.Log(jsonPublishMessage);
 
-            pubnub.Publish()
+
+        pubnub.Publish()
             .Channel(currentChannel)
-            .Message(jsonStranded)
+            .Message(info)
             .Async((result, status) => {
                 if (!status.Error) {
                     Debug.Log(string.Format("DateTime {0}, In Publish Example, Timetoken: {1}", DateTime.UtcNow , result.Timetoken));
@@ -139,12 +142,10 @@ public class NetworkManager : MonoBehaviour
                     Debug.Log(status.ErrorData.Info);
                 }
             });
-        }
     }
 
     public void UnsubscribeAll()
     {
-        Debug.Log("Unsubscribe All");
         pubnub.UnsubscribeAll()
         .Async((result, status) => {
             if(status.Error){

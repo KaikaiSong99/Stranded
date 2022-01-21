@@ -21,4 +21,5 @@ MonoBehaviour:
   - Their suspicions turned out to be correct. Halfway they encountered a rescue
     ship. It had been alerted by their distress signal. They were taken aboard and,
     with that, the survivors were saved!
-  playTime: 0
+  playTime: 3
+  isEndPoint: 1

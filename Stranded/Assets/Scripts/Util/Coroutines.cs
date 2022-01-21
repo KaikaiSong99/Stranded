@@ -18,6 +18,17 @@ namespace Util
       owner.StartCoroutine(DelayCoroutine());
     }
     
+    public static void SkipOneFrame(this MonoBehaviour owner, Action action)
+    {
+      IEnumerator SkipOneFrameCoroutine()
+      {
+        yield return null;
+        action();
+      }
+
+      owner.StartCoroutine(SkipOneFrameCoroutine());
+    }
+    
     public static void InterpolateLinear(this MonoBehaviour owner, float duration, Action<float> update, 
       Action end = null)
     {

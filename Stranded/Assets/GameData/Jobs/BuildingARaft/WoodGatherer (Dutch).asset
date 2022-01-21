@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb876807c5debc4c929ed37c22db8c1, type: 3}
+  m_Name: WoodGatherer (Dutch)
+  m_EditorClassIdentifier: 
+  jobIcon: {fileID: 21300000, guid: 0b8209f8ca434c441836d1f74e237857, type: 3}
+  jobTitle: Hout verzamelen
+  description: Iemand moet hout hakken om het vlot in elkaar te zetten.
+  idealCharacter: {fileID: 11400000, guid: 72803652d12b64f4a9071e60bf2d7d11, type: 2}
+  idealAssignedDialogue: "Wat jammer dat we al het hout voor het vlot hebben gebruikt..
+    \nSommige van ze waren goed te gebruiken als fitness apparatuur."
+  idealSuggestDialogue: "Onderschat de stevigheid van hout niet! \nZe zijn super
+    stevig! \nAls ik jou was, zou ik met iets veel kleiners beginnen!"

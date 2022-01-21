@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd73e720b4c6cbf4e9deabdaa78544d0, type: 3}
+  m_Name: Peter (Dutch)
+  m_EditorClassIdentifier: 
+  portrait: {fileID: 21300000, guid: 48af4116ef769aa4881ff52cfe25a5f0, type: 3}
+  firstName: Peter
+  age: 27
+  description: Is geduldig en een beetje dik aan het worden.
+  incorrectlyAssignedDialogue: Oops! Ik dacht echt dat dit mij zou lukken. Maar geen
+    zorgen, alles komt goed! Kan ik een schouder massage aanbieden om het goed te
+    maken?

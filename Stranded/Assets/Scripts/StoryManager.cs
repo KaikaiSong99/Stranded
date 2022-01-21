@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using Model;
+using TMPro;
 
 public class StoryManager : MonoBehaviour
 {
@@ -10,21 +11,21 @@ public class StoryManager : MonoBehaviour
     public static event Action<Round> onRoundEnd;
 
     public Image storyArt;
-    public Text storyText;
+    public TextMeshProUGUI storyText;
+    public TextMeshProUGUI endText;
 
-    public int nextTextDelay;
-    public int timeLeft;
-
-    public SceneTransition transitionController;
+    private float nextTextDelay = 0f;
+    public float letterAppearDuration = 0.04f;
+    public float periodDelay = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         GameManager.onRoundInit += Play;
-
+        endText.gameObject.SetActive(false);
         storyText.text = "";
-        
     }
+
     // Start this story round (is called from GameManager)
     // Cast the parameters to StoryPoint type with "StoryPoint s = parameters as StoryPoint"
     // Could also check if it is a StoryPoint and return if not
@@ -35,7 +36,6 @@ public class StoryManager : MonoBehaviour
 
         if (storyPoint != null)
         {
-            Debug.Log($"Begin the story with {storyPoint.characters}");
             StartCoroutine(PlayStory(storyPoint));
         }
 
@@ -43,26 +43,31 @@ public class StoryManager : MonoBehaviour
 
     public IEnumerator PlayStory(StoryPoint story)
     {
-
-        timeLeft = (int) Math.Round(story.playTime);
         storyArt.sprite = story.storyArt;
+        nextTextDelay = story.playTime;
         
         foreach (var text in story.storyText)
         {
+            for (var l = 0; l < text.Length; l++)
+            {
+                if (text[l] == '\n') 
+                    yield return new WaitForSeconds(periodDelay);
+
+                storyText.text = text.Substring(0, l);
+                yield return new WaitForSeconds(letterAppearDuration);
+            }
+
             storyText.text = text;
-            timeLeft -= nextTextDelay;
             yield return new WaitForSeconds(nextTextDelay);
         }
 
-        if (timeLeft < 0)
+        if (story.isEndPoint) 
         {
-            timeLeft = 3;
+            endText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(nextTextDelay);
         }
-            
-        yield return new WaitForSeconds(timeLeft);
 
-        yield return StartCoroutine(transitionController.FadeOut());
-        
+
         onRoundEnd?.Invoke(null);
     }
 

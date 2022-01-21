@@ -1,137 +1,153 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using Model;
-using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
+using UI;
+using UnityEngine.Assertions;
 
 public class RoundManager : MonoBehaviour
 {
     // When the round is done call onRoundEnd?.Invoke(Round round)
     public static event Action<Round> onRoundEnd;
 
-    public Dilemma dilemma
-    { get; private set; }
-    public Round round
-    { get; private set; }
+    public Dilemma Dilemma { get; private set; }
+    
+    public Round Round { get; private set; }
 
     //Dictionary containing feedback dialogue per characters, since there is a case where a single character has more than one piece of feedback, the dialogue is stored in a list.
-    public Dictionary<Job, Dictionary<Character,String>> feedback 
-    { get; private set; }
+    public Dictionary<Job, Dictionary<Character, string>> FeedbackDictionary { get; private set; }
 
     // Different timers for the different phases
-    public float introTime = 5;
-    public float executionTime = 5;
-    public float feedbackTime = 30;
-    public JobManager jobManager;
+    public float postRoundTime = 5f;
+
+    public UIBuilder uiBuilder;
+
+    public ScrollManager scrollManager;
+
+    public TimeBar timeBar;
   
     public float timeLeft;
+    
+    public AssignmentManager assignmentManager;
 
-    public Text dilemmaTitle;
-    public Image dilemmaSprite;
-    //public GameObject overviewUI;
-    public GameObject jobsOverview;
+    [CanBeNull]
+    private AssignmentPhaseUIInfo _assignmentPhaseUiInfo;
 
-    public FeedbackManager feedbackManager;
-
-    // Start is called before the first frame update
     private void Start()
     {
         GameManager.onRoundInit += Play;
-    }
-
-    public void ShowOverview()
-    {
-        dilemmaTitle.text = dilemma.title;
-        dilemmaSprite.sprite = dilemma.sprite;
-    }
-
-    public void ShowAssignmentOverview()
-    {
-        //overviewUI.gameObject.SetActive(false);
-        jobsOverview.gameObject.SetActive(true);
-        jobManager.roundManager = this;
-        jobManager.CreateCards(dilemma);
-
-        Debug.Log($" Job count: {dilemma.jobs.Count}");
+        AssignmentManager.onAssignmentMade += AssignCharacterToJob;
     }
 
     // Start this round (is called from GameManager)
     // Cast the parameters to Dilemma type with "Dilemma s = parameters as Dilemma"
     // Could also check if it is a Dilemma and return if not
-    public void Play(BaseSceneParameter parameters)
+    private void Play(BaseSceneParameter parameters)
     {
-        dilemma = parameters as Dilemma;
+        Dilemma = parameters as Dilemma;
+        Assert.IsNotNull(Dilemma);
         
-        round = new Round(dilemma.isCounted, 0, dilemma);
-        feedback = new Dictionary<Job, Dictionary<Character,String>>();
-        foreach (var job in dilemma.jobs)
+        Round = new Round(Dilemma.isCounted, 0, Dilemma);
+        FeedbackDictionary = new Dictionary<Job, Dictionary<Character,String>>();
+        foreach (var job in Dilemma.jobs)
         {
-            feedback.Add(job, new Dictionary<Character, String>());
+            FeedbackDictionary.Add(job, new Dictionary<Character, String>());
         }
-        StartCoroutine(PlayIntroPhase());
+        
+        SetupAssignmentPhase();
     }
 
-    public IEnumerator PlayIntroPhase()
+    // Sequence of operation:
+    // 1. Construct all assignment phase UI elements & make them appear.
+    // 2. Player goes through job assignment process (timer starts)
+    // 3. Construct all feedback phase UI elements & make them appear.
+    // 4. End
+
+    private void SetupAssignmentPhase()
     {
-        Debug.Log("Intro has started");
-        timeLeft = introTime;
-        ShowOverview();
-        yield return StartCoroutine(Timer(() => PlayAssignmentPhase()));
+        StartCoroutine(uiBuilder.ConstructAssignmentPhaseUI(this, info =>
+        {
+            _assignmentPhaseUiInfo = info;
+            scrollManager.ScrollThrough(info.AppearElements, () =>
+            {
+                SetAssignmentInteractionEnabled(true);
+                StartCoroutine(PlayAssignmentPhase());
+            });
+        }));
     }
 
-    public IEnumerator PlayAssignmentPhase()
+    private IEnumerator PlayAssignmentPhase()
     {
-        ShowAssignmentOverview();
-        Debug.Log("Assignment has started");
-        timeLeft = dilemma.playTime;
-        yield return StartCoroutine(Timer(() => PlayExecutionPhase()));
+        timeLeft = Dilemma.playTime;
+        yield return StartCoroutine(Timer(PlayFeedbackPhase));
     }
 
-    public IEnumerator PlayExecutionPhase()
+    private void PlayFeedbackPhase()
     {
-        Debug.Log("Execution has started");
-        timeLeft = executionTime;
+        SetAssignmentInteractionEnabled(false);
+        assignmentManager.gameObject.SetActive(false);
+        
         ComputeCorrect();
-        yield return StartCoroutine(Timer(() => PlayFeedbackPhase()));
+
+        StartCoroutine(uiBuilder.ConstructFeedbackPhaseUI(this, info =>
+        {
+            scrollManager.ScrollThrough(info.AppearElements, () =>
+            {
+                StartCoroutine(WrapUpRound());
+            });
+        }));
     }
 
-    public IEnumerator PlayFeedbackPhase()
+    private IEnumerator WrapUpRound()
     {
-        Debug.Log("Feedback has started");
-        timeLeft = feedbackTime;
-        feedbackManager.gameObject.SetActive(true);
-        StartCoroutine(feedbackManager.Show(feedback, round.PickedCharacters));
-        yield return StartCoroutine(Timer(() => null));
-        onRoundEnd?.Invoke(round);
+        yield return new WaitForSeconds(postRoundTime);
+        onRoundEnd?.Invoke(Round);
     }
 
-    public IEnumerator Timer(Func<IEnumerator> func)
+    private IEnumerator Timer(Action action)
     {
+        var startTime = timeLeft;
+        timeBar.Appear();
+        
         while (timeLeft > 0)
         {
-            --timeLeft;
-            yield return new WaitForSeconds(1f);
+            timeLeft -= Time.deltaTime;
+            timeBar.ProgressNormalized = 1 - timeLeft / startTime;
+            yield return null;
         }
 
-        yield return func();
+        timeLeft = 0;
+        timeBar.Disappear();
+
+        action();
     }
 
     public void AssignCharacterToJob(Character character, Job job)
     {
-        round.AssignCharacterToJob(character, job);
+        Round.AssignCharacterToJob(character, job);
+        RefreshUI();
     }
 
-    //Compute how many of the jobs in the provided jobs list are currently correctly assigned
+    private void RefreshUI()
+    {
+        _assignmentPhaseUiInfo?.JobElements?.ForEach(jobEl => jobEl.Refresh());
+    }
+
+    private void SetAssignmentInteractionEnabled(bool enable)
+    {
+        _assignmentPhaseUiInfo?.JobElements.ForEach(jobEl => jobEl.SetInteractable(enable));
+    }
+
+    // Compute how many of the jobs in the provided jobs list are currently correctly assigned
     private void ComputeCorrect()
     {
         int numCorrectTemp = 0;
-        foreach (var job in dilemma.jobs)
+        foreach (var job in Dilemma.jobs)
         {
             Character characterTemp;
-            if (round.PickedCharacters.TryGetValue(job, out characterTemp))
+            if (Round.PickedCharacters.TryGetValue(job, out characterTemp))
             {
                 if (job.idealCharacter.Equals(characterTemp))
                 {
@@ -145,24 +161,23 @@ public class RoundManager : MonoBehaviour
                 }
             }
         }
-        round.NumCorrect = numCorrectTemp;
-        if (numCorrectTemp >= dilemma.minJobSuccess)
+        Round.NumCorrect = numCorrectTemp;
+        if (numCorrectTemp >= Dilemma.minJobSuccess)
         {
-            round.PartiallySucceeded = true;
+            Round.PartiallySucceeded = true;
         }
-        if (numCorrectTemp == dilemma.jobs.Count)
+        if (numCorrectTemp == Dilemma.jobs.Count)
         {
-            round.Succeeded = true;
+            Round.Succeeded = true;
         }
     }
 
     //Adds feedback for a specific character
     private void AddFeedback(Job job, Character character, String dialogue)
     {
-        Debug.Log($"Added Feedback: {character.firstName} - {dialogue}");
         Dictionary<Character, String> characterFeedback;
         
-        if (feedback.TryGetValue(job, out characterFeedback))
+        if (FeedbackDictionary.TryGetValue(job, out characterFeedback))
         {
             characterFeedback.Add(character, dialogue);
         }
@@ -170,10 +185,10 @@ public class RoundManager : MonoBehaviour
         {
             Debug.Log("Tried adding feedback for a job that isn't in the dictionary!");
         }
-
     }
 
     private void OnDestroy() {
         GameManager.onRoundInit -= Play;
+        AssignmentManager.onAssignmentMade -= AssignCharacterToJob;
     }
 }

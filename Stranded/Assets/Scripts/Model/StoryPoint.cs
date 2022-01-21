@@ -11,5 +11,6 @@ namespace Model
         [TextArea(1,10)]
         public string[] storyText;
         public float playTime;
+        public bool isEndPoint = false;
     }
 }
